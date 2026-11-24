@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plum Tax: Dashboard after payment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F5F8}
+
+.screen{width:1280px;height:820px;box-sizing:border-box;overflow:hidden;position:relative;background:#F3F5F8;color:#10243A;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:15px;line-height:1.4;--ac:#1B56B0;--tint:#E3ECF9;--line:#D5DBE3;--mu:#4A5B70;--ink:#10243A;--ok:#0E6B4F;--okb:#DDF2EA;--nd:#8A4B00;--ndb:#FBEBD2}
+.screen *{box-sizing:border-box}
+.nav{height:64px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 40px;gap:20px}
+.mark{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:26px;color:var(--ink);text-decoration:none;margin-right:12px;white-space:nowrap}
+.steps{display:flex;flex:1;gap:2px;align-items:center}
+.step{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--mu);font-weight:500;padding:6px 10px 6px 7px;border-radius:999px;white-space:nowrap}
+.sn{width:22px;height:22px;border-radius:50%;border:1.5px solid #8493A6;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600}
+.sdone{color:var(--ink)}
+.sdone .sn{background:var(--okb);border-color:var(--ok);color:var(--ok)}
+.snow{background:var(--tint);color:var(--ink);font-weight:600}
+.snow .sn{background:var(--ac);border-color:var(--ac);color:#fff}
+.pos{font-size:14px;font-weight:600;color:var(--mu);white-space:nowrap}
+.me{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;padding-left:20px;border-left:1px solid var(--line)}
+.av{border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;flex:none}
+.avs{width:30px;height:30px;font-size:13px}
+.avm{width:44px;height:44px;font-size:16px}
+.avl{width:68px;height:68px;font-size:24px}
+.body{padding:24px 40px 0;display:grid;gap:24px;align-items:start}
+.g1{grid-template-columns:1fr 372px}
+.g2{grid-template-columns:1fr 380px}
+.g4{grid-template-columns:1fr 336px;padding-top:0}
+.g6{grid-template-columns:1fr 480px}
+.eyebrow{font-size:13px;font-weight:600;color:var(--ac);margin:0 0 4px;letter-spacing:.02em}
+.h1{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:34px;line-height:1.15;margin:0 0 6px}
+.h2{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:23px;line-height:1.2;margin:0}
+.h3{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:19px;line-height:1.25;margin:0}
+.sub{font-size:16px;color:var(--mu);margin:0}
+.p{margin:0;font-size:15px}
+.mu{color:var(--mu)}
+.head{margin-bottom:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.pad{padding:18px 20px}
+.grp{display:flex;justify-content:space-between;align-items:center;height:32px;padding:0 20px;background:#EDF0F4;border-top:1px solid var(--line);font-size:13px;font-weight:700;color:var(--ink)}
+.grp1{border-top:0}
+.grpn{font-weight:500;color:var(--mu)}
+.row{display:grid;grid-template-columns:128px 1fr auto;align-items:center;gap:16px;padding:8px 20px;min-height:55px;border-top:1px solid var(--line)}
+.rtt{font-size:15px;font-weight:600;line-height:1.3}
+.rr{font-size:14px;color:var(--mu);line-height:1.35}
+.ra{display:flex;gap:8px;align-items:center}
+.rhot{background:#FFFBF3;box-shadow:inset 4px 0 0 #C77A12}
+.chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px 0 9px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap}
+.chip::before{content:"";flex:none}
+.cdone{background:var(--okb);color:var(--ok)}
+.cdone::before{width:4px;height:8px;border:solid var(--ok);border-width:0 2px 2px 0;transform:rotate(45deg);margin:-2px 3px 0 2px}
+.cneed{background:var(--ndb);color:var(--nd)}
+.cneed::before{width:8px;height:8px;border-radius:50%;background:var(--nd)}
+.cnone{background:#E8ECF1;color:var(--mu)}
+.cnone::before{width:8px;height:2px;background:var(--mu);border-radius:2px}
+.cinfo{background:var(--tint);color:var(--ac)}
+.cinfo::before{width:8px;height:8px;border-radius:50%;border:2px solid var(--ac)}
+.btn{font-family:inherit;font-size:15px;font-weight:600;height:38px;padding:0 15px;border-radius:8px;border:1.5px solid var(--ac);background:#fff;color:var(--ac);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;text-decoration:none}
+.bpri{background:var(--ac);color:#fff}
+.bbig{height:48px;font-size:16px;padding:0 22px}
+.bfull{width:100%}
+.bquiet{border-color:var(--line);color:var(--ink)}
+.link{color:var(--ac);font-weight:600;text-decoration:underline;text-underline-offset:3px;font-size:15px}
+.opt{display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:14px;padding:6px 20px;min-height:51px;border-top:1px solid var(--line);cursor:pointer}
+.opton{background:#F6F9FE}
+.optoff{cursor:default}
+.optoff .rtt{color:var(--mu)}
+.cb{width:20px;height:20px;margin:0;accent-color:#1B56B0}
+.dark{background:var(--ink);color:#fff;border-radius:14px;padding:22px}
+.dark .mu{color:#C5D0DE}
+.dk{font-size:13px;font-weight:600;color:#C5D0DE;margin:0 0 8px;letter-spacing:.02em}
+.out{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:22px;line-height:1.3;margin:0 0 14px}
+.tick{display:flex;gap:10px;align-items:center;font-size:15px;padding:7px 0;border-top:1px solid #2C4159}
+.tk{width:20px;height:20px;border-radius:50%;background:#DDF2EA;color:#0E6B4F;display:flex;align-items:center;justify-content:center;flex:none}
+.note{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.stack{display:grid;gap:14px}
+.prof{display:flex;gap:18px;align-items:center;padding:18px 20px}
+.plans{display:grid;grid-template-columns:280px 1fr 1fr 1fr;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.pc{padding:0 20px;min-height:45px;display:flex;align-items:center;border-top:1px solid var(--line);font-size:15px}
+.pl{font-weight:600;background:#F7F9FB}
+.ph{display:block;padding:16px 20px 14px;border-top:0;min-height:0;cursor:pointer}
+.phl{background:#F7F9FB;display:flex;align-items:flex-end;font-size:14px;color:var(--mu);font-weight:500;cursor:default}
+.psel{background:#F1F6FD;border-left:2px solid var(--ac);border-right:2px solid var(--ac)}
+.pselt{border-top:2px solid var(--ac)}
+.pselb{border-bottom:2px solid var(--ac)}
+.pn{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.rd{width:18px;height:18px;margin:0;flex:none;accent-color:#1B56B0}
+.price{display:block;font-size:22px;font-weight:700;margin:2px 0 4px}
+.pd{font-size:14px;color:var(--mu);line-height:1.35;margin:0}
+.paybar{margin-top:16px;display:flex;align-items:center;gap:20px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px}
+.grow{flex:1}
+.strip{display:flex;align-items:center;gap:16px;padding:0 40px;height:76px}
+.trk{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 18px 8px 16px;font-size:14px}
+.tl{font-weight:600;color:var(--mu);margin-right:6px}
+.ts{display:flex;align-items:center;gap:7px;color:var(--mu);font-weight:500}
+.td{width:12px;height:12px;border-radius:50%;border:1.5px solid #8493A6}
+.tnow{color:var(--ink);font-weight:700}
+.tnow .td{background:var(--ac);border-color:var(--ac);box-shadow:0 0 0 3px var(--tint)}
+.tb{width:22px;height:1.5px;background:#B3BECC}
+.chead{display:flex;align-items:center;gap:16px;padding:14px 20px}
+.cnt{display:flex;gap:8px}
+.ct{display:flex;align-items:center;gap:8px;border-radius:8px;padding:6px 12px;font-size:13px;font-weight:600;line-height:1.2}
+.ctn{font-size:22px;font-weight:700}
+.ctneed{background:var(--ndb);color:var(--nd)}
+.ctdone{background:var(--okb);color:var(--ok)}
+.ctnone{background:#E8ECF1;color:var(--mu)}
+.side{display:flex;gap:12px;align-items:center;padding:16px 18px}
+.srow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:10px 18px;border-top:1px solid var(--line)}
+.creds{display:flex;gap:10px;margin:12px 0 10px}
+.cr{flex:1;border-radius:8px;padding:9px 12px;font-size:13px;font-weight:600;line-height:1.3;background:var(--okb);color:var(--ok);border:1.5px solid #9AD3BF}
+.crused{background:#F3F5F8;color:var(--mu);border:1.5px dashed #B3BECC}
+.crb{display:block;font-size:17px;font-weight:700}
+.amt{font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.res{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--okb);border-top:1px solid var(--line);color:var(--ok);font-weight:700;font-size:16px}
+.big{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:60px;line-height:1;margin:10px 0 10px}
+.nh{display:flex;gap:10px;align-items:center;margin-bottom:8px;font-size:14px}
+.decl{display:flex;gap:12px;align-items:flex-start;font-size:15px;font-weight:500;padding:12px 14px;border:1.5px solid var(--ac);background:#F6F9FE;border-radius:8px;margin-bottom:12px;cursor:pointer}
+.hero{display:flex;gap:16px;align-items:center;margin-bottom:16px}
+.hk{width:52px;height:52px;border-radius:50%;background:var(--okb);color:var(--ok);display:flex;align-items:center;justify-content:center;flex:none}
+.ref{font-family:'IBM Plex Sans',system-ui,sans-serif;font-weight:600;color:var(--ink);letter-spacing:.03em}
+.chat{display:flex;flex-direction:column;height:708px}
+.thread{flex:1;padding:16px 18px;display:flex;flex-direction:column;gap:12px;background:#F8FAFC;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.day{align-self:center;font-size:13px;color:var(--mu);font-weight:500}
+.msg{max-width:360px;padding:10px 14px;border-radius:12px;font-size:15px;line-height:1.4}
+.mthem{background:#fff;border:1px solid var(--line);align-self:flex-start;border-top-left-radius:3px}
+.mme{background:var(--ac);color:#fff;align-self:flex-end;border-top-right-radius:3px}
+.mw{display:block;font-size:13px;font-weight:600;margin-bottom:2px;color:var(--mu)}
+.mme .mw{color:#DCE7F8}
+.compose{display:flex;gap:10px;padding:14px 18px;align-items:center}
+.inp{flex:1;height:44px;border:1.5px solid #8493A6;border-radius:8px;padding:0 12px;font-family:inherit;font-size:15px;color:var(--ink);background:#fff}
+
+.h5-top{height:104px;flex:none;background:#FFFFFF;border-bottom:1px solid #D5DBE3;display:flex;align-items:center;padding:0 40px}
+.h5-wm{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:27px;width:150px;flex:none;color:#10243A;text-decoration:none;letter-spacing:-0.2px}
+.h5-trk{flex:1;display:flex;margin:0;padding:0;list-style:none}
+.h5-st{flex:1;position:relative;text-align:center;padding-top:4px}
+.h5-st::before{content:"";position:absolute;top:21px;left:-50%;width:100%;height:3px;background:#D5DBE3}
+.h5-st.h5-first::before{display:none}
+.h5-st.h5-done::before,.h5-st.h5-cur::before{background:#0E6B4F}
+.h5-nd{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;background:#FFFFFF;border:2px solid #D5DBE3;color:#4A5B70}
+.h5-st.h5-done .h5-nd{background:#DDF2EA;border-color:#0E6B4F;color:#0E6B4F}
+.h5-st.h5-cur .h5-nd{background:#1B56B0;border-color:#1B56B0;color:#FFFFFF;box-shadow:0 0 0 5px #E3ECF9}
+.h5-st.h5-fin .h5-nd{background:#0E6B4F;border-color:#0E6B4F;color:#FFFFFF;box-shadow:0 0 0 5px #DDF2EA}
+.h5-sl{display:block;margin-top:8px;font-size:14px;color:#4A5B70;font-weight:500}
+.h5-st.h5-done .h5-sl{color:#10243A}
+.h5-st.h5-cur .h5-sl,.h5-st.h5-fin .h5-sl{color:#10243A;font-weight:700}
+.h5-here{display:block;font-size:13px;font-weight:600;color:#1B56B0;line-height:1.2}
+.h5-here.h5-g{color:#0E6B4F}
+.h5-who{width:150px;flex:none;display:flex;align-items:center;justify-content:flex-end;gap:10px;font-weight:500}
+.h5-av{width:36px;height:36px;border-radius:50%;background:#E3ECF9;color:#1B56B0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex:none}
+.h5-av.h5-lg{width:76px;height:76px;font-size:26px}
+.h5-av.h5-md{width:48px;height:48px;font-size:16px}
+.h5-av.h5-dk{background:#10243A;color:#FFFFFF}
+.h5-ic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.h5-ic.h5-b{width:20px;height:20px;stroke-width:1.9}
+
+
+.screen{margin:0 auto;height:auto!important;min-height:820px;overflow:visible!important;padding-bottom:70px}
+.pt-bar{position:fixed;left:0;right:0;bottom:0;background:#10243A;color:#fff;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;display:flex;align-items:center;gap:18px;padding:10px 20px;z-index:50}
+.pt-bar b{background:#FBEBD2;color:#6B3B00;border-radius:5px;padding:3px 9px;font-weight:700;font-size:12.5px;letter-spacing:.3px;text-transform:uppercase;flex:none}
+.pt-bar span{flex:1;color:#C5D0DE}
+.pt-bar a{color:#fff;font-weight:600;text-underline-offset:3px;white-space:nowrap}
+button,label,.seg i{cursor:pointer}
+
+</style>
+</head>
+<body>
+<section class="screen" data-screen="4" data-title="Dashboard after payment"><header class="h5-top"><a href="#" class="h5-wm">Plum Tax</a><ol class="h5-trk"><li class="h5-st h5-first h5-done"><span class="h5-nd"><svg class="h5-ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="h5-sl">What to declare</span></li><li class="h5-st h5-done"><span class="h5-nd"><svg class="h5-ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="h5-sl">Your accountant</span></li><li class="h5-st h5-done"><span class="h5-nd"><svg class="h5-ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="h5-sl">Your plan</span></li><li class="h5-st h5-cur"><span class="h5-nd">4</span><span class="h5-sl">Your documents</span><span class="h5-here">You are here</span></li><li class="h5-st"><span class="h5-nd">5</span><span class="h5-sl">Check and approve</span></li><li class="h5-st"><span class="h5-nd">6</span><span class="h5-sl">Filed</span></li></ol><div class="h5-who"><span>Maya</span><span class="h5-av">M</span></div></header>
+<div class="strip"><span class="chip cdone">Payment received</span><p class="p grow">Thank you, Maya. You are on the <strong>Done for you</strong> plan.</p>
+<div class="trk"><span class="tl">Where your return is</span><span class="ts tnow"><span class="td"></span>Documents</span><span class="tb"></span><span class="ts"><span class="td"></span>Preparing</span><span class="tb"></span><span class="ts"><span class="td"></span>Your approval</span><span class="tb"></span><span class="ts"><span class="td"></span>Filed</span></div></div>
+<div class="body g4"><div class="card">
+<div class="chead"><div class="grow"><h1 class="h2">What we need from you</h1><p class="p mu">3 of 6 done or on their way. 3 things left for you.</p></div>
+<div class="cnt"><span class="ct ctneed"><span class="ctn">3</span>needed<br>from you</span><span class="ct ctdone"><span class="ctn">2</span>already<br>done</span><span class="ct ctnone"><span class="ctn">1</span>arrives<br>on its own</span></div></div>
+<div class="grp"><span>Permission</span><span class="grpn">1 of 2 done</span></div>
+<div class="row rhot"><div class="rc"><span class="chip cneed">Needed</span></div><div class="rt"><div class="rtt">Authorise Priya with HMRC</div><div class="rr">Lets her see your tax record and file for you. About 5 minutes.<br>Have ready: your Unique Taxpayer Reference (the 10-digit number HMRC gives everyone who files) and your National Insurance number.</div></div><div class="ra"><button class="btn bpri" type="button">Authorise Priya</button></div></div>
+<div class="row "><div class="rc"><span class="chip cdone">Done</span></div><div class="rt"><div class="rtt">Confirm who you are</div><div class="rr">Already checked, from your Plum account.</div></div><div class="ra"></div></div>
+<div class="grp"><span>Brought in for you, nothing to do</span><span class="grpn">No uploads needed</span></div>
+<div class="row "><div class="rc"><span class="chip cnone">Nothing to do</span></div><div class="rt"><div class="rtt">Pay and tax from your employer</div><div class="rr">Arrives from HMRC once you authorise Priya.</div></div><div class="ra"></div></div>
+<div class="row "><div class="rc"><span class="chip cdone">Done</span></div><div class="rt"><div class="rtt">Savings interest, dividends, investment sales and pension payments held with Plum</div><div class="rr">Brought in from Plum.</div></div><div class="ra"></div></div>
+<div class="grp"><span>Documents to upload</span><span class="grpn">0 of 2 done</span></div>
+<div class="row "><div class="rc"><span class="chip cneed">Needed</span></div><div class="rt"><div class="rtt">Interest statements from other banks</div><div class="rr">Only for savings you hold outside Plum.</div></div><div class="ra"><button class="btn" type="button">Upload</button></div></div>
+<div class="row "><div class="rc"><span class="chip cneed">Needed</span></div><div class="rt"><div class="rtt">Investment or pension statements from other providers</div><div class="rr">Only for accounts outside Plum. If you have none, say so.</div></div><div class="ra"><button class="btn bquiet" type="button">I have none</button><button class="btn" type="button">Upload</button></div></div>
+<div class="grp"><span>Not needed</span><span class="grpn">Please do not send</span></div>
+<div class="row "><div class="rc"><span class="chip cnone">Not needed</span></div><div class="rt"><div class="rtt">Payslips or a P60 (the yearly pay summary from an employer)</div><div class="rr">Priya gets your pay and tax figures from HMRC instead.</div></div><div class="ra"></div></div>
+</div>
+<div class="stack">
+<div class="card"><div class="side"><span class="av avm">PS</span><div><h2 class="h3">Talk to your accountant</h2><p class="p mu" style="font-size:14px">Priya Shah, ACCA qualified</p></div></div>
+<div class="srow"><div><div class="rtt">Book a call with Priya</div><div class="rr">15 minutes. Uses 1 call credit.</div></div><button class="btn bpri" type="button">Book a call</button></div>
+<div class="srow"><div><div class="rtt">Send a message</div><div class="rr">Replies within one working day.</div></div><button class="btn" type="button">Message</button></div></div>
+<div class="card pad"><div style="display:flex;justify-content:space-between;align-items:center"><h2 class="h3">Call credits</h2><span class="chip cdone">2 of 2 left</span></div>
+<div class="creds"><div class="cr"><span class="crb">15 minutes</span>Call 1, not used</div><div class="cr"><span class="crb">15 minutes</span>Call 2, not used</div></div>
+<p class="p" style="font-size:14px"><strong>2 of 2 calls left</strong>, 15 minutes each, included in your plan.</p><p class="p mu" style="font-size:14px">Extra calls cost £25 per 15 minutes.</p></div>
+</div></div></section>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Plum Tax is not an available service and nothing you enter is sent.</span><a href="plan.html" data-back>Back</a><a href="approve.html">Next: 5. Check and approve</a><a href="index.html">Home</a></nav>
+<script>
+
+var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('plum:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('plum:'+k,JSON.stringify(v));}catch(e){}}};
+function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
+function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
+// Wire buttons and links by their visible text: [text, destination]
+function wire(rules){
+  document.querySelectorAll('button, a').forEach(function(el){
+    if(el.closest('.pt-bar'))return;
+    var t=txt(el);
+    for(var i=0;i<rules.length;i++){var r=rules[i];
+      if(r[0] instanceof RegExp?r[0].test(t):t===r[0]){
+        if(el.tagName==='A')el.setAttribute('href',typeof r[1]==='string'?r[1]:'#');
+        el.addEventListener('click',(function(d){return function(e){e.preventDefault();if(this.disabled)return;go(d);};})(r[1]));
+        return;}
+    }
+    // Unwired '#' links do nothing rather than jumping to the top
+    if(el.tagName==='A'&&el.getAttribute('href')==='#')el.addEventListener('click',function(e){e.preventDefault();});
+  });
+  document.querySelectorAll('.wm, .h5-wm').forEach(function(a){a.setAttribute('href','index.html');});
+}
+// Option cards: keep the highlighted state in step with the input
+document.querySelectorAll('label.opt2, label.decl').forEach(function(lb){
+  var inp=lb.querySelector('input');if(!inp)return;
+  inp.addEventListener('change',function(){
+    if(inp.type==='radio'){document.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(o){var p=o.closest('label.opt2');if(p)p.classList.toggle('on',o.checked);});}
+    else if(lb.classList.contains('opt2'))lb.classList.toggle('on',inp.checked);
+  });
+});
+// Yes / no segmented choices
+document.querySelectorAll('.seg').forEach(function(seg,si){
+  seg.setAttribute('role','radiogroup');
+  seg.querySelectorAll('i').forEach(function(b){
+    b.setAttribute('role','radio');b.tabIndex=0;b.setAttribute('aria-checked',b.classList.contains('on'));
+    function pick(){seg.querySelectorAll('i').forEach(function(o){o.classList.remove('on');o.setAttribute('aria-checked','false');});b.classList.add('on');b.setAttribute('aria-checked','true');seg.dispatchEvent(new CustomEvent('pick',{detail:txt(b)}));}
+    b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
+  });
+});
+
+
+// 'I have none' marks the row as done, for the prototype
+document.querySelectorAll('.btn').forEach(function(b){if(txt(b)==='I have none')b.addEventListener('click',function(){
+  var row=b.closest('.row');row.querySelector('.rc').innerHTML='<span class="chip cdone">Done</span>';row.querySelector('.ra').innerHTML='<span class="mu" style="font-size:14px">You told us you have none</span>';
+});});
+wire([]);
+</script>
+</body>
+</html>

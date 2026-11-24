@@ -1,0 +1,15 @@
+# Render Blueprint: a static site served from the repository root. No build step.
+services:
+  - type: web
+    name: plum-tax-prototype
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex, nofollow
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plum Tax: Check and approve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F5F8}
+
+.screen{width:1280px;height:820px;box-sizing:border-box;overflow:hidden;position:relative;background:#F3F5F8;color:#10243A;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:15px;line-height:1.45;display:flex;flex-direction:column;--ink:#10243A;--mut:#4A5B70;--line:#D5DBE3;--acc:#1B56B0;--tint:#E3ECF9;--ok:#0E6B4F;--okbg:#DDF2EA;--need:#8A4B00;--needbg:#FBEBD2}
+.screen *{box-sizing:border-box}
+.top{height:104px;flex:none;background:#FFFFFF;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 40px}
+.wm{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:27px;width:150px;flex:none;color:var(--ink);text-decoration:none;letter-spacing:-0.2px}
+.trk{flex:1;display:flex;margin:0;padding:0;list-style:none}
+.st{flex:1;position:relative;text-align:center;padding-top:4px}
+.st::before{content:"";position:absolute;top:21px;left:-50%;width:100%;height:3px;background:var(--line)}
+.st.first::before{display:none}
+.st.done::before,.st.cur::before{background:var(--ok)}
+.nd{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;background:#FFFFFF;border:2px solid var(--line);color:var(--mut)}
+.st.done .nd{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.st.cur .nd{background:var(--acc);border-color:var(--acc);color:#FFFFFF;box-shadow:0 0 0 5px var(--tint)}
+.st.fin .nd{background:var(--ok);border-color:var(--ok);color:#FFFFFF;box-shadow:0 0 0 5px var(--okbg)}
+.sl{display:block;margin-top:8px;font-size:14px;color:var(--mut);font-weight:500}
+.st.done .sl{color:var(--ink)}
+.st.cur .sl,.st.fin .sl{color:var(--ink);font-weight:700}
+.here{display:block;font-size:13px;font-weight:600;color:var(--acc);line-height:1.2}
+.here.g{color:var(--ok)}
+.who{width:150px;flex:none;display:flex;align-items:center;justify-content:flex-end;gap:10px;font-weight:500}
+.av{width:36px;height:36px;border-radius:50%;background:var(--tint);color:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex:none}
+.av.lg{width:76px;height:76px;font-size:26px}
+.av.md{width:48px;height:48px;font-size:16px}
+.av.dk{background:var(--ink);color:#FFFFFF}
+.ic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic.b{width:20px;height:20px;stroke-width:1.9}
+.stat{height:48px;flex:none;background:#10243A;color:#FFFFFF;display:flex;align-items:center;padding:0 40px;gap:14px;font-size:14px}
+.stl{color:#C5D0DE;font-weight:500;margin-right:6px}
+.sg{display:flex;align-items:center;gap:7px;height:30px;padding:0 12px;border-radius:15px;color:#C5D0DE;font-weight:500;border:1px solid #3A4E66}
+.sg.d{color:#FFFFFF;border-color:#5FBFA0}
+.sg.c{background:#FFFFFF;color:#10243A;font-weight:700;border-color:#FFFFFF}
+.sg.f{background:#DDF2EA;color:#0E6B4F;font-weight:700;border-color:#DDF2EA}
+.dash{width:22px;height:2px;background:#3A4E66;flex:none}
+.dash.d{background:#5FBFA0}
+.stn{margin-left:auto;color:#FFFFFF}
+.main{flex:1;min-height:0;padding:24px 40px 26px;display:flex;flex-direction:column}
+.h1{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:31px;line-height:1.15;margin:0;letter-spacing:-0.3px}
+.h2{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:21px;line-height:1.2;margin:0}
+.sub{margin:6px 0 0;color:var(--mut);font-size:16px}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:18px;flex:none}
+.grid{flex:1;min-height:0;display:grid;gap:20px}
+.g1{grid-template-columns:1fr 376px}
+.g2{grid-template-columns:372px 1fr 340px}
+.g3{grid-template-columns:1fr 1fr 1fr}
+.g4{grid-template-columns:1fr 336px}
+.g5{grid-template-columns:350px 1fr 350px}
+.g6{grid-template-columns:388px 1fr 300px}
+.col{display:flex;flex-direction:column;gap:16px;min-height:0}
+.card{background:#FFFFFF;border:1px solid var(--line);border-radius:14px;padding:22px}
+.card.dk{background:#10243A;border-color:#10243A;color:#FFFFFF}
+.card.gr{flex:1}
+.mut{color:var(--mut)}
+.dmut{color:#C5D0DE}
+.sm{font-size:14px}
+.xs{font-size:13px}
+.p{margin:0}
+.mt4{margin-top:4px}.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mt20{margin-top:20px}
+.push{margin-top:auto}
+.eyb{font-size:13px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--mut)}
+.eyb.l{color:#C5D0DE}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:8px;border:0;background:var(--acc);color:#FFFFFF;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16px;font-weight:600;cursor:pointer}
+.btn.w{width:100%}
+.btn.sec{background:#FFFFFF;color:var(--acc);border:1.5px solid var(--acc)}
+.btn.n{font-size:15px;padding:0 8px}
+.btn.s{height:36px;padding:0 14px;font-size:14px}
+.lnk{color:var(--acc);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.pill{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:13px;font-size:13px;font-weight:600;white-space:nowrap;flex:none}
+.pill.ok{background:var(--okbg);color:var(--ok)}
+.pill.nd2{background:var(--needbg);color:var(--need)}
+.pill.wt{background:#EEF1F5;color:var(--mut)}
+.pill.ac{background:var(--acc);color:#FFFFFF}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opts.three{grid-template-columns:1fr 1fr 1fr}
+.opts.fill{flex:1;grid-auto-rows:1fr}
+.opt{display:flex;align-items:center;gap:12px;min-height:66px;padding:10px 18px;background:#FFFFFF;border:1.5px solid var(--line);border-radius:10px;font-size:16px;font-weight:500;line-height:1.35;cursor:pointer}
+.opt.on{border-color:var(--acc);background:var(--tint)}
+.opt.no{font-size:15px;border-style:dashed;background:#F8F9FB;flex-direction:column;align-items:flex-start;gap:8px;padding:14px 16px;min-height:104px}
+.optr{display:flex;gap:12px;align-items:flex-start}
+.cb{width:20px;height:20px;margin:0;flex:none;accent-color:#1B56B0}
+.big{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:24px;line-height:1.3;margin:10px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:#223A55;color:#FFFFFF;font-size:14px;font-weight:500}
+.note{background:var(--needbg);border-radius:12px;padding:16px 18px;color:#5C3200;font-size:14px;display:flex;gap:12px}
+.note .ic{color:var(--need);margin-top:2px}
+.strong{font-weight:600}
+.prof{display:flex;align-items:center;gap:18px}
+.facts{list-style:none;margin:20px 0 0;padding:0}
+.fact{display:flex;gap:12px;padding:18px 0;border-top:1px solid var(--line)}
+.fact .ic{color:var(--acc);margin-top:3px}
+.ft{font-weight:600}
+.match{display:flex;align-items:stretch;gap:12px;margin-top:14px}
+.mbox{flex:1;border-radius:10px;padding:14px;background:#F3F5F8;font-size:14px}
+.mbox.a{background:var(--tint)}
+.marr{display:flex;align-items:center;color:var(--acc)}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.stp{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);align-items:flex-start}
+.num{width:26px;height:26px;border-radius:50%;background:var(--tint);color:var(--acc);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex:none}
+.num.ok{background:var(--okbg);color:var(--ok)}
+.num.nd2{background:var(--needbg);color:var(--need)}
+.num.wt{background:#EEF1F5;color:var(--mut)}
+.shield{width:44px;height:44px;border-radius:50%;background:#223A55;display:flex;align-items:center;justify-content:center;color:#FFFFFF}
+.plan{position:relative;display:flex;flex-direction:column;background:#FFFFFF;border:1.5px solid var(--line);border-radius:14px;padding:24px;cursor:pointer}
+.plan.on{border:2.5px solid var(--acc);padding:23px;box-shadow:0 6px 20px rgba(27,86,176,0.14)}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:28px}
+.pn{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:25px;margin:0;display:flex;align-items:center;gap:10px}
+.rd{width:20px;height:20px;margin:0;accent-color:#1B56B0;flex:none}
+.price{font-size:32px;font-weight:700;margin-top:12px;letter-spacing:-0.3px}
+.pd{margin:8px 0 0;font-size:16px;min-height:48px}
+.feat{list-style:none;margin:14px 0 0;padding:0}
+.fe{display:flex;gap:10px;padding:11px 0;border-top:1px solid var(--line);font-size:15px}
+.fe .ic{margin-top:3px;color:var(--ok)}
+.fe.x .ic{color:var(--mut)}
+.part{margin-top:12px;display:flex;flex-direction:column;gap:4px;background:#F3F5F8;border-radius:10px;padding:14px 16px;font-size:15px}
+.plan.on .part{background:var(--tint)}
+.bar{flex:none;margin-top:18px;display:flex;align-items:center;gap:24px;background:#FFFFFF;border:1px solid var(--line);border-radius:14px;padding:16px 22px}
+.barl{flex:1;display:flex;gap:28px}
+.bi{display:flex;gap:10px;font-size:14px;flex:1}
+.bi .ic{color:var(--acc);margin-top:2px}
+.paid{display:inline-flex;align-items:center;gap:10px;background:var(--okbg);color:var(--ok);border-radius:10px;padding:10px 16px;font-weight:600}
+.paid .mut2{font-weight:400;color:#0B4F3B}
+.ah{display:flex;align-items:center;gap:16px}
+.prog{flex:1;height:8px;border-radius:4px;background:#E6EAF0;overflow:hidden;display:flex}
+.pf{width:33.33%;background:var(--ok)}
+.cnt{font-weight:700;font-size:15px}
+.acols{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:20px}
+.gl{font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--mut);padding-bottom:8px;border-bottom:1px solid var(--line)}
+.gl.sp{margin-top:14px}
+.it{display:flex;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.it.hl{background:#FFF8EC;border:1.5px solid #E9C58E;border-radius:10px;padding:14px;margin-top:10px}
+.it.nb{border-bottom:0}
+.itb{flex:1;min-width:0}
+.itt{font-weight:600;font-size:15px;line-height:1.35}
+.itd{font-size:14px;color:var(--mut);margin-top:3px}
+.itr{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.acts{display:flex;gap:8px;margin-top:9px;align-items:center}
+.nn{display:flex;gap:10px;align-items:center;margin-top:14px;padding:11px 14px;background:#F3F5F8;border-radius:10px;font-size:14px}
+.nn .ic{color:var(--mut)}
+.tok{display:flex;gap:10px;margin-top:14px}
+.tk{flex:1;height:52px;border-radius:10px;background:var(--tint);color:var(--acc);display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;border:1.5px solid var(--acc)}
+.tk.u{background:#F3F5F8;color:var(--mut);border:1.5px dashed var(--line)}
+.cc{font-size:30px;font-weight:700;letter-spacing:-0.3px;line-height:1.1}
+.cc .ccs{font-size:16px;font-weight:500;color:var(--mut);letter-spacing:0}
+.res{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:21px;margin:10px 0 0;line-height:1.2}
+.amt{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:76px;line-height:1;margin:6px 0 0;letter-spacing:-1.5px}
+.rows{margin:14px 0 0;padding:0;list-style:none}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.rl{font-size:15px;font-weight:500}
+.rs{display:block;font-size:13px;color:var(--mut);font-weight:400}
+.rv{font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tot{display:flex;justify-content:space-between;align-items:center;margin-top:4px;padding:14px 16px;border-radius:10px;background:var(--okbg);color:var(--ok);font-weight:700;font-size:17px}
+.quote{display:flex;gap:12px;margin-top:12px}
+.qt{background:#F3F5F8;border-radius:4px 12px 12px 12px;padding:12px 14px;font-size:15px}
+.decl{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1.5px solid var(--acc);background:var(--tint);border-radius:10px;font-size:15px;font-weight:500;cursor:pointer}
+.okc{width:44px;height:44px;border-radius:50%;background:var(--ok);color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none}
+.okc .ic{width:26px;height:26px}
+.kv{margin-top:16px}
+.k{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+.kk{color:var(--mut)}
+.kvv{font-weight:600;text-align:right}
+.ref{margin-top:14px;padding:14px 16px;border-radius:10px;background:var(--okbg);color:#0B4F3B;display:flex;gap:12px;font-size:15px}
+.ref .ic{margin-top:2px;color:var(--ok)}
+.ref.nomt{margin-top:0}
+.chat{display:flex;flex-direction:column;flex:1;min-height:0}
+.chh{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.thr{flex:1;display:flex;flex-direction:column;gap:18px;padding:20px 0}
+.msg{display:flex;gap:10px;max-width:84%}
+.msg.me{align-self:flex-end;flex-direction:row-reverse}
+.bub{background:#F3F5F8;border-radius:4px 14px 14px 14px;padding:11px 14px;font-size:15px}
+.msg.me .bub{background:var(--acc);color:#FFFFFF;border-radius:14px 4px 14px 14px}
+.mm{display:block;font-size:13px;color:var(--mut);margin-bottom:3px;font-weight:500}
+.msg.me .mm{color:#DCE7F7}
+.cmp{display:flex;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
+.inp{flex:1;height:46px;border:1.5px solid #8A97A8;border-radius:8px;padding:0 14px;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:15px;color:var(--ink);background:#FFFFFF}
+
+
+
+.screen{margin:0 auto;height:auto!important;min-height:820px;overflow:visible!important;padding-bottom:70px}
+.pt-bar{position:fixed;left:0;right:0;bottom:0;background:#10243A;color:#fff;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;display:flex;align-items:center;gap:18px;padding:10px 20px;z-index:50}
+.pt-bar b{background:#FBEBD2;color:#6B3B00;border-radius:5px;padding:3px 9px;font-weight:700;font-size:12.5px;letter-spacing:.3px;text-transform:uppercase;flex:none}
+.pt-bar span{flex:1;color:#C5D0DE}
+.pt-bar a{color:#fff;font-weight:600;text-underline-offset:3px;white-space:nowrap}
+button,label,.seg i{cursor:pointer}
+
+</style>
+</head>
+<body>
+<section class="screen" data-screen="5" data-title="Check and approve your return">
+<header class="top">
+<a href="#" class="wm">Plum Tax</a>
+<ol class="trk">
+<li class="st first done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">What to declare</span></li>
+<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your accountant</span></li>
+<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your plan</span></li>
+<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your documents</span></li>
+<li class="st cur"><span class="nd">5</span><span class="sl">Check and approve</span><span class="here">You are here</span></li>
+<li class="st"><span class="nd">6</span><span class="sl">Filed</span></li>
+</ol>
+<div class="who"><span>Maya</span><span class="av">M</span></div>
+</header>
+<div class="stat">
+<span class="stl">Where your return is</span>
+<span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Documents</span><span class="dash d"></span>
+<span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Preparing</span><span class="dash d"></span>
+<span class="sg c">Your approval</span><span class="dash"></span>
+<span class="sg">Filed</span>
+<span class="stn">Priya has prepared your return. Nothing is sent until you approve.</span>
+</div>
+<div class="main">
+<div class="hd">
+<div>
+<h1 class="h1">Check and approve your return</h1>
+<p class="sub">Tax year 6 April 2025 to 5 April 2026.</p>
+</div>
+</div>
+<div class="grid g5">
+<div class="col">
+<div class="card dk">
+<div class="eyb l">The result</div>
+<p class="res">HMRC owes you</p>
+<p class="amt">£396</p>
+<p class="p dmut mt12">This is a refund. HMRC, the UK tax office, pays it to you after your return is filed.</p>
+</div>
+<div class="card gr">
+<h2 class="h2">A note from Priya</h2>
+<div class="quote">
+<span class="av dk">PS</span>
+<div class="qt">I prepared your return from your HMRC record and the statements you sent. Everything matches, and HMRC owes you £396.</div>
+</div>
+<p class="p xs mut mt12">Priya Shah, ACCA qualified accountant</p>
+</div>
+</div>
+<div class="card">
+<div class="itr">
+<h2 class="h2">Your figures, line by line</h2>
+<a href="#" class="lnk">View the full return</a>
+</div>
+<ul class="rows">
+<li class="row"><span class="rl">Salary<span class="rs">Pay from your employer</span></span><span class="rv">£68,000</span></li>
+<li class="row"><span class="rl">Savings interest<span class="rs">Interest your savings earned</span></span><span class="rv">£1,550</span></li>
+<li class="row"><span class="rl">Dividends<span class="rs">Payments from shares you own</span></span><span class="rv">£820</span></li>
+<li class="row"><span class="rl">Profit from selling investments<span class="rs">What you made when you sold</span></span><span class="rv">£5,400</span></li>
+<li class="row"><span class="rl">Pension paid in, with tax relief<span class="rs">Tax relief means some tax comes back to you</span></span><span class="rv">£7,500</span></li>
+</ul>
+<div class="tot"><span>Result: HMRC owes you</span><span>£396</span></div>
+</div>
+<div class="col">
+<div class="card">
+<h2 class="h2">Approve your return</h2>
+<p class="p sm mut mt8">When you approve, Priya files your return with HMRC and you get a receipt.</p>
+<label class="decl mt16"><input class="cb" type="checkbox" checked><span>The information is correct and complete to the best of my knowledge.</span></label>
+<button class="btn w mt16" type="button">Approve and file</button>
+<button class="btn sec n w mt8" type="button">Ask a question or request a change</button>
+</div>
+<div class="push">
+<div class="ref nomt">
+<svg class="ic b" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.500-3 8-7 10-4-2-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15 10"/></svg>
+<div class="sm"><span class="strong">Refund promise.</span> If Priya makes a mistake on a return she filed, you get a full refund and a corrected return at no extra cost.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Plum Tax is not an available service and nothing you enter is sent.</span><a href="dashboard.html" data-back>Back</a><a href="filed.html">Next: 6. Filed, messaging open</a><a href="index.html">Home</a></nav>
+<script>
+
+var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('plum:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('plum:'+k,JSON.stringify(v));}catch(e){}}};
+function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
+function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
+// Wire buttons and links by their visible text: [text, destination]
+function wire(rules){
+  document.querySelectorAll('button, a').forEach(function(el){
+    if(el.closest('.pt-bar'))return;
+    var t=txt(el);
+    for(var i=0;i<rules.length;i++){var r=rules[i];
+      if(r[0] instanceof RegExp?r[0].test(t):t===r[0]){
+        if(el.tagName==='A')el.setAttribute('href',typeof r[1]==='string'?r[1]:'#');
+        el.addEventListener('click',(function(d){return function(e){e.preventDefault();if(this.disabled)return;go(d);};})(r[1]));
+        return;}
+    }
+    // Unwired '#' links do nothing rather than jumping to the top
+    if(el.tagName==='A'&&el.getAttribute('href')==='#')el.addEventListener('click',function(e){e.preventDefault();});
+  });
+  document.querySelectorAll('.wm, .h5-wm').forEach(function(a){a.setAttribute('href','index.html');});
+}
+// Option cards: keep the highlighted state in step with the input
+document.querySelectorAll('label.opt2, label.decl').forEach(function(lb){
+  var inp=lb.querySelector('input');if(!inp)return;
+  inp.addEventListener('change',function(){
+    if(inp.type==='radio'){document.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(o){var p=o.closest('label.opt2');if(p)p.classList.toggle('on',o.checked);});}
+    else if(lb.classList.contains('opt2'))lb.classList.toggle('on',inp.checked);
+  });
+});
+// Yes / no segmented choices
+document.querySelectorAll('.seg').forEach(function(seg,si){
+  seg.setAttribute('role','radiogroup');
+  seg.querySelectorAll('i').forEach(function(b){
+    b.setAttribute('role','radio');b.tabIndex=0;b.setAttribute('aria-checked',b.classList.contains('on'));
+    function pick(){seg.querySelectorAll('i').forEach(function(o){o.classList.remove('on');o.setAttribute('aria-checked','false');});b.classList.add('on');b.setAttribute('aria-checked','true');seg.dispatchEvent(new CustomEvent('pick',{detail:txt(b)}));}
+    b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
+  });
+});
+
+
+var cb=document.querySelector('.decl input'),btn=[].slice.call(document.querySelectorAll('.btn')).filter(function(b){return txt(b)==='Approve and file';})[0];
+function sync(){btn.disabled=!cb.checked;btn.style.opacity=cb.checked?'':'.5';btn.style.cursor=cb.checked?'':'not-allowed';}
+cb.addEventListener('change',sync);sync();
+wire([['Approve and file','filed.html']]);
+</script>
+</body>
+</html>
