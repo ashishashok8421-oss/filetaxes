@@ -231,7 +231,7 @@ var radios=[].slice.call(document.querySelectorAll('.plans input[name="plan"]'))
 var NAMES=['Check','Done for you','Year-round'];
 function pick(k){ // k = 0..2, column k+1 of the 4-column grid
   var last=-1;
-  cells.forEach(function(c,i){c.classList.remove('psel','pselt','pselb');if(i%%4===k+1){c.classList.add('psel');last=i;}});
+  cells.forEach(function(c,i){c.classList.remove('psel','pselt','pselb');if(i%4===k+1){c.classList.add('psel');last=i;}});
   cells[k+1].classList.add('pselt');if(last>=0)cells[last].classList.add('pselb');
   document.querySelector('.paybar .grow .p').textContent='You have chosen '+NAMES[k];
   STORE.set('plan',k);
