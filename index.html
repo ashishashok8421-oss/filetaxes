@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Plum Tax</title>
+<title>Tax Prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#F3F5F8}
@@ -16,7 +16,7 @@ h1,h2{font-weight:600}a{color:#10243A}a:hover{color:#1B56B0}html{scroll-behavior
 <div style="background: #FBEBD2; color: #6B3B00; font-size: 14px; padding: 10px 24px; text-align: center">Concept design. The 4.9 rating is an assumption, the photo is AI-generated, and the reviews are placeholders.</div>
 
 <header style="max-width: 1280px; margin: 0 auto; padding: 20px 32px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between">
-<div style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 28px">Plum Tax</div>
+<div style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 28px">Tax Prototype</div>
 <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; font-weight: 600; font-size: 16px">
 <a href="#steps" style="text-decoration: none; padding: 12px 0">How it works</a>
 <a href="#reviews" style="text-decoration: none; padding: 12px 0">Reviews</a>
@@ -231,14 +231,14 @@ h1,h2{font-weight:600}a{color:#10243A}a:hover{color:#1B56B0}html{scroll-behavior
 
 <footer style="max-width: 1280px; margin: 0 auto; padding: 0 32px 48px; font-size: 14px; color: #4A5B70; display: flex; flex-direction: column; gap: 6px">
 <p style="margin: 0">The refund covers errors made by your accountant. You stay responsible for the information you give us. Not covered yet: directors of limited companies.</p>
-<p style="margin: 0">Plum Tax is a design concept and is not an available service.</p>
+<p style="margin: 0">Tax Prototype is a design concept and is not an available service.</p>
 </footer>
 
 </div>
 
 <script>
 
-var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('plum:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('plum:'+k,JSON.stringify(v));}catch(e){}}};
+var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
 function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
 // Wire buttons and links by their visible text: [text, destination]

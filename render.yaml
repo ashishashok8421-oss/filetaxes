@@ -1,7 +1,7 @@
 # Render Blueprint: a static site served from the repository root. No build step.
 services:
   - type: web
-    name: plum-tax-prototype
+    name: tax-prototype
     runtime: static
     buildCommand: ""
     staticPublishPath: .

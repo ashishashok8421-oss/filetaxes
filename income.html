@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Plum Tax: Which kinds of income</title>
+<title>Tax Prototype: Which kinds of income</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#F3F5F8}
@@ -221,10 +221,11 @@ body{margin:0;background:#F3F5F8}
 .pt-bar a{color:#fff;font-weight:600;text-underline-offset:3px;white-space:nowrap}
 button,label,.seg i{cursor:pointer}
 
+.wm,.h5-wm{width:200px!important;white-space:nowrap}.who,.h5-who{width:200px!important}
 </style>
 </head>
 <body>
-<section class="screen" data-screen="2" data-title="Which income did you have?"><header class="top"><a href="#" class="wm">Plum Tax</a><ol class="trk">
+<section class="screen" data-screen="2" data-title="Which income did you have?"><header class="top"><a href="#" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first cur"><span class="nd">1</span><span class="sl">What to declare</span><span class="here">You are here</span></li>
 <li class="st"><span class="nd">2</span><span class="sl">Your accountant</span></li><li class="st"><span class="nd">3</span><span class="sl">Your plan</span></li>
 <li class="st"><span class="nd">4</span><span class="sl">Your documents</span></li><li class="st"><span class="nd">5</span><span class="sl">Check and approve</span></li>
@@ -242,10 +243,10 @@ button,label,.seg i{cursor:pointer}
 <div class="card push"><p class="p mut sm">2 selected. You can change these answers later.</p>
 <button class="btn w mt12" type="button">Continue<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
 </div></div></div></section>
-<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Plum Tax is not an available service and nothing you enter is sent.</span><a href="start.html" data-back>Back</a><a href="self-employed.html">Next: 1c. Self-employment follow-up</a><a href="index.html">Home</a></nav>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="start.html" data-back>Back</a><a href="self-employed.html">Next: 1c. Self-employment follow-up</a><a href="index.html">Home</a></nav>
 <script>
 
-var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('plum:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('plum:'+k,JSON.stringify(v));}catch(e){}}};
+var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
 function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
 // Wire buttons and links by their visible text: [text, destination]

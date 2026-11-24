@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Plum Tax: Dashboard after payment</title>
+<title>Tax Prototype: Dashboard after payment</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#F3F5F8}
@@ -164,10 +164,11 @@ body{margin:0;background:#F3F5F8}
 .pt-bar a{color:#fff;font-weight:600;text-underline-offset:3px;white-space:nowrap}
 button,label,.seg i{cursor:pointer}
 
+.wm,.h5-wm{width:200px!important;white-space:nowrap}.who,.h5-who{width:200px!important}
 </style>
 </head>
 <body>
-<section class="screen" data-screen="4" data-title="Dashboard after payment"><header class="h5-top"><a href="#" class="h5-wm">Plum Tax</a><ol class="h5-trk"><li class="h5-st h5-first h5-done"><span class="h5-nd"><svg class="h5-ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="h5-sl">What to declare</span></li><li class="h5-st h5-done"><span class="h5-nd"><svg class="h5-ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="h5-sl">Your accountant</span></li><li class="h5-st h5-done"><span class="h5-nd"><svg class="h5-ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="h5-sl">Your plan</span></li><li class="h5-st h5-cur"><span class="h5-nd">4</span><span class="h5-sl">Your documents</span><span class="h5-here">You are here</span></li><li class="h5-st"><span class="h5-nd">5</span><span class="h5-sl">Check and approve</span></li><li class="h5-st"><span class="h5-nd">6</span><span class="h5-sl">Filed</span></li></ol><div class="h5-who"><span>Maya</span><span class="h5-av">M</span></div></header>
+<section class="screen" data-screen="4" data-title="Dashboard after payment"><header class="h5-top"><a href="#" class="h5-wm">Tax Prototype</a><ol class="h5-trk"><li class="h5-st h5-first h5-done"><span class="h5-nd"><svg class="h5-ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="h5-sl">What to declare</span></li><li class="h5-st h5-done"><span class="h5-nd"><svg class="h5-ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="h5-sl">Your accountant</span></li><li class="h5-st h5-done"><span class="h5-nd"><svg class="h5-ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="h5-sl">Your plan</span></li><li class="h5-st h5-cur"><span class="h5-nd">4</span><span class="h5-sl">Your documents</span><span class="h5-here">You are here</span></li><li class="h5-st"><span class="h5-nd">5</span><span class="h5-sl">Check and approve</span></li><li class="h5-st"><span class="h5-nd">6</span><span class="h5-sl">Filed</span></li></ol><div class="h5-who"><span>Maya</span><span class="h5-av">M</span></div></header>
 <div class="strip"><span class="chip cdone">Payment received</span><p class="p grow">Thank you, Maya. You are on the <strong>Done for you</strong> plan.</p>
 <div class="trk"><span class="tl">Where your return is</span><span class="ts tnow"><span class="td"></span>Documents</span><span class="tb"></span><span class="ts"><span class="td"></span>Preparing</span><span class="tb"></span><span class="ts"><span class="td"></span>Your approval</span><span class="tb"></span><span class="ts"><span class="td"></span>Filed</span></div></div>
 <div class="body g4"><div class="card">
@@ -175,13 +176,13 @@ button,label,.seg i{cursor:pointer}
 <div class="cnt"><span class="ct ctneed"><span class="ctn">3</span>needed<br>from you</span><span class="ct ctdone"><span class="ctn">2</span>already<br>done</span><span class="ct ctnone"><span class="ctn">1</span>arrives<br>on its own</span></div></div>
 <div class="grp"><span>Permission</span><span class="grpn">1 of 2 done</span></div>
 <div class="row rhot"><div class="rc"><span class="chip cneed">Needed</span></div><div class="rt"><div class="rtt">Authorise Priya with HMRC</div><div class="rr">Lets her see your tax record and file for you. About 5 minutes.<br>Have ready: your Unique Taxpayer Reference (the 10-digit number HMRC gives everyone who files) and your National Insurance number.</div></div><div class="ra"><button class="btn bpri" type="button">Authorise Priya</button></div></div>
-<div class="row "><div class="rc"><span class="chip cdone">Done</span></div><div class="rt"><div class="rtt">Confirm who you are</div><div class="rr">Already checked, from your Plum account.</div></div><div class="ra"></div></div>
+<div class="row "><div class="rc"><span class="chip cdone">Done</span></div><div class="rt"><div class="rtt">Confirm who you are</div><div class="rr">Already checked when you signed up.</div></div><div class="ra"></div></div>
 <div class="grp"><span>Brought in for you, nothing to do</span><span class="grpn">No uploads needed</span></div>
 <div class="row "><div class="rc"><span class="chip cnone">Nothing to do</span></div><div class="rt"><div class="rtt">Pay and tax from your employer</div><div class="rr">Arrives from HMRC once you authorise Priya.</div></div><div class="ra"></div></div>
-<div class="row "><div class="rc"><span class="chip cdone">Done</span></div><div class="rt"><div class="rtt">Savings interest, dividends, investment sales and pension payments held with Plum</div><div class="rr">Brought in from Plum.</div></div><div class="ra"></div></div>
+<div class="row "><div class="rc"><span class="chip cdone">Done</span></div><div class="rt"><div class="rtt">Savings interest, dividends, investment sales and pension payments from your linked accounts</div><div class="rr">Brought in from your linked accounts.</div></div><div class="ra"></div></div>
 <div class="grp"><span>Documents to upload</span><span class="grpn">0 of 2 done</span></div>
-<div class="row "><div class="rc"><span class="chip cneed">Needed</span></div><div class="rt"><div class="rtt">Interest statements from other banks</div><div class="rr">Only for savings you hold outside Plum.</div></div><div class="ra"><button class="btn" type="button">Upload</button></div></div>
-<div class="row "><div class="rc"><span class="chip cneed">Needed</span></div><div class="rt"><div class="rtt">Investment or pension statements from other providers</div><div class="rr">Only for accounts outside Plum. If you have none, say so.</div></div><div class="ra"><button class="btn bquiet" type="button">I have none</button><button class="btn" type="button">Upload</button></div></div>
+<div class="row "><div class="rc"><span class="chip cneed">Needed</span></div><div class="rt"><div class="rtt">Interest statements from other banks</div><div class="rr">Only for savings in accounts you have not linked.</div></div><div class="ra"><button class="btn" type="button">Upload</button></div></div>
+<div class="row "><div class="rc"><span class="chip cneed">Needed</span></div><div class="rt"><div class="rtt">Investment or pension statements from other providers</div><div class="rr">Only for accounts you have not linked. If you have none, say so.</div></div><div class="ra"><button class="btn bquiet" type="button">I have none</button><button class="btn" type="button">Upload</button></div></div>
 <div class="grp"><span>Not needed</span><span class="grpn">Please do not send</span></div>
 <div class="row "><div class="rc"><span class="chip cnone">Not needed</span></div><div class="rt"><div class="rtt">Payslips or a P60 (the yearly pay summary from an employer)</div><div class="rr">Priya gets your pay and tax figures from HMRC instead.</div></div><div class="ra"></div></div>
 </div>
@@ -193,10 +194,10 @@ button,label,.seg i{cursor:pointer}
 <div class="creds"><div class="cr"><span class="crb">15 minutes</span>Call 1, not used</div><div class="cr"><span class="crb">15 minutes</span>Call 2, not used</div></div>
 <p class="p" style="font-size:14px"><strong>2 of 2 calls left</strong>, 15 minutes each, included in your plan.</p><p class="p mu" style="font-size:14px">Extra calls cost £25 per 15 minutes.</p></div>
 </div></div></section>
-<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Plum Tax is not an available service and nothing you enter is sent.</span><a href="plan.html" data-back>Back</a><a href="approve.html">Next: 5. Check and approve</a><a href="index.html">Home</a></nav>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="plan.html" data-back>Back</a><a href="approve.html">Next: 5. Check and approve</a><a href="index.html">Home</a></nav>
 <script>
 
-var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('plum:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('plum:'+k,JSON.stringify(v));}catch(e){}}};
+var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
 function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
 // Wire buttons and links by their visible text: [text, destination]

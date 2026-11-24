@@ -1,6 +1,6 @@
-# Design handoff: Plum Tax concept prototype
+# Design handoff: Tax Prototype concept prototype
 
-A clickable design prototype of a tax return service. Concept only, with sample data. Not an available service and not a Plum product. Nothing entered is saved or sent.
+A clickable design prototype of a tax return service. Concept only, with sample data. Not an available service. Nothing entered is saved or sent.
 
 ## Run it
 - Open this folder in Visual Studio Code (File, Open Folder).

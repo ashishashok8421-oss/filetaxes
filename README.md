@@ -1,7 +1,7 @@
-# Plum Tax: concept prototype
+# Tax Prototype: concept prototype
 
 A clickable design prototype of a tax return service. Concept only, with sample data.
-Plum Tax is not an available service and not a Plum product. Nothing entered is saved or sent.
+Tax Prototype is not an available service. Nothing entered is saved or sent.
 
 ## Run locally
 Open the folder in VS Code, install the recommended Live Server extension, then right-click
@@ -17,7 +17,7 @@ See `HANDOFF.md` for design tokens, sample data and known gaps.
 ## Deploy on Render
 1. Push this folder to a GitHub repository.
 2. In Render: New → Blueprint, pick the repository. `render.yaml` creates a static site called
-   `plum-tax-prototype` with no build step, published from the repository root.
+   `tax-prototype` with no build step, published from the repository root.
 3. Every push to `main` redeploys.
 
 The site sends `X-Robots-Tag: noindex` and has a `robots.txt` that blocks crawlers, so the concept stays out of search results.
