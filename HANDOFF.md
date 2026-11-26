@@ -16,7 +16,7 @@ A clickable design prototype of a tax return service. Concept only, with sample 
 | `self-employed.html` | 1c | Follow-up, shown only if self-employment was ticked. |
 | `more.html` | 1d | Three yes or no questions: pension, Child Benefit, unpaid or late tax. |
 | `accountant.html` | 2 | The matched accountant. |
-| `plan.html` | 3 | Three plans compared row by row. Prices are `[PRICE]` on purpose. |
+| `plan.html` | 3 | Three plans compared row by row. Prices are £99, £149 and £199. |
 | `dashboard.html` | 4 | After payment: what we need from you, talk to the accountant, call credits. |
 | `approve.html` | 5 | Check the figures and approve. |
 | `filed.html` | 6 | Filed, with messaging open. |

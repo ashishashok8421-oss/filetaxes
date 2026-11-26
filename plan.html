@@ -173,9 +173,9 @@ button,label,.seg i{cursor:pointer}
 <div class="head"><h1 class="h1">Choose your plan</h1><p class="sub">Each row shows exactly what is and is not included. Priya Shah is your accountant on every plan.</p></div>
 <div class="plans">
 <div class="pc ph phl">What you get</div>
-<label class="pc ph"><span class="pn"><input class="rd" type="radio" name="plan"><span class="h2">Check</span></span><span class="price">[PRICE]</span><p class="pd">You fill in the return. Priya checks it and files it.</p></label>
-<label class="pc ph psel pselt"><span class="pn"><input class="rd" type="radio" name="plan" checked><span class="h2">Done for you</span></span><span class="price" style="display:flex;align-items:center;justify-content:space-between">[PRICE]<span class="chip cinfo">Recommended</span></span><p class="pd">Priya prepares, checks and files your return.</p></label>
-<label class="pc ph"><span class="pn"><input class="rd" type="radio" name="plan"><span class="h2">Year-round</span></span><span class="price">[PRICE]</span><p class="pd">Everything in Done for you, plus tax planning through the year.</p></label>
+<label class="pc ph"><span class="pn"><input class="rd" type="radio" name="plan"><span class="h2">Check</span></span><span class="price">£99</span><p class="pd">You fill in the return. Priya checks it and files it.</p></label>
+<label class="pc ph psel pselt"><span class="pn"><input class="rd" type="radio" name="plan" checked><span class="h2">Done for you</span></span><span class="price" style="display:flex;align-items:center;justify-content:space-between">£149<span class="chip cinfo">Recommended</span></span><p class="pd">Priya prepares, checks and files your return.</p></label>
+<label class="pc ph"><span class="pn"><input class="rd" type="radio" name="plan"><span class="h2">Year-round</span></span><span class="price">£199</span><p class="pd">Everything in Done for you, plus tax planning through the year.</p></label>
 <div class="pc pl">Who fills in the return</div><div class="pc">You</div><div class="pc psel">Priya</div><div class="pc">Priya</div>
 <div class="pc pl">Accountant checks and files</div><div class="pc"><span class="chip cdone">Included</span></div><div class="pc psel"><span class="chip cdone">Included</span></div><div class="pc"><span class="chip cdone">Included</span></div>
 <div class="pc pl">Messaging with Priya</div><div class="pc"><span class="chip cdone">Included</span></div><div class="pc psel"><span class="chip cdone">Included</span></div><div class="pc"><span class="chip cdone">Included</span></div>
@@ -184,7 +184,7 @@ button,label,.seg i{cursor:pointer}
 <div class="pc pl">Extra calls</div><div class="pc">£25 per 15 minutes</div><div class="pc psel">£25 per 15 minutes</div><div class="pc">£25 per 15 minutes</div>
 <div class="pc pl">Refund promise</div><div class="pc"><span class="chip cdone">Included</span></div><div class="pc psel pselb"><span class="chip cdone">Included</span></div><div class="pc"><span class="chip cdone">Included</span></div>
 </div>
-<div class="paybar"><div class="grow"><p class="p" style="font-weight:600">You have chosen Done for you</p><p class="p mu">Refund promise on every plan: if Priya makes a mistake on a return she filed, you get a full refund and a corrected return at no extra cost.</p></div><a href="#" class="link">Back to your accountant</a><button class="btn bpri bbig" type="button">Pay [PRICE] and continue</button></div>
+<div class="paybar"><div class="grow"><p class="p" style="font-weight:600">You have chosen Done for you</p><p class="p mu">Refund promise on every plan: if Priya makes a mistake on a return she filed, you get a full refund and a corrected return at no extra cost.</p></div><a href="#" class="link">Back to your accountant</a><button class="btn bpri bbig" type="button">Pay £149 and continue</button></div>
 </div></section>
 <nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="accountant.html" data-back>Back</a><a href="dashboard.html">Next: 4. Dashboard after payment</a><a href="index.html">Home</a></nav>
 <script>
@@ -230,11 +230,13 @@ document.querySelectorAll('.seg').forEach(function(seg,si){
 var cells=[].slice.call(document.querySelectorAll('.plans > .pc'));
 var radios=[].slice.call(document.querySelectorAll('.plans input[name="plan"]'));
 var NAMES=['Check','Done for you','Year-round'];
+var PRICES=['£99','£149','£199'];
 function pick(k){ // k = 0..2, column k+1 of the 4-column grid
   var last=-1;
   cells.forEach(function(c,i){c.classList.remove('psel','pselt','pselb');if(i%4===k+1){c.classList.add('psel');last=i;}});
   cells[k+1].classList.add('pselt');if(last>=0)cells[last].classList.add('pselb');
   document.querySelector('.paybar .grow .p').textContent='You have chosen '+NAMES[k];
+  document.querySelector('.paybar .btn').textContent='Pay '+PRICES[k]+' and continue';
   STORE.set('plan',k);
 }
 radios.forEach(function(r,k){r.addEventListener('change',function(){if(r.checked)pick(k);});});
