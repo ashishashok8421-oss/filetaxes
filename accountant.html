@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
 <title>Tax Prototype: Meet your accountant</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
 <style>
@@ -181,6 +182,37 @@ body{margin:0;background:#F3F5F8}
 .cmp{display:flex;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
 .inp{flex:1;height:46px;border:1.5px solid #8A97A8;border-radius:8px;padding:0 14px;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:15px;color:var(--ink);background:#FFFFFF}
 
+.opt2{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:#FFFFFF;border:1.5px solid var(--line);border-radius:10px;cursor:pointer}
+.opt2.on{border-color:var(--acc);background:var(--tint)}
+.opt2 .t{display:block;font-size:16px;font-weight:600;line-height:1.3}
+.opt2 .d{display:block;font-size:13.5px;color:var(--mut);margin-top:4px;line-height:1.35}
+.opt2 .cb,.opt2 .rd{margin-top:2px}
+.rd{width:20px;height:20px;margin:0;flex:none;accent-color:#1B56B0}
+.o3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;flex:1;grid-auto-rows:1fr}
+.o1{display:grid;gap:12px}
+.qn{font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--acc);margin-bottom:6px}
+.cen{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:46px;line-height:1.1;letter-spacing:-.6px;margin:10px 0 0;max-width:720px}
+.pair{display:flex;align-items:center;gap:0;margin-bottom:22px}
+.pair .av{width:72px;height:72px;font-size:24px;border:4px solid #F3F5F8}
+.pair .av+.av{margin-left:-14px}
+.pts{display:flex;gap:28px;margin-top:30px;color:var(--mut);font-size:14.5px;font-weight:500}
+.pts span{display:flex;align-items:center;gap:7px}
+.pts .ic{color:var(--ok)}
+.cond{display:inline-flex;align-items:center;gap:8px;background:var(--needbg);color:var(--need);font-size:13.5px;font-weight:600;border-radius:8px;padding:7px 12px;margin-bottom:14px;align-self:flex-start}
+.narrow{width:620px}
+.o5{display:grid;gap:10px;flex:1;grid-auto-rows:1fr}
+.o5 .opt2{align-items:center;padding:12px 18px}
+.o5 .opt2 .cb{margin-top:0}
+.yn{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:20px}
+.yn .q{flex:1}
+.yn .q b{display:block;font-size:17px;font-weight:600;line-height:1.3}
+.yn .q span{display:block;font-size:14px;color:var(--mut);margin-top:4px}
+.seg{display:flex;gap:8px;flex:none}
+.seg i{font-style:normal;display:flex;align-items:center;justify-content:center;width:84px;height:44px;border:1.5px solid var(--line);border-radius:8px;font-weight:600;font-size:15px;background:#fff}
+.seg i.on{border-color:var(--acc);background:var(--tint);color:var(--acc)}
+.seg i.w{width:104px}
+
 
 
 .screen{margin:0 auto;height:auto!important;min-height:820px;overflow:visible!important;padding-bottom:70px}
@@ -191,121 +223,144 @@ body{margin:0;background:#F3F5F8}
 button,label,.seg i{cursor:pointer}
 
 .wm,.h5-wm{width:200px!important;white-space:nowrap}.who,.h5-who{width:200px!important}
+.top{height:84px}
+a.btn{text-decoration:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.q{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+img.av{object-fit:cover;display:block}
+.pill.in{background:var(--tint);color:var(--acc)}
+.toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);background:#10243A;color:#fff;padding:10px 16px;border-radius:8px;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;z-index:60;box-shadow:0 8px 24px -8px rgba(16,36,58,.6)}
+.cta .btn{margin-top:12px}
+.cta .bk{text-align:center;margin:12px 0 0;font-size:14px}
+.sum .big{font-size:20px;margin-top:8px}
+.sum .chips{margin-top:12px}
+.sum .none{color:#C5D0DE;font-size:14px;margin:12px 0 0}
+.main{padding-top:18px}
+.hd{margin-bottom:14px}
+.fact{padding:10px 0}
+.stp{padding:10px 0}
+.card{padding:18px 22px}
+.pq{margin-top:14px;background:#F3F5F8;border-radius:4px 12px 12px 12px;padding:12px 14px;font-size:14.5px}
+.mt3{list-style:none;margin:12px 0 0;padding:0}
+.mt3 li{display:grid;grid-template-columns:20px 1fr 1fr;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:14.5px}
+.mt3 .ic{color:var(--ok)}
+.mt3 b{font-weight:600}
+.mt3 span{color:var(--mut)}
+.alt{margin:14px 0 0;font-size:14px;text-align:center}
 </style>
 </head>
 <body>
-<section class="screen" data-screen="2" data-title="Meet your matched accountant">
-<header class="top">
-<a href="#" class="wm">Tax Prototype</a>
-<ol class="trk">
+<section class="screen" data-title="Meet your accountant"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">What to declare</span></li>
 <li class="st cur"><span class="nd">2</span><span class="sl">Your accountant</span><span class="here">You are here</span></li>
 <li class="st"><span class="nd">3</span><span class="sl">Your plan</span></li>
 <li class="st"><span class="nd">4</span><span class="sl">Your documents</span></li>
 <li class="st"><span class="nd">5</span><span class="sl">Check and approve</span></li>
 <li class="st"><span class="nd">6</span><span class="sl">Filed</span></li>
-</ol>
-<div class="who"><span>Maya</span><span class="av">M</span></div>
-</header>
+</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header>
 <div class="main">
-<div class="hd">
-<div>
-<h1 class="h1">Meet Priya, your accountant</h1>
-<p class="sub">One person prepares and files your return, from start to finish.</p>
-</div>
-</div>
+<div class="hd"><div><h1 class="h1">Meet Priya, your accountant</h1><p class="sub">One accountant looks after your return from start to finish.</p></div></div>
 <div class="grid g2">
 <div class="card">
-<div class="prof">
-<span class="av lg dk">PS</span>
-<div>
-<h2 class="h2">Priya Shah</h2>
-<p class="p mut mt4">ACCA qualified accountant</p>
-<span class="pill ok mt8"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Matched to you</span>
-</div>
-</div>
-<ul class="facts">
-<li class="fact"><svg class="ic b" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15 10"/></svg><div><div class="ft">ACCA qualified</div><div class="sm mut">ACCA is a UK accounting qualification.</div></div></li>
-<li class="fact"><svg class="ic b" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><div><div class="ft">8 years' experience</div><div class="sm mut">Preparing and filing tax returns.</div></div></li>
-<li class="fact"><svg class="ic b" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.500"/><path d="M5 20c.800-3.500 3.500-5.500 7-5.500s6.200 2 7 5.500"/></svg><div><div class="ft">Works with people like you</div><div class="sm mut">Employees who have savings and investments.</div></div></li>
-<li class="fact"><svg class="ic b" viewBox="0 0 24 24"><path d="M4 6h16v11H9l-5 4z"/></svg><div><div class="ft">Replies within one working day</div><div class="sm mut">By message, or on a call.</div></div></li>
+<div class="prof"><img class="av lg" src="assets/accountant.png" alt="Priya Shah"><div><h2 class="h2">Priya Shah</h2><p class="p mut mt4">ACCA qualified accountant</p><span class="pill ok mt8"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Matched to you</span></div></div>
+<ul class="facts" style="margin-top:14px">
+<li class="fact"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><div class="ft">ACCA qualified</div><div class="sm mut">A member of ACCA, one of the main UK accountancy bodies.</div></div></li>
+<li class="fact"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><div class="ft">8 years' experience</div><div class="sm mut">Preparing and filing tax returns. UK-based.</div></div></li>
+<li class="fact"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><div class="ft">Works with people like you</div><div class="sm mut">Most of her clients are employees with extra income to declare.</div></div></li>
+<li class="fact"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><div class="ft">Replies within one working day</div><div class="sm mut">By message on every plan. Calls depend on your plan.</div></div></li>
 </ul>
+<div class="pq">“Hi Maya. I have read your answers. Your return is the kind I prepare most weeks.”</div>
 </div>
 <div class="col">
 <div class="card">
 <h2 class="h2">Why we matched you</h2>
-<div class="match">
-<div class="mbox"><div class="eyb">Your return covers</div><p class="p mt8">Employment, savings and investments, and pension tax relief.</p></div>
-<div class="marr"><svg class="ic b" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-<div class="mbox a"><div class="eyb">Priya works with</div><p class="p mt8">Employees who have savings and investments.</p></div>
-</div>
+<ul class="mt3">
+<li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><b>Employment income</b><span>Most of her clients</span></li>
+<li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><b>Savings and investments</b><span>Her main specialism</span></li>
+<li><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><b>Pension tax relief</b><span>Claimed every year</span></li>
+</ul>
 </div>
 <div class="card gr">
 <h2 class="h2">What Priya will do</h2>
 <ol class="steps">
-<li class="stp"><span class="num">1</span><div><div class="ft">Prepare your return</div><div class="sm mut">She works out the figures and fills in the return for you.</div></div></li>
-<li class="stp"><span class="num">2</span><div><div class="ft">Ask for anything missing</div><div class="sm mut">If she needs a document or an answer, she will message you.</div></div></li>
-<li class="stp"><span class="num">3</span><div><div class="ft">File it once you approve</div><div class="sm mut">Nothing goes to HMRC, the UK tax office, until you say yes.</div></div></li>
+<li class="stp"><span class="num">1</span><div><div class="ft">Prepare or check your return</div><div class="sm mut">She fills it in on most plans. On the Check plan, you fill it in and she reviews it.</div></div></li>
+<li class="stp"><span class="num">2</span><div><div class="ft">Ask for anything missing</div><div class="sm mut">She messages you if she needs a document or an answer.</div></div></li>
+<li class="stp"><span class="num">3</span><div><div class="ft">File it once you approve</div><div class="sm mut">Nothing is sent to HMRC until you approve it.</div></div></li>
 </ol>
 </div>
 </div>
 <div class="col">
-<div class="card dk">
-<span class="shield"><svg class="ic b" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.500-3 8-7 10-4-2-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15 10"/></svg></span>
-<h2 class="h2 mt12">Our refund promise</h2>
-<p class="p dmut mt8">If your accountant makes a mistake on a return they filed, you get a full refund and a corrected return at no extra cost.</p>
+<div class="card dk gr">
+<span class="shield"><svg class="ic b" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.500-3.200 7.800-8 9-4.800-1.200-8-4.500-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg></span>
+<h2 class="h2 mt12">Money-back guarantee</h2>
+<p class="p dmut mt8">If your accountant makes a mistake on your return, you get your fee back and a corrected return at no extra cost.</p>
 </div>
-<div class="card push">
+<div class="card cta">
 <p class="p sm mut">Next, choose how much of the work you would like Priya to do.</p>
-<button class="btn w mt12" type="button">Choose a plan<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-<p class="p sm mt16">Would you prefer someone else? <a href="#" class="lnk">Ask for a different accountant</a></p>
+<button class="btn w" type="button">Choose your plan<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+<p class="alt"><a href="#" class="lnk">Ask for a different accountant</a></p>
 </div>
 </div>
 </div>
-</div>
-</section>
-<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="more.html" data-back>Back</a><a href="plan.html">Next: 3. Choose your plan</a><a href="index.html">Home</a></nav>
+</div></section>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="more.html" data-back>Back</a><a href="plan.html" data-next>Next: 3. Choose your plan</a><a href="index.html">Home</a></nav>
 <script>
-
 var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
 function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
+function $(s,r){return (r||document).querySelector(s);}
+function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+var toastT;
+function toast(msg){var t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}t.textContent=msg;t.style.display='block';clearTimeout(toastT);toastT=setTimeout(function(){t.style.display='none';},2600);}
 // Wire buttons and links by their visible text: [text, destination]
 function wire(rules){
-  document.querySelectorAll('button, a').forEach(function(el){
+  $$('button, a').forEach(function(el){
     if(el.closest('.pt-bar'))return;
     var t=txt(el);
     for(var i=0;i<rules.length;i++){var r=rules[i];
       if(r[0] instanceof RegExp?r[0].test(t):t===r[0]){
         if(el.tagName==='A')el.setAttribute('href',typeof r[1]==='string'?r[1]:'#');
+        el.setAttribute('data-wired','');
         el.addEventListener('click',(function(d){return function(e){e.preventDefault();if(this.disabled)return;go(d);};})(r[1]));
         return;}
     }
-    // Unwired '#' links do nothing rather than jumping to the top
-    if(el.tagName==='A'&&el.getAttribute('href')==='#')el.addEventListener('click',function(e){e.preventDefault();});
   });
-  document.querySelectorAll('.wm, .h5-wm').forEach(function(a){a.setAttribute('href','index.html');});
 }
+// Anything that leads nowhere in the prototype says so
+document.addEventListener('click',function(e){
+  var el=e.target.closest&&e.target.closest('a[href="#"],button[data-dead]');
+  if(!el||el.hasAttribute('data-wired')||el.hasAttribute('data-act'))return;
+  e.preventDefault();toast('Not part of this prototype.');
+});
 // Option cards: keep the highlighted state in step with the input
-document.querySelectorAll('label.opt2, label.decl').forEach(function(lb){
+$$('label.opt2').forEach(function(lb){
   var inp=lb.querySelector('input');if(!inp)return;
   inp.addEventListener('change',function(){
-    if(inp.type==='radio'){document.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(o){var p=o.closest('label.opt2');if(p)p.classList.toggle('on',o.checked);});}
-    else if(lb.classList.contains('opt2'))lb.classList.toggle('on',inp.checked);
+    if(inp.type==='radio'){$$('input[name="'+inp.name+'"]').forEach(function(o){var p=o.closest('label.opt2');if(p)p.classList.toggle('on',o.checked);});}
+    else lb.classList.toggle('on',inp.checked);
   });
 });
-// Yes / no segmented choices
-document.querySelectorAll('.seg').forEach(function(seg,si){
+// Segmented choices (Yes / No / Not sure)
+$$('.seg').forEach(function(seg){
   seg.setAttribute('role','radiogroup');
-  seg.querySelectorAll('i').forEach(function(b){
+  $$('i',seg).forEach(function(b){
     b.setAttribute('role','radio');b.tabIndex=0;b.setAttribute('aria-checked',b.classList.contains('on'));
-    function pick(){seg.querySelectorAll('i').forEach(function(o){o.classList.remove('on');o.setAttribute('aria-checked','false');});b.classList.add('on');b.setAttribute('aria-checked','true');seg.dispatchEvent(new CustomEvent('pick',{detail:txt(b)}));}
+    function pick(){$$('i',seg).forEach(function(o){o.classList.remove('on');o.setAttribute('aria-checked','false');});b.classList.add('on');b.setAttribute('aria-checked','true');seg.dispatchEvent(new CustomEvent('pick',{detail:txt(b)}));}
     b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
   });
 });
-
-
-wire([['Choose a plan','plan.html']]);
+// What the answers so far add up to (shared by the three question pages)
+var CHKSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var INC=['Employment','Self-employment','Rental income','Savings, investments or foreign income'];
+var WORKS=['freelance or contract','construction (CIS)','courier or driver','other work'];
+function incomeOn(){var on=STORE.get('income');return on&&on.length===4?on:[true,false,false,true];}
+function answerChips(){
+  var on=incomeOn(),w=STORE.get('work'),a=[];
+  INC.forEach(function(n,i){if(!on[i])return;a.push(i===1&&w!=null&&WORKS[w]?'Self-employment: '+WORKS[w]:n);});
+  return a;
+}
+function drawChips(el,list){el.innerHTML=list.map(function(n){return '<span class="chip">'+CHKSVG+n+'</span>';}).join('');}
+wire([['Choose your plan','plan.html']]);
 </script>
 </body>
 </html>

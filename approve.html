@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
 <title>Tax Prototype: Check and approve</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
 <style>
@@ -181,6 +182,37 @@ body{margin:0;background:#F3F5F8}
 .cmp{display:flex;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
 .inp{flex:1;height:46px;border:1.5px solid #8A97A8;border-radius:8px;padding:0 14px;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:15px;color:var(--ink);background:#FFFFFF}
 
+.opt2{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:#FFFFFF;border:1.5px solid var(--line);border-radius:10px;cursor:pointer}
+.opt2.on{border-color:var(--acc);background:var(--tint)}
+.opt2 .t{display:block;font-size:16px;font-weight:600;line-height:1.3}
+.opt2 .d{display:block;font-size:13.5px;color:var(--mut);margin-top:4px;line-height:1.35}
+.opt2 .cb,.opt2 .rd{margin-top:2px}
+.rd{width:20px;height:20px;margin:0;flex:none;accent-color:#1B56B0}
+.o3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;flex:1;grid-auto-rows:1fr}
+.o1{display:grid;gap:12px}
+.qn{font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--acc);margin-bottom:6px}
+.cen{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:46px;line-height:1.1;letter-spacing:-.6px;margin:10px 0 0;max-width:720px}
+.pair{display:flex;align-items:center;gap:0;margin-bottom:22px}
+.pair .av{width:72px;height:72px;font-size:24px;border:4px solid #F3F5F8}
+.pair .av+.av{margin-left:-14px}
+.pts{display:flex;gap:28px;margin-top:30px;color:var(--mut);font-size:14.5px;font-weight:500}
+.pts span{display:flex;align-items:center;gap:7px}
+.pts .ic{color:var(--ok)}
+.cond{display:inline-flex;align-items:center;gap:8px;background:var(--needbg);color:var(--need);font-size:13.5px;font-weight:600;border-radius:8px;padding:7px 12px;margin-bottom:14px;align-self:flex-start}
+.narrow{width:620px}
+.o5{display:grid;gap:10px;flex:1;grid-auto-rows:1fr}
+.o5 .opt2{align-items:center;padding:12px 18px}
+.o5 .opt2 .cb{margin-top:0}
+.yn{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:20px}
+.yn .q{flex:1}
+.yn .q b{display:block;font-size:17px;font-weight:600;line-height:1.3}
+.yn .q span{display:block;font-size:14px;color:var(--mut);margin-top:4px}
+.seg{display:flex;gap:8px;flex:none}
+.seg i{font-style:normal;display:flex;align-items:center;justify-content:center;width:84px;height:44px;border:1.5px solid var(--line);border-radius:8px;font-weight:600;font-size:15px;background:#fff}
+.seg i.on{border-color:var(--acc);background:var(--tint);color:var(--acc)}
+.seg i.w{width:104px}
+
 
 
 .screen{margin:0 auto;height:auto!important;min-height:820px;overflow:visible!important;padding-bottom:70px}
@@ -191,131 +223,159 @@ body{margin:0;background:#F3F5F8}
 button,label,.seg i{cursor:pointer}
 
 .wm,.h5-wm{width:200px!important;white-space:nowrap}.who,.h5-who{width:200px!important}
+.top{height:84px}
+a.btn{text-decoration:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.q{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+img.av{object-fit:cover;display:block}
+.pill.in{background:var(--tint);color:var(--acc)}
+.toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);background:#10243A;color:#fff;padding:10px 16px;border-radius:8px;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;z-index:60;box-shadow:0 8px 24px -8px rgba(16,36,58,.6)}
+.cta .btn{margin-top:12px}
+.cta .bk{text-align:center;margin:12px 0 0;font-size:14px}
+.sum .big{font-size:20px;margin-top:8px}
+.sum .chips{margin-top:12px}
+.sum .none{color:#C5D0DE;font-size:14px;margin:12px 0 0}
+.main{padding-top:12px}
+.hd{margin-bottom:10px;align-items:center}
+.row{padding:6px 0}
+.rows{margin-top:8px}
+.rl{font-size:14.5px}
+.rv{font-size:16px}
+.gh{font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--mut);margin:8px 0 0}
+.tot{margin-top:8px;padding:11px 14px}
+.amt{margin-top:10px;font-size:58px}
+.after{list-style:none;margin:10px 0 0;padding:0;font-size:14px}
+.after li{display:flex;gap:10px;padding:5px 0;border-top:1px solid var(--line);align-items:center}
+.after .num{width:22px;height:22px;font-size:12.5px}
+.av.s40{width:40px;height:40px}
+.ask{margin-top:10px}
+.ask textarea{width:100%;height:64px;border:1.5px solid #8A97A8;border-radius:8px;padding:8px 12px;font:15px 'IBM Plex Sans',system-ui,sans-serif;color:var(--ink);resize:none}
+.ref{margin-top:14px;font-size:14px;padding:12px 14px}
+.card{padding:18px 20px}
 </style>
 </head>
 <body>
-<section class="screen" data-screen="5" data-title="Check and approve your return">
-<header class="top">
-<a href="#" class="wm">Tax Prototype</a>
-<ol class="trk">
+<section class="screen" data-title="Check and approve your return"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">What to declare</span></li>
 <li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your accountant</span></li>
 <li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your plan</span></li>
 <li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your documents</span></li>
 <li class="st cur"><span class="nd">5</span><span class="sl">Check and approve</span><span class="here">You are here</span></li>
 <li class="st"><span class="nd">6</span><span class="sl">Filed</span></li>
-</ol>
-<div class="who"><span>Maya</span><span class="av">M</span></div>
-</header>
-<div class="stat">
-<span class="stl">Where your return is</span>
-<span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Documents</span><span class="dash d"></span>
-<span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Preparing</span><span class="dash d"></span>
-<span class="sg c">Your approval</span><span class="dash"></span>
-<span class="sg">Filed</span>
-<span class="stn">Priya has prepared your return. Nothing is sent until you approve.</span>
+</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header><div class="stat" id="stat">
+<span class="stl">Where your return is</span><span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Documents</span><span class="dash d"></span><span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Preparing</span><span class="dash d"></span><span class="sg c">Your approval</span><span class="dash"></span><span class="sg">Filed</span><span class="stn">Priya has prepared your return. Nothing is sent until you approve.</span>
 </div>
 <div class="main">
-<div class="hd">
-<div>
-<h1 class="h1">Check and approve your return</h1>
-<p class="sub">Tax year 6 April 2025 to 5 April 2026.</p>
-</div>
-</div>
-<div class="grid g5">
+<div class="hd"><div style="display:flex;align-items:center;gap:14px"><h1 class="h1">Check and approve your return</h1><span class="pill wt">Tax year 6 April 2025 to 5 April 2026</span></div><a href="dashboard.html" class="lnk sm">Back to your documents</a></div>
+<div class="grid g5" style="grid-template-columns:350px 1fr 320px">
 <div class="col">
 <div class="card dk">
 <div class="eyb l">The result</div>
 <p class="res">HMRC owes you</p>
 <p class="amt">£396</p>
-<p class="p dmut mt12">This is a refund. HMRC, the UK tax office, pays it to you after your return is filed.</p>
+<p class="p dmut mt8 sm">HMRC pays this to you after your return is filed.</p>
 </div>
 <div class="card gr">
 <h2 class="h2">A note from Priya</h2>
-<div class="quote">
-<span class="av dk">PS</span>
-<div class="qt">I prepared your return from your HMRC record and the statements you sent. Everything matches, and HMRC owes you £396.</div>
-</div>
-<p class="p xs mut mt12">Priya Shah, ACCA qualified accountant</p>
+<div class="quote"><img class="av s40" src="assets/accountant.png" alt="Priya Shah"><div class="qt" style="font-size:14.5px">I prepared your return from your HMRC record and your connected accounts. The figures match what HMRC holds.</div></div>
+<h2 class="h2 mt12" style="font-size:17px">What happens after you approve</h2>
+<ol class="after"><li><span class="num">1</span>Priya files it, usually the same day</li><li><span class="num">2</span>HMRC sends a receipt, saved here</li><li><span class="num">3</span>HMRC pays you the £396</li></ol>
 </div>
 </div>
 <div class="card">
-<div class="itr">
-<h2 class="h2">Your figures, line by line</h2>
-<a href="#" class="lnk">View the full return</a>
-</div>
+<div class="itr"><h2 class="h2">Your figures, line by line</h2><a href="#" class="lnk sm">View the full return</a></div>
 <ul class="rows">
-<li class="row"><span class="rl">Salary<span class="rs">Pay from your employer</span></span><span class="rv">£68,000</span></li>
-<li class="row"><span class="rl">Savings interest<span class="rs">Interest your savings earned</span></span><span class="rv">£1,550</span></li>
-<li class="row"><span class="rl">Dividends<span class="rs">Payments from shares you own</span></span><span class="rv">£820</span></li>
-<li class="row"><span class="rl">Profit from selling investments<span class="rs">What you made when you sold</span></span><span class="rv">£5,400</span></li>
-<li class="row"><span class="rl">Pension paid in, with tax relief<span class="rs">Tax relief means some tax comes back to you</span></span><span class="rv">£7,500</span></li>
+<li class="row "><span class="rl">Salary</span><span class="rv">£68,000</span></li>
+<li class="row "><span class="rl">Savings interest</span><span class="rv">£1,550</span></li>
+<li class="row "><span class="rl">Dividends<span class="rs">Payments from shares you own</span></span><span class="rv">£820</span></li>
+<li class="row "><span class="rl">Profit from selling investments<span class="rs">Sale price minus what you paid</span></span><span class="rv">£5,400</span></li>
+<li class="row "><span class="rl">Pension paid in, including basic tax relief<span class="rs">You paid £6,000. Your provider added £1,500.</span></span><span class="rv">£7,500</span></li>
+</ul>
+<div class="gh">How we get to £396</div>
+<ul class="rows" style="margin-top:4px">
+<li class="row "><span class="rl">Tax already paid through your pay</span><span class="rv">£14,632</span></li>
+<li class="row "><span class="rl">Income Tax due for the year</span><span class="rv">£13,660</span></li>
+<li class="row "><span class="rl">Capital Gains Tax on your investment profit<span class="rs">£5,400 profit, less the £3,000 tax-free allowance, taxed at 24%</span></span><span class="rv">£576</span></li>
+<li class="row "><span class="rl">Total tax due</span><span class="rv">£14,236</span></li>
 </ul>
 <div class="tot"><span>Result: HMRC owes you</span><span>£396</span></div>
 </div>
 <div class="col">
 <div class="card">
 <h2 class="h2">Approve your return</h2>
-<p class="p sm mut mt8">When you approve, Priya files your return with HMRC and you get a receipt.</p>
-<label class="decl mt16"><input class="cb" type="checkbox" checked><span>The information is correct and complete to the best of my knowledge.</span></label>
-<button class="btn w mt16" type="button">Approve and file</button>
-<button class="btn sec n w mt8" type="button">Ask a question or request a change</button>
-</div>
-<div class="push">
-<div class="ref nomt">
-<svg class="ic b" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.500-3 8-7 10-4-2-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15 10"/></svg>
-<div class="sm"><span class="strong">Refund promise.</span> If Priya makes a mistake on a return she filed, you get a full refund and a corrected return at no extra cost.</div>
+<p class="p sm mut mt8">When you approve, Priya files your return with HMRC, usually the same day. You get HMRC's receipt here.</p>
+<label class="decl mt12"><input class="cb" type="checkbox" id="decl"><span>I have checked these figures. They are correct and complete to the best of my knowledge.</span></label>
+<button class="btn w mt12" type="button" id="ok" disabled>Approve and file<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+<button class="btn sec n w mt8" type="button" id="askb">Ask a question or request a change</button>
+<div class="ask" id="ask" hidden><textarea id="askt" aria-label="Your question for Priya" placeholder="What would you like to ask or change?"></textarea><button class="btn s mt8" type="button" id="asks">Send to Priya</button></div>
+<p class="p sm mt8" id="asked" hidden style="color:var(--ok);font-weight:600">Sent. Priya replies within one working day. Nothing is filed until you approve.</p>
+<div class="ref"><svg class="ic b" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.500-3.200 7.800-8 9-4.800-1.200-8-4.500-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg><div><span class="strong">Money-back guarantee.</span> If Priya makes a mistake on your return, you get your fee back and a corrected return at no extra cost.</div></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</section>
-<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="dashboard.html" data-back>Back</a><a href="filed.html">Next: 6. Filed, messaging open</a><a href="index.html">Home</a></nav>
+</div></section>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="dashboard.html" data-back>Back</a><a href="filed.html" data-next>Next: 6. Your return is filed</a><a href="index.html">Home</a></nav>
 <script>
-
 var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
 function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
+function $(s,r){return (r||document).querySelector(s);}
+function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+var toastT;
+function toast(msg){var t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}t.textContent=msg;t.style.display='block';clearTimeout(toastT);toastT=setTimeout(function(){t.style.display='none';},2600);}
 // Wire buttons and links by their visible text: [text, destination]
 function wire(rules){
-  document.querySelectorAll('button, a').forEach(function(el){
+  $$('button, a').forEach(function(el){
     if(el.closest('.pt-bar'))return;
     var t=txt(el);
     for(var i=0;i<rules.length;i++){var r=rules[i];
       if(r[0] instanceof RegExp?r[0].test(t):t===r[0]){
         if(el.tagName==='A')el.setAttribute('href',typeof r[1]==='string'?r[1]:'#');
+        el.setAttribute('data-wired','');
         el.addEventListener('click',(function(d){return function(e){e.preventDefault();if(this.disabled)return;go(d);};})(r[1]));
         return;}
     }
-    // Unwired '#' links do nothing rather than jumping to the top
-    if(el.tagName==='A'&&el.getAttribute('href')==='#')el.addEventListener('click',function(e){e.preventDefault();});
   });
-  document.querySelectorAll('.wm, .h5-wm').forEach(function(a){a.setAttribute('href','index.html');});
 }
+// Anything that leads nowhere in the prototype says so
+document.addEventListener('click',function(e){
+  var el=e.target.closest&&e.target.closest('a[href="#"],button[data-dead]');
+  if(!el||el.hasAttribute('data-wired')||el.hasAttribute('data-act'))return;
+  e.preventDefault();toast('Not part of this prototype.');
+});
 // Option cards: keep the highlighted state in step with the input
-document.querySelectorAll('label.opt2, label.decl').forEach(function(lb){
+$$('label.opt2').forEach(function(lb){
   var inp=lb.querySelector('input');if(!inp)return;
   inp.addEventListener('change',function(){
-    if(inp.type==='radio'){document.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(o){var p=o.closest('label.opt2');if(p)p.classList.toggle('on',o.checked);});}
-    else if(lb.classList.contains('opt2'))lb.classList.toggle('on',inp.checked);
+    if(inp.type==='radio'){$$('input[name="'+inp.name+'"]').forEach(function(o){var p=o.closest('label.opt2');if(p)p.classList.toggle('on',o.checked);});}
+    else lb.classList.toggle('on',inp.checked);
   });
 });
-// Yes / no segmented choices
-document.querySelectorAll('.seg').forEach(function(seg,si){
+// Segmented choices (Yes / No / Not sure)
+$$('.seg').forEach(function(seg){
   seg.setAttribute('role','radiogroup');
-  seg.querySelectorAll('i').forEach(function(b){
+  $$('i',seg).forEach(function(b){
     b.setAttribute('role','radio');b.tabIndex=0;b.setAttribute('aria-checked',b.classList.contains('on'));
-    function pick(){seg.querySelectorAll('i').forEach(function(o){o.classList.remove('on');o.setAttribute('aria-checked','false');});b.classList.add('on');b.setAttribute('aria-checked','true');seg.dispatchEvent(new CustomEvent('pick',{detail:txt(b)}));}
+    function pick(){$$('i',seg).forEach(function(o){o.classList.remove('on');o.setAttribute('aria-checked','false');});b.classList.add('on');b.setAttribute('aria-checked','true');seg.dispatchEvent(new CustomEvent('pick',{detail:txt(b)}));}
     b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
   });
 });
-
-
-var cb=document.querySelector('.decl input'),btn=[].slice.call(document.querySelectorAll('.btn')).filter(function(b){return txt(b)==='Approve and file';})[0];
-function sync(){btn.disabled=!cb.checked;btn.style.opacity=cb.checked?'':'.5';btn.style.cursor=cb.checked?'':'not-allowed';}
-cb.addEventListener('change',sync);sync();
-wire([['Approve and file','filed.html']]);
+// What the answers so far add up to (shared by the three question pages)
+var CHKSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var INC=['Employment','Self-employment','Rental income','Savings, investments or foreign income'];
+var WORKS=['freelance or contract','construction (CIS)','courier or driver','other work'];
+function incomeOn(){var on=STORE.get('income');return on&&on.length===4?on:[true,false,false,true];}
+function answerChips(){
+  var on=incomeOn(),w=STORE.get('work'),a=[];
+  INC.forEach(function(n,i){if(!on[i])return;a.push(i===1&&w!=null&&WORKS[w]?'Self-employment: '+WORKS[w]:n);});
+  return a;
+}
+function drawChips(el,list){el.innerHTML=list.map(function(n){return '<span class="chip">'+CHKSVG+n+'</span>';}).join('');}
+var cb=$('#decl'),btn=$('#ok');
+cb.addEventListener('change',function(){btn.disabled=!cb.checked;});
+$('#askb').addEventListener('click',function(){$('#ask').hidden=!$('#ask').hidden;$('#asked').hidden=true;if(!$('#ask').hidden)$('#askt').focus();});
+$('#asks').addEventListener('click',function(){if(!$('#askt').value.trim()){$('#askt').focus();return;}$('#askt').value='';$('#ask').hidden=true;$('#asked').hidden=false;});
+wire([[/^Approve and file/,'filed.html']]);
 </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Tax Prototype: concept prototype
 
-A clickable design prototype of a tax return service. Concept only, with sample data.
+A clickable design prototype of a tax return service. Concept only, with sample data: names, reviews and figures are made up.
 Tax Prototype is not an available service. Nothing entered is saved or sent.
 
 ## Run locally
@@ -9,10 +9,12 @@ Open the folder in VS Code, install the recommended Live Server extension, then 
 
 ## Pages
 `index.html` (landing) → `start.html` → `income.html` → `self-employed.html` (only if self-employment is ticked)
-→ `more.html` → `accountant.html` → `plan.html` → `dashboard.html` (its "Authorise Priya" button opens `authorise.html`) → `approve.html` → `filed.html`.
+→ `more.html` → `accountant.html` → `plan.html` → `dashboard.html` (its "Authorise Priya" button opens `authorise.html`)
+→ `approve.html` → `filed.html`.
 
-Answers are kept in `sessionStorage` for the tab, so the summary panels, the plan choice and the Back links follow what was picked.
-See `HANDOFF.md` for design tokens, sample data and known gaps.
+Answers are kept in `sessionStorage` for the tab, so the summary chips, the plan choice, the dashboard counts and the Back links follow what was picked.
+Anything that leads nowhere shows "Not part of this prototype."
+See `HANDOFF.md` for design tokens, sample data, wording rules and known gaps.
 
 ## Deploy on Render
 1. Push this folder to a GitHub repository.

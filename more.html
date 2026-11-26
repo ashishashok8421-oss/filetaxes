@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tax Prototype: Three yes or no questions</title>
+<meta name="robots" content="noindex">
+<title>Tax Prototype: Three last checks</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#F3F5F8}
@@ -222,84 +223,112 @@ body{margin:0;background:#F3F5F8}
 button,label,.seg i{cursor:pointer}
 
 .wm,.h5-wm{width:200px!important;white-space:nowrap}.who,.h5-who{width:200px!important}
+.top{height:84px}
+a.btn{text-decoration:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.q{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+img.av{object-fit:cover;display:block}
+.pill.in{background:var(--tint);color:var(--acc)}
+.toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);background:#10243A;color:#fff;padding:10px 16px;border-radius:8px;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;z-index:60;box-shadow:0 8px 24px -8px rgba(16,36,58,.6)}
+.cta .btn{margin-top:12px}
+.cta .bk{text-align:center;margin:12px 0 0;font-size:14px}
+.sum .big{font-size:20px;margin-top:8px}
+.sum .chips{margin-top:12px}
+.sum .none{color:#C5D0DE;font-size:14px;margin:12px 0 0}
+.yn{padding:16px 20px}
 </style>
 </head>
 <body>
-<section class="screen" data-screen="4" data-title="Three yes or no questions"><header class="top"><a href="#" class="wm">Tax Prototype</a><ol class="trk">
+<section class="screen" data-title="Three things that can change your return"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first cur"><span class="nd">1</span><span class="sl">What to declare</span><span class="here">You are here</span></li>
-<li class="st"><span class="nd">2</span><span class="sl">Your accountant</span></li><li class="st"><span class="nd">3</span><span class="sl">Your plan</span></li>
-<li class="st"><span class="nd">4</span><span class="sl">Your documents</span></li><li class="st"><span class="nd">5</span><span class="sl">Check and approve</span></li>
-<li class="st"><span class="nd">6</span><span class="sl">Filed</span></li></ol><div class="who"><span>Maya</span><span class="av">M</span></div></header>
+<li class="st"><span class="nd">2</span><span class="sl">Your accountant</span></li>
+<li class="st"><span class="nd">3</span><span class="sl">Your plan</span></li>
+<li class="st"><span class="nd">4</span><span class="sl">Your documents</span></li>
+<li class="st"><span class="nd">5</span><span class="sl">Check and approve</span></li>
+<li class="st"><span class="nd">6</span><span class="sl">Filed</span></li>
+</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header>
 <div class="main"><div class="grid g1"><div class="col">
-<div><div class="qn">Question 2 of 2</div><h1 class="h1">Three quick yes or no questions</h1>
-<p class="sub">Everyone gets these. Each one can change your return or who we match you with.</p></div>
-<div class="o1"><div class="yn"><div class="q"><b>Did you pay into a personal pension?</b><span>One you set up yourself, not through your employer. This can mean money back.</span></div><div class="seg"><i class="on">Yes</i><i class="">No</i></div></div><div class="yn"><div class="q"><b>Does your household get Child Benefit, and does one of you earn over £60,000?</b><span>If so, some of it may have to be paid back through your return.</span></div><div class="seg"><i class="">Yes</i><i class="on">No</i></div></div><div class="yn"><div class="q"><b>Do you owe HMRC tax from an earlier year, or is a return more than a year late?</b><span>This means more work, so we match an accountant who handles it.</span></div><div class="seg"><i class="">Yes</i><i class="on">No</i><i class=" w">Not sure</i></div></div></div></div><div class="col">
-<div class="card dk"><div class="eyb l">From your answers</div><p class="big">A Self Assessment return covering employment, savings and investments, and pension tax relief.</p><div class="chips"><span class="chip"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Employment</span><span class="chip"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Savings and investments</span><span class="chip"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Pension tax relief</span></div><p class="p sm dmut mt12">Nothing overdue.</p></div>
-<div class="card push"><p class="p mut sm">Next, meet the accountant matched to your answers.</p><button class="btn w mt12" type="button">Meet your accountant<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="p sm mt12" style="text-align:center"><a class="lnk" href="#">Back</a></p></div>
+<div><div class="qn">Part 2 of 2 · Three last checks</div><h1 class="h1">Three things that can change your return</h1>
+<p class="sub">Everyone gets these three, about the tax year 6 April 2025 to 5 April 2026. Each one can change what goes on your return or which accountant we match you with.</p></div>
+<div class="o1">
+<div class="yn"><div class="q"><b>Did you pay into a pension you set up yourself?</b><span>A personal pension or SIPP, not one through your employer. You may be due tax back.</span></div><div class="seg"><i class="on">Yes</i><i class="">No</i><i class=" w">Not sure</i></div></div><div class="yn"><div class="q"><b>Did you or your partner get Child Benefit, and did either of you earn over £60,000?</b><span>If so, some or all of it may have to be paid back through your return.</span></div><div class="seg"><i class="">Yes</i><i class="on">No</i><i class=" w">Not sure</i></div></div><div class="yn"><div class="q"><b>Do you owe HMRC tax from an earlier year, or have a return that is more than a year late?</b><span>This takes extra work, so we match you with an accountant who handles it.</span></div><div class="seg"><i class="">Yes</i><i class="on">No</i><i class=" w">Not sure</i></div></div>
+</div></div><div class="col">
+<div class="card dk sum"><div class="eyb l">From your answers so far</div><p class="big">Your return will cover:</p><div class="chips" id="chips"></div><p class="none" id="nochips" hidden>Select at least one kind of income to see what your return will cover.</p><p class="p sm dmut mt12" id="early"></p></div>
+<div class="card push cta"><p class="p mut sm">Next, meet the accountant matched to your answers.</p><button class="btn w" type="button">Meet your accountant<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="bk"><a class="lnk" href="income.html" id="bk">Back</a></p></div>
 </div></div></div></section>
-<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="#back" data-back>Back</a><a href="accountant.html">Next: 2. Meet your accountant</a><a href="index.html">Home</a></nav>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="income.html" data-back>Back</a><a href="accountant.html" data-next>Next: 2. Meet your accountant</a><a href="index.html">Home</a></nav>
 <script>
-
 var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
 function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
+function $(s,r){return (r||document).querySelector(s);}
+function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+var toastT;
+function toast(msg){var t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}t.textContent=msg;t.style.display='block';clearTimeout(toastT);toastT=setTimeout(function(){t.style.display='none';},2600);}
 // Wire buttons and links by their visible text: [text, destination]
 function wire(rules){
-  document.querySelectorAll('button, a').forEach(function(el){
+  $$('button, a').forEach(function(el){
     if(el.closest('.pt-bar'))return;
     var t=txt(el);
     for(var i=0;i<rules.length;i++){var r=rules[i];
       if(r[0] instanceof RegExp?r[0].test(t):t===r[0]){
         if(el.tagName==='A')el.setAttribute('href',typeof r[1]==='string'?r[1]:'#');
+        el.setAttribute('data-wired','');
         el.addEventListener('click',(function(d){return function(e){e.preventDefault();if(this.disabled)return;go(d);};})(r[1]));
         return;}
     }
-    // Unwired '#' links do nothing rather than jumping to the top
-    if(el.tagName==='A'&&el.getAttribute('href')==='#')el.addEventListener('click',function(e){e.preventDefault();});
   });
-  document.querySelectorAll('.wm, .h5-wm').forEach(function(a){a.setAttribute('href','index.html');});
 }
+// Anything that leads nowhere in the prototype says so
+document.addEventListener('click',function(e){
+  var el=e.target.closest&&e.target.closest('a[href="#"],button[data-dead]');
+  if(!el||el.hasAttribute('data-wired')||el.hasAttribute('data-act'))return;
+  e.preventDefault();toast('Not part of this prototype.');
+});
 // Option cards: keep the highlighted state in step with the input
-document.querySelectorAll('label.opt2, label.decl').forEach(function(lb){
+$$('label.opt2').forEach(function(lb){
   var inp=lb.querySelector('input');if(!inp)return;
   inp.addEventListener('change',function(){
-    if(inp.type==='radio'){document.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(o){var p=o.closest('label.opt2');if(p)p.classList.toggle('on',o.checked);});}
-    else if(lb.classList.contains('opt2'))lb.classList.toggle('on',inp.checked);
+    if(inp.type==='radio'){$$('input[name="'+inp.name+'"]').forEach(function(o){var p=o.closest('label.opt2');if(p)p.classList.toggle('on',o.checked);});}
+    else lb.classList.toggle('on',inp.checked);
   });
 });
-// Yes / no segmented choices
-document.querySelectorAll('.seg').forEach(function(seg,si){
+// Segmented choices (Yes / No / Not sure)
+$$('.seg').forEach(function(seg){
   seg.setAttribute('role','radiogroup');
-  seg.querySelectorAll('i').forEach(function(b){
+  $$('i',seg).forEach(function(b){
     b.setAttribute('role','radio');b.tabIndex=0;b.setAttribute('aria-checked',b.classList.contains('on'));
-    function pick(){seg.querySelectorAll('i').forEach(function(o){o.classList.remove('on');o.setAttribute('aria-checked','false');});b.classList.add('on');b.setAttribute('aria-checked','true');seg.dispatchEvent(new CustomEvent('pick',{detail:txt(b)}));}
+    function pick(){$$('i',seg).forEach(function(o){o.classList.remove('on');o.setAttribute('aria-checked','false');});b.classList.add('on');b.setAttribute('aria-checked','true');seg.dispatchEvent(new CustomEvent('pick',{detail:txt(b)}));}
     b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
   });
 });
-
-document.querySelector('[data-back]').setAttribute('href',(STORE.get('income')||[])[1]?'self-employed.html':'income.html');
-
-var CHK='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
-var on=STORE.get('income')||[true,false,false,true];
-var LONG=['employment','self-employment','rental income','savings and investments'];
-var NAMES=['Employment','Self-employment','Rental income','Savings and investments'];
-var segs=[].slice.call(document.querySelectorAll('.seg'));
+// What the answers so far add up to (shared by the three question pages)
+var CHKSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var INC=['Employment','Self-employment','Rental income','Savings, investments or foreign income'];
+var WORKS=['freelance or contract','construction (CIS)','courier or driver','other work'];
+function incomeOn(){var on=STORE.get('income');return on&&on.length===4?on:[true,false,false,true];}
+function answerChips(){
+  var on=incomeOn(),w=STORE.get('work'),a=[];
+  INC.forEach(function(n,i){if(!on[i])return;a.push(i===1&&w!=null&&WORKS[w]?'Self-employment: '+WORKS[w]:n);});
+  return a;
+}
+function drawChips(el,list){el.innerHTML=list.map(function(n){return '<span class="chip">'+CHKSVG+n+'</span>';}).join('');}
+var segs=$$('.seg');
 var ans=STORE.get('more');
-if(ans)segs.forEach(function(sg,i){sg.querySelectorAll('i').forEach(function(b){var y=txt(b)===ans[i];b.classList.toggle('on',y);b.setAttribute('aria-checked',y);});});
-function cur(sg){var b=sg.querySelector('i.on');return b?txt(b):null;}
-function list(a){return a.length<2?a.join(''):a.slice(0,-1).join(', ')+', and '+a[a.length-1];}
+if(ans&&ans.length===3)segs.forEach(function(sg,i){$$('i',sg).forEach(function(b){var y=txt(b)===ans[i];b.classList.toggle('on',y);b.setAttribute('aria-checked',y);});});
+function cur(sg){var b=$('i.on',sg);return b?txt(b):null;}
 function update(){
   var a=segs.map(cur);STORE.set('more',a);
-  var items=LONG.filter(function(_,i){return on[i];}),chips=NAMES.filter(function(_,i){return on[i];});
-  if(a[0]==='Yes'){items.push('pension tax relief');chips.push('Pension tax relief');}
-  if(a[1]==='Yes'){items.push('the Child Benefit charge');chips.push('Child Benefit charge');}
-  var card=document.querySelector('.card.dk');
-  card.querySelector('.big').textContent='A Self Assessment return covering '+list(items)+'.';
-  card.querySelector('.chips').innerHTML=chips.map(function(n){return '<span class="chip">'+CHK+n+'</span>';}).join('');
-  card.querySelector('.p.sm').textContent=a[2]==='Yes'?'Something overdue. We will match an accountant who handles it.':a[2]==='Not sure'?'Not sure about earlier years. Your accountant will check.':'Nothing overdue.';
+  var chips=answerChips();
+  if(a[0]==='Yes')chips.push('Pension tax relief');else if(a[0]==='Not sure')chips.push('Pension tax relief (to check)');
+  if(a[1]==='Yes')chips.push('Child Benefit repayment');else if(a[1]==='Not sure')chips.push('Child Benefit repayment (to check)');
+  drawChips($('#chips'),chips);
+  $('#early').textContent=a[2]==='Yes'?'Earlier years: tax owed or a late return. We will match you with an accountant who handles this.':a[2]==='Not sure'?'Earlier years: not sure. Your accountant will check with HMRC.':'Earlier years: nothing outstanding.';
 }
 segs.forEach(function(sg){sg.addEventListener('pick',update);});update();
-wire([['Meet your accountant','accountant.html'],['Back',function(){return on[1]?'self-employed.html':'income.html';}]]);
+var back=incomeOn()[1]?'self-employed.html':'income.html';
+$('#bk').href=back;$('[data-back]').href=back;
+wire([['Meet your accountant','accountant.html']]);
 </script>
 </body>
 </html>
