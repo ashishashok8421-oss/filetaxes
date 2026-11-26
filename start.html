@@ -314,6 +314,8 @@ function answerChips(){
   return a;
 }
 function drawChips(el,list){el.innerHTML=list.map(function(n){return '<span class="chip">'+CHKSVG+n+'</span>';}).join('');}
+// A new journey starts here: forget everything picked in an earlier run
+try{Object.keys(sessionStorage).forEach(function(k){if(k.indexOf('taxproto:')===0)sessionStorage.removeItem(k);});}catch(e){}
 wire([['Start','income.html']]);
 </script>
 </body>
