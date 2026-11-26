@@ -300,9 +300,9 @@ img.av{object-fit:cover;display:block}
 <div class="card"><div class="sh"><img class="av s44" src="assets/accountant.png" alt="Priya Shah"><div><h2 class="h2" style="font-size:19px">Talk to your accountant</h2><p class="p sm mut">Priya Shah, ACCA qualified accountant</p></div></div>
 <div class="sr" id="callrow"></div>
 <div class="sr" id="msgrow"></div></div>
-<div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h2 class="h2" style="font-size:19px">Call credits</h2><span class="pill ok" id="credpill"></span></div>
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h2 class="h2" style="font-size:19px" id="credh">Call credits</h2><span class="pill ok" id="credpill"></span></div>
 <div class="tok" id="toks"></div>
-<p class="p xs mut mt8">Included in your plan. Extra calls cost £25 per 15 minutes.</p></div>
+<p class="p xs mut mt8" id="crednote">Included in your plan. Extra calls cost £25 per 15 minutes.</p></div>
 <div class="card nx"><h2 class="h2" style="font-size:19px">What happens next</h2><p class="p sm mut mt8" id="nxt"></p><div id="nxb"></div></div>
 </div>
 </div></div></section>
@@ -366,6 +366,7 @@ function drawChips(el,list){el.innerHTML=list.map(function(n){return '<span clas
 var ARR='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 var S={auth:!!STORE.get('auth'),r5:STORE.get('r5'),r6:STORE.get('r6'),call:STORE.get('call'),msg:!!STORE.get('msg'),ui:{}};
 var PLANS=['Check','Done for you','Year-round'],pl=STORE.get('plan');if(pl!=null&&PLANS[pl])$('#planname').textContent=PLANS[pl];
+var PAID=pl===0; // Check plan: no calls included, each call is £25
 function pill(k,t){return '<span class="pill '+k+'">'+(k==='ok'?CHKSVG:'')+t+'</span>';}
 function set(id,chip,rr,ra){var r=$('#'+id);$('.rc',r).innerHTML=chip;if(rr!=null)$('.rr',r).innerHTML=rr;$('.ra',r).innerHTML=ra||'';return r;}
 function upRow(k,id,what,hot){
@@ -405,14 +406,20 @@ function render(){
     :'<button class="btn w q" type="button" disabled>Check and approve your return</button><p class="p xs mut mt8" style="text-align:center">Available when Priya has finished. <a class="lnk" href="approve.html" data-wired>Skip ahead to see it</a></p>';
   // call
   var c=$('#callrow');
-  if(S.call)c.innerHTML='<div><div class="rtt">Call booked: '+S.call+'</div><div class="rr">Priya will phone you. Uses 1 credit.</div></div><a href="#" class="lnk sm" data-act="callx">Change</a>';
+  if(S.call)c.innerHTML='<div><div class="rtt">Call booked: '+S.call+'</div><div class="rr">'+(PAID?'Priya will phone you. £25, charged after the call.':'Priya will phone you. Uses 1 credit.')+'</div></div><a href="#" class="lnk sm" data-act="callx">Change</a>';
   else if(S.ui.call)c.innerHTML='<div class="x"><div class="rtt">Pick a time</div><div class="slots mt8">'+['tomorrow, 10:30','tomorrow, 14:00','Friday, 09:15'].map(function(t){return '<button class="btn s sec" type="button" data-act="slot:'+t+'">'+t.charAt(0).toUpperCase()+t.slice(1)+'</button>';}).join('')+'</div></div>';
-  else c.innerHTML='<div><div class="rtt">Book a call with Priya</div><div class="rr">15 minutes, uses 1 credit</div></div><button class="btn s" type="button" data-act="call">Book a call</button>';
+  else c.innerHTML='<div><div class="rtt">Book a call with Priya</div><div class="rr">'+(PAID?'15 minutes, costs £25':'15 minutes, uses 1 credit')+'</div></div><button class="btn s" type="button" data-act="call">Book a call</button>';
   var m=$('#msgrow');
   if(S.msg)m.innerHTML='<div class="x"><div class="rtt">Message sent</div><div class="rr">Priya replies within one working day. <a href="#" class="lnk" data-act="msgx">Send another</a></div></div>';
   else if(S.ui.msg)m.innerHTML='<div class="x"><div class="mrow"><input class="inp" id="msgin" type="text" aria-label="Message to Priya" placeholder="Write a message to Priya"><button class="btn s" type="button" data-act="send">Send</button></div></div>';
   else m.innerHTML='<div><div class="rtt">Send a message</div><div class="rr">Reply within one working day</div></div><button class="btn s sec" type="button" data-act="msg">Message</button>';
   // credits
+  if(PAID){
+    $('#credh').textContent='Calls';$('#credpill').className='pill wt';$('#credpill').textContent='Not included';
+    $('#toks').innerHTML='<span class="tk u"><b>£25</b>per 15-minute call</span>';
+    $('#crednote').textContent='Calls are not part of the Check plan. Messaging with Priya is included. You pay only for calls you book.';
+    return;
+  }
   $('#credpill').innerHTML=CHKSVG+(S.call?'1 of 2 left':'2 of 2 left');
   $('#toks').innerHTML='<span class="tk'+(S.call?' u':'')+'"><b>15 minutes</b>Call 1, '+(S.call?'booked':'not used')+'</span><span class="tk"><b>15 minutes</b>Call 2, not used</span>';
 }

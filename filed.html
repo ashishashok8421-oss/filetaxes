@@ -286,10 +286,10 @@ img.av{object-fit:cover;display:block}
 </div>
 <div class="col">
 <div class="card">
-<h2 class="h2">Call credits</h2>
-<div class="cc mt12">1 of 2 <span class="ccs">calls left</span></div>
-<div class="tok"><span class="tk u">Call 1: used 12 November</span><span class="tk">Call 2: 15 minutes, not used</span></div>
-<p class="p sm mut mt12">Extra calls cost £25 per 15 minutes.</p>
+<h2 class="h2" id="credh">Call credits</h2>
+<div class="cc mt12" id="credn">1 of 2 <span class="ccs">calls left</span></div>
+<div class="tok" id="toks"><span class="tk u">Call 1: used 12 November</span><span class="tk">Call 2: 15 minutes, not used</span></div>
+<p class="p sm mut mt12" id="crednote">Extra calls cost £25 per 15 minutes.</p>
 <button class="btn sec w mt12" type="button" data-dead>Book a call</button>
 </div>
 <div class="card dk gr">
@@ -364,6 +364,12 @@ function send(){var v=inp.value.trim();if(!v){inp.focus();return;}
   thr.appendChild(m);inp.value='';thr.scrollTop=thr.scrollHeight;}
 $('#send').addEventListener('click',send);
 inp.addEventListener('keydown',function(e){if(e.key==='Enter')send();});
+if(STORE.get('plan')===0){ // Check plan: no calls included
+  document.getElementById('credh').textContent='Calls';
+  document.getElementById('credn').innerHTML='£25 <span class="ccs">per 15-minute call</span>';
+  document.getElementById('toks').style.display='none';
+  document.getElementById('crednote').textContent='Calls are not part of the Check plan. Messaging with Priya is included.';
+}
 wire([]);
 </script>
 </body>
