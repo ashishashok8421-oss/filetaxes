@@ -227,7 +227,6 @@ button,label,.seg i{cursor:pointer}
 a.btn{text-decoration:none}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .btn.q{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
-img.av{object-fit:cover;display:block}
 .pill.in{background:var(--tint);color:var(--acc)}
 .toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);background:#10243A;color:#fff;padding:10px 16px;border-radius:8px;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;z-index:60;box-shadow:0 8px 24px -8px rgba(16,36,58,.6)}
 .cta .btn{margin-top:12px}
@@ -235,34 +234,42 @@ img.av{object-fit:cover;display:block}
 .sum .big{font-size:20px;margin-top:8px}
 .sum .chips{margin-top:12px}
 .sum .none{color:#C5D0DE;font-size:14px;margin:12px 0 0}
+.ag{width:36px;height:36px;border-radius:10px;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.ag svg{width:60%;height:60%}
+.ag.s40{width:40px;height:40px;border-radius:11px}
+.ag.s44{width:44px;height:44px;border-radius:12px}
+.ag.s48{width:48px;height:48px;border-radius:13px}
+.ag.lg{width:72px;height:72px;border-radius:20px}
+.rtt{font-weight:600;font-size:15px;line-height:1.3}
+.rr{font-size:13.5px;color:var(--mut);line-height:1.4}
 .yn{padding:16px 20px}
 </style>
 </head>
 <body>
 <section class="screen" data-title="Three things that can change your return"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first cur"><span class="nd">1</span><span class="sl">What to declare</span><span class="here">You are here</span></li>
-<li class="st"><span class="nd">2</span><span class="sl">Your accountant</span></li>
-<li class="st"><span class="nd">3</span><span class="sl">Your plan</span></li>
-<li class="st"><span class="nd">4</span><span class="sl">Your documents</span></li>
-<li class="st"><span class="nd">5</span><span class="sl">Check and approve</span></li>
-<li class="st"><span class="nd">6</span><span class="sl">Filed</span></li>
+<li class="st"><span class="nd">2</span><span class="sl">Connect</span></li>
+<li class="st"><span class="nd">3</span><span class="sl">Your return</span></li>
+<li class="st"><span class="nd">4</span><span class="sl">Check and approve</span></li>
+<li class="st"><span class="nd">5</span><span class="sl">Filed</span></li>
 </ol><div class="who"><span>Maya</span><span class="av">M</span></div></header>
 <div class="main"><div class="grid g1"><div class="col">
 <div><div class="qn">Part 2 of 2 · Three last checks</div><h1 class="h1">Three things that can change your return</h1>
-<p class="sub">Everyone gets these three, about the tax year 6 April 2025 to 5 April 2026. Each one can change what goes on your return or which accountant we match you with.</p></div>
+<p class="sub">Everyone gets these three, about the tax year 6 April 2025 to 5 April 2026. Each one can change what goes on your return.</p></div>
 <div class="o1">
-<div class="yn"><div class="q"><b>Did you pay into a pension you set up yourself?</b><span>A personal pension or SIPP, not one through your employer. You may be due tax back.</span></div><div class="seg"><i class="on">Yes</i><i class="">No</i><i class=" w">Not sure</i></div></div><div class="yn"><div class="q"><b>Did you or your partner get Child Benefit, and did either of you earn over £60,000?</b><span>If so, some or all of it may have to be paid back through your return.</span></div><div class="seg"><i class="">Yes</i><i class="on">No</i><i class=" w">Not sure</i></div></div><div class="yn"><div class="q"><b>Do you owe HMRC tax from an earlier year, or have a return that is more than a year late?</b><span>This takes extra work, so we match you with an accountant who handles it.</span></div><div class="seg"><i class="">Yes</i><i class="on">No</i><i class=" w">Not sure</i></div></div>
+<div class="yn"><div class="q"><b>Did you pay into a pension you set up yourself?</b><span>A personal pension or SIPP, not one through your employer. You may be due tax back.</span></div><div class="seg"><i class="on">Yes</i><i class="">No</i><i class=" w">Not sure</i></div></div><div class="yn"><div class="q"><b>Did you or your partner get Child Benefit, and did either of you earn over £60,000?</b><span>If so, some or all of it may have to be paid back through your return.</span></div><div class="seg"><i class="">Yes</i><i class="on">No</i><i class=" w">Not sure</i></div></div><div class="yn"><div class="q"><b>Do you owe HMRC tax from an earlier year, or have a return that is more than a year late?</b><span>If so, your agent checks what HMRC is expecting before it starts this return.</span></div><div class="seg"><i class="">Yes</i><i class="on">No</i><i class=" w">Not sure</i></div></div>
 </div></div><div class="col">
 <div class="card dk sum"><div class="eyb l">From your answers so far</div><p class="big">Your return will cover:</p><div class="chips" id="chips"></div><p class="none" id="nochips" hidden>Select at least one kind of income to see what your return will cover.</p><p class="p sm dmut mt12" id="early"></p></div>
-<div class="card push cta"><p class="p mut sm">Next, meet the accountant matched to your answers.</p><button class="btn w" type="button">Meet your accountant<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="bk"><a class="lnk" href="income.html" id="bk">Back</a></p></div>
+<div class="card push cta"><p class="p mut sm">Next, connect HMRC and your accounts so your agent can fill in the figures.</p><button class="btn w" type="button">Connect your accounts<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="bk"><a class="lnk" href="income.html" id="bk">Back</a></p></div>
 </div></div></div></section>
-<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="income.html" data-back>Back</a><a href="accountant.html" data-next>Next: 2. Meet your accountant</a><a href="index.html">Home</a></nav>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="income.html" data-back>Back</a><a href="connect.html" data-next>Next: 2. Connect</a><a href="index.html">Home</a></nav>
 <script>
 var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
 function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
 function $(s,r){return (r||document).querySelector(s);}
 function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 var toastT;
 function toast(msg){var t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}t.textContent=msg;t.style.display='block';clearTimeout(toastT);toastT=setTimeout(function(){t.style.display='none';},2600);}
 // Wire buttons and links by their visible text: [text, destination]
@@ -302,8 +309,10 @@ $$('.seg').forEach(function(seg){
     b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
   });
 });
-// What the answers so far add up to (shared by the three question pages)
+// What the answers so far add up to (shared by the question pages)
 var CHKSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var ARRSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+var AGENT='<span class="ag" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span>';
 var INC=['Employment','Self-employment','Rental income','Savings, investments or foreign income'];
 var WORKS=['freelance or contract','construction (CIS)','courier or driver','other work'];
 function incomeOn(){var on=STORE.get('income');return on&&on.length===4?on:[true,false,false,true];}
@@ -323,12 +332,12 @@ function update(){
   if(a[0]==='Yes')chips.push('Pension tax relief');else if(a[0]==='Not sure')chips.push('Pension tax relief (to check)');
   if(a[1]==='Yes')chips.push('Child Benefit repayment');else if(a[1]==='Not sure')chips.push('Child Benefit repayment (to check)');
   drawChips($('#chips'),chips);
-  $('#early').textContent=a[2]==='Yes'?'Earlier years: tax owed or a late return. We will match you with an accountant who handles this.':a[2]==='Not sure'?'Earlier years: not sure. Your accountant will check with HMRC.':'Earlier years: nothing outstanding.';
+  $('#early').textContent=a[2]==='Yes'?'Earlier years: tax owed or a late return. Your agent checks what HMRC is expecting first.':a[2]==='Not sure'?'Earlier years: not sure. Your agent will check with HMRC.':'Earlier years: nothing outstanding.';
 }
 segs.forEach(function(sg){sg.addEventListener('pick',update);});update();
 var back=incomeOn()[1]?'self-employed.html':'income.html';
 $('#bk').href=back;$('[data-back]').href=back;
-wire([['Meet your accountant','accountant.html']]);
+wire([['Connect your accounts','connect.html']]);
 </script>
 </body>
 </html>

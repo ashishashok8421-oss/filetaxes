@@ -3,314 +3,317 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tax Prototype: your tax return, done by a real accountant (design concept)</title>
-<meta name="description" content="Design concept: a qualified UK accountant prepares your Self Assessment tax return and files it with HMRC. Fixed fee from £99. Not an available service.">
+<title>Tax Prototype: your tax return, filed free by your tax agent (design concept)</title>
+<meta name="description" content="Design concept: connect HMRC and your accounts, a software tax agent prepares your Self Assessment return, you approve it and it files with HMRC. Free. Not an available service.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#F3F5F8}
-h1,h2{font-weight:600}a{color:#10243A}a:hover{color:#1B56B0}html{scroll-behavior:smooth}
-details{border-bottom:1px solid #D5DBE3}summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:600;font-size:19px;display:flex;justify-content:space-between;gap:16px}
-summary::-webkit-details-marker{display:none}summary::after{content:"+";font-weight:400;font-size:24px;line-height:1;color:#1B56B0}details[open] summary::after{content:"–"}
-details p{margin:0 0 18px;color:#4A5B70;max-width:70ch}
-@media(max-width:620px){.hdr{flex-wrap:nowrap!important}.hdr>div{font-size:23px!important}.nl{display:none}.ncta{padding:10px 16px!important}.hdr{padding:14px 20px!important}}
+:root{--ink:#10243A;--mut:#4A5B70;--line:#D5DBE3;--acc:#1B56B0;--tint:#E3ECF9;--bg:#F3F5F8;--ok:#0E6B4F;--okbg:#DDF2EA;--need:#6B3B00;--needbg:#FBEBD2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 'IBM Plex Sans',system-ui,sans-serif}
+a{color:var(--ink)}a:hover{color:var(--acc)}
+h1,h2,h3,p{margin:0}
+.serif,h1,h2{font-family:Newsreader,Georgia,serif;font-weight:600}
+.wrap{max-width:1280px;margin:0 auto;padding-left:32px;padding-right:32px}
+.banner{background:var(--needbg);color:var(--need);font-size:14px;padding:10px 24px;text-align:center}
+.hdr{display:flex;gap:16px 32px;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px}
+.wm{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:28px;white-space:nowrap}
+.nav{display:flex;gap:8px 28px;align-items:center;font-weight:600;font-size:16px}
+.nav a{text-decoration:none;padding:12px 0}
+.btn{display:inline-block;text-decoration:none;background:var(--acc);color:#fff!important;font-weight:600;font-size:18px;padding:18px 32px;border-radius:6px;white-space:nowrap}
+.btn.sm{font-size:16px;padding:12px 22px}
+.btn.alt{background:#fff;color:var(--ink)!important;border:1px solid var(--line);padding:17px 32px}
+.btn.inv{background:#fff;color:var(--ink)!important}
+.eyb{font-size:15px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.h2{font-size:clamp(34px,4vw,52px);line-height:1.05}
+.h2b{font-size:clamp(38px,5vw,68px);line-height:1;letter-spacing:-.01em}
+.lead{font-size:21px;line-height:1.45;color:var(--mut);max-width:40ch}
+.sec{padding-top:clamp(64px,8vw,104px);padding-bottom:clamp(64px,8vw,104px)}
+.two{display:flex;flex-wrap:wrap;gap:48px 88px;align-items:center}
+.two>.tx{flex:1 1 400px;display:flex;flex-direction:column;gap:20px}
+.two>.vis{flex:1 1 380px;display:flex;justify-content:center}
+.white{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dark{background:var(--ink);color:#fff}
+.dark .eyb{color:#9CC0F5}.dark .lead{color:#C5D0DE}
+.ag{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:var(--acc);color:#fff;flex:none}
+.ag svg{width:60%;height:60%}
+
+/* hero */
+.hero{display:flex;flex-wrap:wrap;gap:48px 72px;align-items:center;padding-top:clamp(32px,5vw,56px);padding-bottom:clamp(56px,7vw,88px)}
+.hero .tx{flex:1.3 1 440px;display:flex;flex-direction:column;gap:26px}
+.hero h1{font-size:clamp(42px,5.4vw,72px);line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+.pts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:16px 24px;line-height:1.3}
+.pts li{flex:1 1 170px;max-width:300px;display:flex;gap:10px;align-items:flex-start}
+.pts svg{flex:none;width:34px;height:34px;fill:none;stroke:var(--acc);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.soft{display:flex;gap:10px;align-items:center;font-size:15px;color:var(--mut)}
+.soft .ag{width:28px;height:28px;border-radius:8px}
+.ph{flex:1 1 360px;position:relative;max-width:520px;margin:0 auto}
+.ph img{display:block;width:100%;height:clamp(340px,60vw,560px);object-fit:cover;object-position:60% 25%;background:#D9E4F4;border-radius:12px 12px 180px 12px}
+.fl1{position:absolute;left:clamp(-28px,-2vw,-8px);top:44px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 18px;display:flex;flex-direction:column;gap:2px;box-shadow:0 10px 24px -14px rgba(16,36,58,.45)}
+.fl1 span{font-size:13px;color:var(--mut)}.fl1 b{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:22px;line-height:1.1}
+.fl2{position:absolute;right:12px;bottom:56px;background:var(--acc);color:#fff;border-radius:999px;padding:8px 18px 8px 8px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:16px}
+.fl2 .ag{width:30px;height:30px;background:#fff;color:var(--acc);border-radius:50%}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px 24px}
+.steps li{display:flex;flex-direction:column;gap:8px;border-top:3px solid var(--acc);padding-top:18px}
+.steps .n{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:44px;line-height:1;color:var(--acc)}
+.steps h3{font-size:20px}.steps p{color:var(--mut)}
+
+/* mock cards */
+.mock{width:100%;max-width:460px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:10px 26px 18px;box-shadow:0 30px 60px -40px rgba(16,36,58,.5)}
+.mr{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}
+.mr .l{display:flex;flex-direction:column;gap:4px;font-size:16px;color:var(--mut)}
+.tag{align-self:flex-start;background:var(--tint);color:var(--acc);font-weight:600;font-size:13px;padding:2px 8px;border-radius:4px}
+.mr .v{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:27px;white-space:nowrap}
+.cap{padding-top:12px;font-size:13px;color:var(--mut)}
+.live{width:100%;max-width:460px;background:#16304D;border:1px solid #2C4159;border-radius:20px;padding:24px 26px}
+.live .k{font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#C5D0DE}
+.live .fig{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:clamp(34px,5vw,46px);line-height:1.1;margin:4px 0 14px}
+.live .r{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #2C4159;font-size:16px}
+.live .r span:last-child{font-weight:600;font-variant-numeric:tabular-nums}
+.live .up{color:#F5C98A}.live .dn{color:#8FD9BF}
+.live .cap{color:#C5D0DE}
+.chatm{flex:1 1 380px;background:var(--bg);border-radius:28px;padding:clamp(24px,3.6vw,44px);display:flex;flex-direction:column;gap:14px}
+.bb{max-width:84%;border-radius:18px;padding:13px 17px}
+.bb.a{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+.bb.m{align-self:flex-end;background:var(--acc);color:#fff;border-bottom-right-radius:4px}
+.who{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px}
+
+/* lists */
+.list{flex:1.2 1 340px;list-style:none;margin:0;padding:0}
+.list li{padding:14px 0;border-bottom:1px solid var(--line)}
+.list b{display:block;font-size:19px;font-weight:600}.list span{font-size:15px;color:var(--mut)}
+.promise{display:flex;gap:16px;align-items:flex-start;background:var(--okbg);color:#0B4F3B;border-radius:14px;padding:22px 26px;font-size:19px}
+.promise svg{flex:none;width:30px;height:30px;fill:none;stroke:var(--ok);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev{background:var(--bg);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.rev h3{font-size:19px}.rev p{font-size:16px;color:var(--mut)}
+.rev .by{margin-top:auto;padding-top:6px;display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mut)}
+.ini{width:36px;height:36px;border-radius:50%;background:var(--tint);color:var(--acc);font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.sample{display:inline-block;margin-top:10px;font-size:15px;color:var(--need);background:var(--needbg);padding:4px 10px;border-radius:6px}
+.free{display:flex;flex-wrap:wrap;gap:32px 72px;align-items:center}
+.free .big{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:clamp(96px,14vw,180px);line-height:1;letter-spacing:-.03em;margin-top:4px}
+.inc{flex:1.2 1 360px;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 32px}
+.inc li{display:flex;gap:10px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line);font-weight:500}
+.inc svg{flex:none;width:20px;height:20px;margin-top:3px;fill:none;stroke:var(--ok);stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:600;font-size:19px;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:400;font-size:24px;line-height:1;color:var(--acc)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 18px;color:var(--mut);max-width:70ch}
+.end{background:var(--acc);color:#fff;border-radius:10px;padding:clamp(32px,5vw,72px);display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;justify-content:space-between}
+.end h2{font-size:clamp(34px,4.4vw,56px);line-height:1.02}
+.end p{margin-top:12px;font-size:19px;color:#DCE7F7}
+footer{padding-bottom:48px;font-size:14px;color:var(--mut)}
+@media(max-width:620px){
+  .nl{display:none}.hdr{padding-top:14px;padding-bottom:14px}.wm{font-size:23px}.btn.sm{padding:10px 16px}
+  .wrap{padding-left:20px;padding-right:20px}
+  .two.rev-m{flex-direction:column-reverse}
+}
 </style>
 </head>
 <body>
-<div style="font-family: 'IBM Plex Sans', system-ui, sans-serif; color: #10243A; background: #F3F5F8; font-size: 17px; line-height: 1.5">
 
-<div style="background: #FBEBD2; color: #6B3B00; font-size: 14px; padding: 10px 24px; text-align: center">Design concept, not a live service. Reviews and figures are samples; photos are AI-generated.</div>
+<div class="banner">Design concept, not a live service. Reviews and figures are samples; the photo is AI-generated.</div>
 
-<header class="hdr" style="max-width: 1280px; margin: 0 auto; padding: 20px 32px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between">
-<div style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 28px">Tax Prototype</div>
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; font-weight: 600; font-size: 16px">
-<a class="nl" href="#steps" style="text-decoration: none; padding: 12px 0">How it works</a>
-<a class="nl" href="#pricing" style="text-decoration: none; padding: 12px 0">Pricing</a>
-<a class="nl" href="#reviews" style="text-decoration: none; padding: 12px 0">Reviews</a>
-<a class="ncta" href="#" style="text-decoration: none; background: #1B56B0; color: #FFFFFF; padding: 12px 22px; border-radius: 6px; white-space: nowrap">Start my return</a>
+<header class="wrap hdr">
+<div class="wm">Tax Prototype</div>
+<nav class="nav" aria-label="Main">
+<a class="nl" href="#steps">How it works</a>
+<a class="nl" href="#free">What is free</a>
+<a class="nl" href="#faq">Questions</a>
+<a class="btn sm" href="start.html">Start my return</a>
 </nav>
 </header>
 
-<section style="max-width: 1280px; margin: 0 auto; padding: clamp(32px, 5vw, 56px) 32px clamp(56px, 7vw, 88px); display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: center">
-<div style="flex: 1.3 1 440px; display: flex; flex-direction: column; gap: 28px">
-<h1 style="margin: 0; font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: clamp(42px, 5.4vw, 72px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance">Your tax return, done by a real accountant.</h1>
-<p style="margin: -8px 0 0; font-size: 21px; line-height: 1.45; color: #4A5B70; max-width: 40ch">A qualified UK accountant prepares your Self Assessment return and files it with HMRC. Fixed fee from £99.</p>
-<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 18px 24px; font-size: 17px; line-height: 1.3; color: #10243A">
-<li style="flex: 1 1 170px; max-width: 300px; display: flex; gap: 10px; align-items: flex-start"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1B56B0" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.600-6.500 8-6.500"></path><path d="M15 18l2.200 2.200L21.500 16"></path></svg><span><strong>Qualified accountant</strong> prepares and files your return</span></li>
-<li style="flex: 1 1 170px; max-width: 300px; display: flex; gap: 10px; align-items: flex-start"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1B56B0" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M12 3l8 3v6c0 4.500-3.200 7.800-8 9-4.800-1.200-8-4.500-8-9V6z"></path><path d="M8.500 12l2.500 2.500 4.500-5"></path></svg><span><strong>Money-back guarantee</strong> if we make a mistake</span></li>
-<li style="flex: 1 1 170px; max-width: 300px; display: flex; gap: 10px; align-items: flex-start"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1B56B0" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M12 4v10"></path><path d="M8 10.500l4 4 4-4"></path><rect x="4" y="17" width="16" height="3.500" rx="1.500"></rect></svg><span><strong>Pay details pulled from HMRC</strong>, nothing to type</span></li>
+<section class="wrap hero">
+<div class="tx">
+<h1>Your tax return, filed free by your tax agent.</h1>
+<p class="lead" style="max-width:44ch">Connect HMRC and your accounts. Your tax agent prepares your Self Assessment return, you check and approve it, and it files with HMRC.</p>
+<ul class="pts">
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.500l2.800 2.800L16 9.500"/></svg><span><strong>Free to file.</strong> No card, no cut of your refund</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10"/><path d="M8 10.500l4 4 4-4"/><rect x="4" y="17" width="16" height="3.500" rx="1.500"/></svg><span><strong>Figures filled in</strong> from HMRC and your accounts</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.500-3.200 7.800-8 9-4.800-1.200-8-4.500-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg><span><strong>Nothing is filed</strong> until you approve it</span></li>
 </ul>
-<div style="display: flex; flex-wrap: wrap; gap: 14px">
-<a href="#" style="text-decoration: none; background: #1B56B0; color: #FFFFFF; font-weight: 600; font-size: 18px; padding: 18px 32px; border-radius: 6px">Start my return</a>
-<a href="#steps" style="text-decoration: none; background: #FFFFFF; border: 1px solid #D5DBE3; font-weight: 600; font-size: 18px; padding: 17px 32px; border-radius: 6px">How it works</a>
+<div class="cta">
+<a class="btn" href="start.html">Start my return</a>
+<a class="btn alt" href="#steps">How it works</a>
 </div>
-<div style="font-size: 15px; color: #4A5B70">From £99, one-off · No subscription · Our target: ready to approve in 3 working days</div>
+<div class="soft"><span class="ag" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span><span><strong style="color:var(--ink)">Your tax agent is software, not a person.</strong> You check and approve everything before it is filed.</span></div>
 </div>
-<div style="flex: 1 1 360px; position: relative; max-width: 520px; margin: 0 auto">
-<img src="assets/hero.jpg" alt="A smiling woman in a blue sweater at a wooden table, looking at her laptop at home" style="display: block; width: 100%; height: clamp(340px, 60vw, 560px); object-fit: cover; object-position: 60% 25%; background: #D9E4F4; border-radius: 12px 12px 180px 12px">
-<div style="position: absolute; left: clamp(-28px, -2vw, -8px); top: 44px; background: #FFFFFF; border: 1px solid #D5DBE3; border-radius: 8px; padding: 14px 18px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 10px 24px -14px rgba(16,36,58,0.45)">
-<span style="font-size: 13px; color: #4A5B70">Your tax return</span>
-<span style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 22px; line-height: 1.1">Sent to HMRC</span>
-</div>
-<div style="position: absolute; right: 12px; bottom: 56px; background: #1B56B0; color: #FFFFFF; border-radius: 999px; padding: 10px 18px 10px 12px; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 16px">
-<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.500l2.800 2.800L16 9.500"></path></svg>
-<span>Prepared by an accountant</span>
-</div>
+<div class="ph">
+<img src="assets/hero.jpg" alt="A smiling woman in a blue sweater at a wooden table, looking at her laptop at home">
+<div class="fl1"><span>Your tax return</span><b>Sent to HMRC</b></div>
+<div class="fl2"><span class="ag" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span><span>Filed by your tax agent</span></div>
 </div>
 </section>
 
-<section id="included" style="background: #FFFFFF; border-top: 1px solid #D5DBE3">
-<div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) 32px; display: flex; flex-wrap: wrap; gap: 56px 88px; align-items: center">
-<div style="flex: 1 1 400px; display: flex; flex-direction: column; gap: 20px">
-<div style="font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1B56B0">Your accountant</div>
-<h2 style="margin: 0; font-family: Newsreader, Georgia, serif; font-size: clamp(42px, 5.6vw, 76px); line-height: 1; letter-spacing: -0.01em">A real person. Fully qualified.</h2>
-<p style="margin: 0; font-size: 21px; line-height: 1.45; color: #4A5B70; max-width: 34ch">UK-based, with an ACCA, CIMA or CTA qualification and five or more years' experience. They prepare your return, chase anything missing and file it once you approve.</p>
-</div>
-<div style="flex: 1 1 380px; background: #F3F5F8; border-radius: 28px; padding: clamp(28px, 4vw, 56px); display: flex; justify-content: center">
-<div style="width: 100%; max-width: 380px; background: #FFFFFF; border: 1px solid #D5DBE3; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 18px">
-<div style="display: flex; gap: 16px; align-items: center">
-<div style="flex: none; width: 76px; height: 76px; border-radius: 50%; background: #D9E4F4; display: flex; align-items: center; justify-content: center">
-<img src="assets/accountant.png" alt="Priya Shah, a smiling woman with dark curly hair" width="76" height="76" style="display: block; width: 76px; height: 76px; border-radius: 50%; object-fit: cover">
-</div>
-<div style="display: flex; flex-direction: column; gap: 2px">
-<div style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 24px; line-height: 1.1">Priya Shah</div>
-<div style="font-size: 15px; color: #4A5B70">Sample accountant, London</div>
-</div>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px">
-<span style="background: #E3ECF9; color: #1B56B0; font-weight: 600; font-size: 14px; padding: 6px 12px; border-radius: 999px">ACCA</span>
-<span style="background: #E3ECF9; color: #1B56B0; font-weight: 600; font-size: 14px; padding: 6px 12px; border-radius: 999px">8 years</span>
-<span style="background: #E3ECF9; color: #1B56B0; font-weight: 600; font-size: 14px; padding: 6px 12px; border-radius: 999px">UK-based</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section style="background: #10243A; color: #FFFFFF">
-<div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) 32px; display: flex; flex-wrap: wrap; gap: 56px 88px; align-items: center">
-<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 4px">
-<div style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: clamp(120px, 17vw, 230px); line-height: 0.9; letter-spacing: -0.03em">100%</div>
-<div style="font-size: 21px; color: #C5D0DE">of our fee back if we get your return wrong</div>
-</div>
-<div style="flex: 1 1 400px; display: flex; flex-direction: column; gap: 20px">
-<div style="font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #9CC0F5">Money-back guarantee</div>
-<h2 style="margin: 0; font-family: Newsreader, Georgia, serif; font-size: clamp(42px, 5.6vw, 76px); line-height: 1; letter-spacing: -0.01em">Our mistake. Your money back.</h2>
-<p style="margin: 0; font-size: 21px; line-height: 1.45; color: #C5D0DE; max-width: 34ch">If your accountant makes a mistake on your return, you get your fee back and a corrected return at no extra cost. It covers our errors, not missing or incorrect information you gave us.</p>
-</div>
-</div>
-</section>
-
-<section style="background: #F3F5F8">
-<div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) 32px; display: flex; flex-wrap: wrap; gap: 56px 88px; align-items: center">
-<div style="flex: 1 1 400px; display: flex; flex-direction: column; gap: 20px">
-<div style="font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1B56B0">Connected to HMRC</div>
-<h2 style="margin: 0; font-family: Newsreader, Georgia, serif; font-size: clamp(42px, 5.6vw, 76px); line-height: 1; letter-spacing: -0.01em">Your pay, already filled in.</h2>
-<p style="margin: 0; font-size: 21px; line-height: 1.45; color: #4A5B70; max-width: 34ch">We bring in your pay, the tax you have already paid and your tax code straight from HMRC. No hunting for your P60 or P45 (the pay summaries your employer gives you).</p>
-</div>
-<div style="flex: 1 1 380px; display: flex; justify-content: center">
-<div style="width: 100%; max-width: 440px; background: #FFFFFF; border: 1px solid #D5DBE3; border-radius: 20px; padding: 12px 28px 20px; box-shadow: 0 30px 60px -40px rgba(16,36,58,0.5)">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 0; border-bottom: 1px solid #D5DBE3">
-<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 16px; color: #4A5B70">Salary before tax</span><span style="align-self: flex-start; background: #E3ECF9; color: #1B56B0; font-weight: 600; font-size: 13px; padding: 2px 8px; border-radius: 4px">From HMRC</span></div>
-<span style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 30px">£68,000</span>
-</div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 0; border-bottom: 1px solid #D5DBE3">
-<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 16px; color: #4A5B70">Tax already paid</span><span style="align-self: flex-start; background: #E3ECF9; color: #1B56B0; font-weight: 600; font-size: 13px; padding: 2px 8px; border-radius: 4px">From HMRC</span></div>
-<span style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 30px">£14,632</span>
-</div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 0; border-bottom: 1px solid #D5DBE3">
-<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 16px; color: #4A5B70">Tax code</span><span style="align-self: flex-start; background: #E3ECF9; color: #1B56B0; font-weight: 600; font-size: 13px; padding: 2px 8px; border-radius: 4px">From HMRC</span></div>
-<span style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 30px">1257L</span>
-</div>
-<div style="padding-top: 14px; font-size: 13px; color: #4A5B70">Sample figures</div>
-</div>
-</div>
-</div>
-</section>
-
-<section style="background: #FFFFFF">
-<div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) 32px; display: flex; flex-wrap: wrap-reverse; gap: 56px 88px; align-items: center">
-<div style="flex: 1 1 380px; background: #F3F5F8; border-radius: 28px; padding: clamp(24px, 3.6vw, 48px); display: flex; flex-direction: column; gap: 14px">
-<div style="align-self: flex-start; max-width: 84%; background: #FFFFFF; border: 1px solid #D5DBE3; border-radius: 18px 18px 18px 4px; padding: 14px 18px; font-size: 17px">I can see £820 of dividends from your connected investment account. Did you have any from anywhere else?</div>
-<div style="align-self: flex-end; max-width: 84%; background: #1B56B0; color: #FFFFFF; border-radius: 18px 18px 4px 18px; padding: 14px 18px; font-size: 17px">No, that is all of them.</div>
-<div style="align-self: flex-start; max-width: 84%; background: #FFFFFF; border: 1px solid #D5DBE3; border-radius: 18px 18px 18px 4px; padding: 14px 18px; font-size: 17px">Thanks. Your return is ready for you to approve.</div>
-<div style="font-size: 13px; color: #4A5B70">Sample conversation</div>
-</div>
-<div style="flex: 1 1 400px; display: flex; flex-direction: column; gap: 20px">
-<div style="font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1B56B0">Ask anything</div>
-<h2 style="margin: 0; font-family: Newsreader, Georgia, serif; font-size: clamp(42px, 5.6vw, 76px); line-height: 1; letter-spacing: -0.01em">Message your accountant.</h2>
-<p style="margin: 0; font-size: 21px; line-height: 1.45; color: #4A5B70; max-width: 34ch">Ask about your documents, what to declare or anything on your return. The answer comes from the person preparing it.</p>
-</div>
-</div>
-</section>
-
-<section id="steps" style="background: #FFFFFF; border-top: 1px solid #D5DBE3; border-bottom: 1px solid #D5DBE3">
-<div style="max-width: 1280px; margin: 0 auto; padding: 80px 32px; display: flex; flex-direction: column; gap: 40px">
-<h2 style="margin: 0; font-family: Newsreader, Georgia, serif; font-size: clamp(34px, 4vw, 52px); line-height: 1.05">How it works</h2>
-<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px 24px">
-<li style="display: flex; flex-direction: column; gap: 8px; border-top: 3px solid #1B56B0; padding-top: 18px">
-<div style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 44px; line-height: 1; color: #1B56B0">1</div>
-<h3 style="margin: 0; font-size: 20px">Tell us about your year</h3>
-<p style="margin: 0; color: #4A5B70">About 2 minutes of simple questions.</p>
-</li>
-<li style="display: flex; flex-direction: column; gap: 8px; border-top: 3px solid #1B56B0; padding-top: 18px">
-<div style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 44px; line-height: 1; color: #1B56B0">2</div>
-<h3 style="margin: 0; font-size: 20px">Meet your accountant, choose a plan</h3>
-<p style="margin: 0; color: #4A5B70">A fixed fee, from £99.</p>
-</li>
-<li style="display: flex; flex-direction: column; gap: 8px; border-top: 3px solid #1B56B0; padding-top: 18px">
-<div style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 44px; line-height: 1; color: #1B56B0">3</div>
-<h3 style="margin: 0; font-size: 20px">Authorise them with HMRC</h3>
-<p style="margin: 0; color: #4A5B70">Your pay and tax figures come in automatically.</p>
-</li>
-<li style="display: flex; flex-direction: column; gap: 8px; border-top: 3px solid #1B56B0; padding-top: 18px">
-<div style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 44px; line-height: 1; color: #1B56B0">4</div>
-<h3 style="margin: 0; font-size: 20px">Your accountant prepares it</h3>
-<p style="margin: 0; color: #4A5B70">They message you if anything is missing.</p>
-</li>
-<li style="display: flex; flex-direction: column; gap: 8px; border-top: 3px solid #1B56B0; padding-top: 18px">
-<div style="font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 44px; line-height: 1; color: #1B56B0">5</div>
-<h3 style="margin: 0; font-size: 20px">You approve, they file</h3>
-<p style="margin: 0; color: #4A5B70">You get HMRC's receipt.</p>
-</li>
+<section id="steps" class="white">
+<div class="wrap" style="padding-top:80px;padding-bottom:80px;display:flex;flex-direction:column;gap:40px">
+<h2 class="h2">How it works</h2>
+<ol class="steps">
+<li><div class="n">1</div><h3>Tell us about your year</h3><p>About 2 minutes of simple questions.</p></li>
+<li><div class="n">2</div><h3>Connect HMRC and your accounts</h3><p>Your figures come in automatically.</p></li>
+<li><div class="n">3</div><h3>Your agent builds your return</h3><p>You watch your tax figure update as it goes.</p></li>
+<li><div class="n">4</div><h3>Check and approve</h3><p>See every figure and how the result is worked out.</p></li>
+<li><div class="n">5</div><h3>Filed with HMRC</h3><p>You get HMRC's receipt straight away.</p></li>
 </ol>
 </div>
 </section>
 
-<section style="max-width: 1280px; margin: 0 auto; padding: 80px 32px; display: flex; flex-wrap: wrap; gap: 32px 72px; align-items: start">
-<div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 16px">
-<h2 style="margin: 0; font-family: Newsreader, Georgia, serif; font-size: clamp(34px, 4vw, 52px); line-height: 1.05">Made for people with a job and a bit more to declare</h2>
-<p style="margin: 0; font-size: 19px; color: #4A5B70; max-width: 34ch">If your employer already takes tax from your pay but you have other income or relief to sort out, this is for you.</p>
-<p style="margin: 0; font-size: 15px; color: #4A5B70"><strong style="color: #10243A">Not yet:</strong> directors of limited companies.</p>
+<section>
+<div class="wrap sec two">
+<div class="tx">
+<div class="eyb">Connected to HMRC</div>
+<h2 class="h2b">Your pay, already filled in.</h2>
+<p class="lead">Your agent brings in your pay, the tax you have already paid and your tax code straight from HMRC. No hunting for your P60 or P45 (the pay summaries your employer gives you).</p>
 </div>
-<ul style="flex: 1.2 1 340px; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
-<li style="padding: 14px 0; border-bottom: 1px solid #D5DBE3"><div style="font-weight: 600; font-size: 19px">Savings interest</div><div style="font-size: 15px; color: #4A5B70">Above your tax-free allowance.</div></li>
-<li style="padding: 14px 0; border-bottom: 1px solid #D5DBE3"><div style="font-weight: 600; font-size: 19px">Dividends and investment profits</div><div style="font-size: 15px; color: #4A5B70">Shares, funds and other investments you sold.</div></li>
-<li style="padding: 14px 0; border-bottom: 1px solid #D5DBE3"><div style="font-weight: 600; font-size: 19px">Pension tax relief</div><div style="font-size: 15px; color: #4A5B70">Higher-rate relief you have to claim yourself.</div></li>
-<li style="padding: 14px 0; border-bottom: 1px solid #D5DBE3"><div style="font-weight: 600; font-size: 19px">Child Benefit repayment</div><div style="font-size: 15px; color: #4A5B70">If you or your partner earn over £60,000.</div></li>
-<li style="padding: 14px 0; border-bottom: 1px solid #D5DBE3"><div style="font-weight: 600; font-size: 19px">A side business or rental income</div><div style="font-size: 15px; color: #4A5B70">We match you with an accountant who knows it.</div></li>
+<div class="vis">
+<div class="mock">
+<div class="mr"><div class="l">Salary before tax<span class="tag">From HMRC</span></div><span class="v">£68,000</span></div>
+<div class="mr"><div class="l">Tax already paid<span class="tag">From HMRC</span></div><span class="v">£14,632</span></div>
+<div class="mr"><div class="l">Tax code<span class="tag">From HMRC</span></div><span class="v">1257L</span></div>
+<div class="cap">Sample figures</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="white">
+<div class="wrap sec two rev-m" style="flex-wrap:wrap-reverse">
+<div class="vis">
+<div class="mock">
+<div class="mr"><div class="l">Employment<span class="tag">From HMRC</span></div><span class="v">£68,000</span></div>
+<div class="mr"><div class="l">Savings interest<span class="tag">From Example Bank</span></div><span class="v">£1,550</span></div>
+<div class="mr"><div class="l">Dividends<span class="tag">From Example Invest</span></div><span class="v">£820</span></div>
+<div class="mr"><div class="l">Profit on investments<span class="tag">From Example Invest</span></div><span class="v">£5,400</span></div>
+<div class="mr"><div class="l">Pension paid in<span class="tag">From Example Pension</span></div><span class="v">£7,500</span></div>
+<div class="cap">Sample figures</div>
+</div>
+</div>
+<div class="tx">
+<div class="eyb">One return</div>
+<h2 class="h2b">All your income in one place.</h2>
+<p class="lead">Connect your bank, savings and investment accounts once. Your agent puts each kind of income in the right section of your return and shows you where every figure came from.</p>
+</div>
+</div>
+</section>
+
+<section class="dark">
+<div class="wrap sec two">
+<div class="tx">
+<div class="eyb">In real time</div>
+<h2 class="h2b">See your tax figure as it changes.</h2>
+<p class="lead">Every section your agent fills in moves the number. You see what each one adds or takes off, long before anything is filed.</p>
+</div>
+<div class="vis">
+<div class="live">
+<div class="k">Estimated so far</div>
+<div class="fig">HMRC owes you £396</div>
+<div class="r"><span>Savings interest</span><span class="up">+ £420 tax</span></div>
+<div class="r"><span>Dividends</span><span class="up">+ £108 tax</span></div>
+<div class="r"><span>Profit on investments</span><span class="up">+ £576 tax</span></div>
+<div class="r"><span>Pension relief</span><span class="dn">− £1,500 tax</span></div>
+<div class="cap">Sample figures</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="white" style="border-top:0">
+<div class="wrap sec two" style="flex-wrap:wrap-reverse">
+<div class="chatm">
+<div class="who"><span class="ag" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span>Your tax agent</div>
+<div class="bb a">I can see £820 of dividends from Example Invest. Did you have any from anywhere else?</div>
+<div class="bb m">No, that is all of them.</div>
+<div class="bb a">Thanks. The first £500 is tax-free, so £320 is taxed. Your return is ready for you to check.</div>
+<div class="cap" style="padding:0">Sample conversation</div>
+</div>
+<div class="tx">
+<div class="eyb">Ask anything</div>
+<h2 class="h2b">Ask your agent anything.</h2>
+<p class="lead">What to declare, why a figure changed, what a letter from HMRC means. Plain answers in seconds, using the figures on your own return.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap" style="padding-top:80px;padding-bottom:40px;display:flex;flex-wrap:wrap;gap:32px 72px;align-items:start">
+<div style="flex:1 1 300px;display:flex;flex-direction:column;gap:16px">
+<h2 class="h2">Made for people with a job and a bit more to declare</h2>
+<p style="font-size:19px;color:var(--mut);max-width:34ch">If your employer already takes tax from your pay but you have other income or relief to sort out, this is for you.</p>
+<p style="font-size:15px;color:var(--mut)"><strong style="color:var(--ink)">Not yet:</strong> directors of limited companies.</p>
+</div>
+<ul class="list">
+<li><b>Savings interest</b><span>Above your tax-free allowance.</span></li>
+<li><b>Dividends and investment profits</b><span>Shares, funds and other investments you sold.</span></li>
+<li><b>Pension tax relief</b><span>Higher-rate relief you have to claim yourself.</span></li>
+<li><b>Child Benefit repayment</b><span>If you or your partner earn over £60,000.</span></li>
+<li><b>A side business or rental income</b><span>Your agent asks about the work and the costs you can claim.</span></li>
 </ul>
+</div>
+<div class="wrap" style="padding-bottom:80px">
+<div class="promise"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.500-3.200 7.800-8 9-4.800-1.200-8-4.500-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg><div><strong>Accuracy promise.</strong> If our agent gets a calculation wrong, we correct the return and cover any HMRC penalty or interest that results.</div></div>
+</div>
 </section>
 
-<section id="reviews" style="background: #FFFFFF; border-top: 1px solid #D5DBE3; border-bottom: 1px solid #D5DBE3">
-<div style="max-width: 1280px; margin: 0 auto; padding: 80px 32px; display: flex; flex-direction: column; gap: 28px">
-<div><h2 style="margin: 0; font-family: Newsreader, Georgia, serif; font-size: clamp(34px, 4vw, 52px); line-height: 1.05">What customers might say</h2><p style="margin: 10px 0 0; font-size: 15px; color: #6B3B00; background: #FBEBD2; display: inline-block; padding: 4px 10px; border-radius: 6px">Sample reviews, written for this concept.</p></div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
-<article style="background: #F3F5F8; border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
-<svg role="img" aria-label="5 stars" width="108" height="19" viewBox="0 0 108 19"><path fill="#1B56B0" d="M10 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM32 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM54 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM76 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM98 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7z"></path></svg>
-<h3 style="margin: 0; font-size: 19px">Sorted in an afternoon</h3>
-<p style="margin: 0; font-size: 16px; color: #4A5B70">I answered a few questions on my lunch break. Priya had my return ready to approve two days later.</p>
-<div style="margin-top: auto; padding-top: 6px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #4A5B70"><span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 50%; background: #E3ECF9; color: #1B56B0; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none">M</span><span><strong style="color: #10243A">Maya</strong>, sample review</span></div>
-</article>
-<article style="background: #F3F5F8; border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
-<svg role="img" aria-label="5 stars" width="108" height="19" viewBox="0 0 108 19"><path fill="#1B56B0" d="M10 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM32 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM54 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM76 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM98 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7z"></path></svg>
-<h3 style="margin: 0; font-size: 19px">A person, not a chatbot</h3>
-<p style="margin: 0; font-size: 16px; color: #4A5B70">I asked whether I had to declare my share dividends and had a clear answer the next morning.</p>
-<div style="margin-top: auto; padding-top: 6px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #4A5B70"><span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 50%; background: #E3ECF9; color: #1B56B0; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none">T</span><span><strong style="color: #10243A">Tom</strong>, sample review</span></div>
-</article>
-<article style="background: #F3F5F8; border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
-<svg role="img" aria-label="5 stars" width="108" height="19" viewBox="0 0 108 19"><path fill="#1B56B0" d="M10 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM32 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM54 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM76 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7zM98 1.5l2.4 5.3 5.8.7-4.3 3.9 1.2 5.7-5.1-2.8-5.1 2.8 1.2-5.7-4.3-3.9 5.8-.7z"></path></svg>
-<h3 style="margin: 0; font-size: 19px">Found relief I had missed</h3>
-<p style="margin: 0; font-size: 16px; color: #4A5B70">My accountant spotted pension tax relief I had never claimed. It more than covered the fee.</p>
-<div style="margin-top: auto; padding-top: 6px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #4A5B70"><span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 50%; background: #E3ECF9; color: #1B56B0; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none">A</span><span><strong style="color: #10243A">Aisha</strong>, sample review</span></div>
-</article>
+<section id="reviews" class="white">
+<div class="wrap" style="padding-top:80px;padding-bottom:80px;display:flex;flex-direction:column;gap:28px">
+<div><h2 class="h2">What customers might say</h2><p class="sample">Sample reviews, written for this concept.</p></div>
+<div class="revs">
+<article class="rev"><h3>Sorted in a lunch break</h3><p>I answered a few questions and connected HMRC. My return was ready to check the same afternoon.</p><div class="by"><span class="ini" aria-hidden="true">M</span><span><strong style="color:var(--ink)">Maya</strong>, sample review</span></div></article>
+<article class="rev"><h3>Clear answers, straight away</h3><p>I asked whether I had to declare my share dividends and got a plain answer in seconds, with the figures.</p><div class="by"><span class="ini" aria-hidden="true">T</span><span><strong style="color:var(--ink)">Tom</strong>, sample review</span></div></article>
+<article class="rev"><h3>Found relief I had missed</h3><p>It spotted pension tax relief I had never claimed, and showed me exactly how much it took off my bill.</p><div class="by"><span class="ini" aria-hidden="true">A</span><span><strong style="color:var(--ink)">Aisha</strong>, sample review</span></div></article>
 </div>
 </div>
 </section>
 
-<section id="pricing" style="background: #F3F5F8">
-<div style="max-width: 1280px; margin: 0 auto; padding: 80px 32px; display: flex; flex-direction: column; gap: 28px">
-<div><h2 style="margin: 0; font-family: Newsreader, Georgia, serif; font-size: clamp(34px, 4vw, 52px); line-height: 1.05">One fixed fee</h2><p style="margin: 10px 0 0; font-size: 19px; color: #4A5B70">One payment for your return. No subscription. Money-back guarantee on every plan.</p></div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; align-items: stretch">
-<div style="background: #FFFFFF; border: 1px solid #D5DBE3; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px"><h3 style="margin: 0; font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 26px">Check</h3></div>
-<div style="font-size: 40px; font-weight: 700; letter-spacing: -0.5px; line-height: 1">£99 <span style="font-size: 15px; font-weight: 500; color: #4A5B70; letter-spacing: 0">one-off, inc. VAT</span></div>
-<p style="margin: 0; color: #4A5B70">You fill in the return. Your accountant checks it and files it.</p>
-<ul style="margin: 4px 0 0; padding: 0 0 0 20px; font-size: 16px; display: flex; flex-direction: column; gap: 4px"><li>Messaging with your accountant</li><li>Calls at £25 per 15 minutes</li></ul>
+<section id="free">
+<div class="wrap free" style="padding-top:80px;padding-bottom:80px">
+<div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+<div class="eyb">What it costs</div>
+<div class="big">Free</div>
+<p style="font-size:21px;color:var(--mut)">No card. No commission on refunds.</p>
 </div>
-<div style="background: #FFFFFF; border: 2px solid #1B56B0; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px"><h3 style="margin: 0; font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 26px">Done for you</h3><span style="background: #E3ECF9; color: #1B56B0; font-weight: 600; font-size: 13px; padding: 4px 10px; border-radius: 999px; white-space: nowrap">Fits most returns</span></div>
-<div style="font-size: 40px; font-weight: 700; letter-spacing: -0.5px; line-height: 1">£149 <span style="font-size: 15px; font-weight: 500; color: #4A5B70; letter-spacing: 0">one-off, inc. VAT</span></div>
-<p style="margin: 0; color: #4A5B70">Your accountant prepares, checks and files your return.</p>
-<ul style="margin: 4px 0 0; padding: 0 0 0 20px; font-size: 16px; display: flex; flex-direction: column; gap: 4px"><li>Messaging with your accountant</li><li>2 × 15-minute calls included</li></ul>
-</div>
-<div style="background: #FFFFFF; border: 1px solid #D5DBE3; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px"><h3 style="margin: 0; font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 26px">Year-round</h3></div>
-<div style="font-size: 40px; font-weight: 700; letter-spacing: -0.5px; line-height: 1">£199 <span style="font-size: 15px; font-weight: 500; color: #4A5B70; letter-spacing: 0">one-off, inc. VAT</span></div>
-<p style="margin: 0; color: #4A5B70">Everything in Done for you, plus two tax reviews during the year.</p>
-<ul style="margin: 4px 0 0; padding: 0 0 0 20px; font-size: 16px; display: flex; flex-direction: column; gap: 4px"><li>Messaging with your accountant</li><li>2 × 15-minute calls included</li><li>Advice on ISAs, pension and allowances</li></ul>
-</div>
-</div>
+<ul class="inc">
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Your whole return prepared by your tax agent</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>HMRC, bank, savings and investment connections</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Your tax figure, updated as it changes</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Questions answered by your agent</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Filing with HMRC, and HMRC's receipt</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>A reminder and a head start next year</li>
+</ul>
 </div>
 </section>
 
-<section id="faq" style="background: #FFFFFF; border-top: 1px solid #D5DBE3">
-<div style="max-width: 1280px; margin: 0 auto; padding: 80px 32px; display: flex; flex-wrap: wrap; gap: 24px 72px; align-items: start">
-<h2 style="flex: 1 1 280px; margin: 0; font-family: Newsreader, Georgia, serif; font-size: clamp(34px, 4vw, 52px); line-height: 1.05">Questions people ask</h2>
-<div style="flex: 2 1 420px; border-top: 1px solid #D5DBE3">
-<details><summary>How long does it take?</summary><p>About 2 minutes of questions and 5 minutes to authorise your accountant with HMRC. Our target is a return ready for you to approve within 3 working days of your documents arriving.</p></details>
-<details><summary>What do I need to have ready?</summary><p>Your Unique Taxpayer Reference (the 10-digit number on HMRC letters) and your National Insurance number. No payslips or P60: those figures come from HMRC.</p></details>
-<details><summary>What can my accountant do with HMRC?</summary><p>See your tax record and file your Self Assessment return, and only after you approve it. They will not change your bank details, and any refund is paid by HMRC straight to you. You can remove them at any time.</p></details>
-<details><summary>What if I owe tax?</summary><p>Your accountant shows you the amount and how it was worked out before anything is filed. You pay HMRC directly. We never handle your tax payments.</p></details>
+<section id="faq" class="white" style="border-bottom:0">
+<div class="wrap" style="padding-top:80px;padding-bottom:80px;display:flex;flex-wrap:wrap;gap:24px 72px;align-items:start">
+<h2 class="h2" style="flex:1 1 280px">Questions people ask</h2>
+<div style="flex:2 1 420px;border-top:1px solid var(--line)">
+<details><summary>Is the agent a person?</summary><p>No. Your tax agent is software. It fills in your return from HMRC and your connected accounts, explains the figures and files once you approve. You check and approve everything before it is filed.</p></details>
+<details><summary>How is it free?</summary><p>This is a design concept. A real service would be paid for by optional extras, never by a cut of your refund.</p></details>
+<details><summary>What can the agent do with HMRC?</summary><p>See your tax record and file your Self Assessment return, and only after you approve it. It will not change your bank details, and any refund is paid by HMRC straight to you. You can remove its access at any time in your HMRC account.</p></details>
+<details><summary>How long does it take?</summary><p>About 2 minutes of questions and about 5 minutes to authorise us with HMRC. Once your accounts are connected, your return is usually ready to check within minutes.</p></details>
+<details><summary>What if I owe tax?</summary><p>Your agent shows you the amount and how it was worked out before anything is filed. You pay HMRC directly. We never handle your tax payments.</p></details>
 <details><summary>Who is this not for yet?</summary><p>Directors of limited companies. Their returns need extra company details that we do not cover yet.</p></details>
 </div>
 </div>
 </section>
 
-<section id="start" style="max-width: 1280px; margin: 0 auto; padding: 80px 32px">
-<div style="background: #1B56B0; color: #FFFFFF; border-radius: 10px; padding: clamp(32px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center; justify-content: space-between">
-<div><h2 style="margin: 0; font-family: Newsreader, Georgia, serif; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02">Get your return filed before 31&nbsp;January.</h2><p style="margin: 12px 0 0; font-size: 19px; color: #DCE7F7">Fixed fee from £99. Money-back guarantee included.</p></div>
-<a href="#" style="text-decoration: none; background: #FFFFFF; color: #10243A; font-weight: 600; font-size: 18px; padding: 18px 32px; border-radius: 6px; white-space: nowrap">Start my return</a>
+<section class="wrap" style="padding-top:80px;padding-bottom:80px">
+<div class="end">
+<div><h2>Get your return filed before 31&nbsp;January.</h2><p>Free. No card. Nothing is filed until you approve.</p></div>
+<a class="btn inv" href="start.html">Start my return</a>
 </div>
 </section>
 
-<footer style="max-width: 1280px; margin: 0 auto; padding: 0 32px 48px; font-size: 14px; color: #4A5B70; display: flex; flex-direction: column; gap: 6px">
-<p style="margin: 0">Tax Prototype is a design concept and is not an available service. Names, reviews and figures are samples.</p>
+<footer class="wrap">
+<p>Tax Prototype is a design concept and is not an available service. Names, reviews and figures are samples.</p>
 </footer>
 
-</div>
-
-<script>
-
-var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
-function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
-function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
-// Wire buttons and links by their visible text: [text, destination]
-function wire(rules){
-  document.querySelectorAll('button, a').forEach(function(el){
-    if(el.closest('.pt-bar'))return;
-    var t=txt(el);
-    for(var i=0;i<rules.length;i++){var r=rules[i];
-      if(r[0] instanceof RegExp?r[0].test(t):t===r[0]){
-        if(el.tagName==='A')el.setAttribute('href',typeof r[1]==='string'?r[1]:'#');
-        el.addEventListener('click',(function(d){return function(e){e.preventDefault();if(this.disabled)return;go(d);};})(r[1]));
-        return;}
-    }
-    // Unwired '#' links do nothing rather than jumping to the top
-    if(el.tagName==='A'&&el.getAttribute('href')==='#')el.addEventListener('click',function(e){e.preventDefault();});
-  });
-  document.querySelectorAll('.wm, .h5-wm').forEach(function(a){a.setAttribute('href','index.html');});
-}
-// Option cards: keep the highlighted state in step with the input
-document.querySelectorAll('label.opt2, label.decl').forEach(function(lb){
-  var inp=lb.querySelector('input');if(!inp)return;
-  inp.addEventListener('change',function(){
-    if(inp.type==='radio'){document.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(o){var p=o.closest('label.opt2');if(p)p.classList.toggle('on',o.checked);});}
-    else if(lb.classList.contains('opt2'))lb.classList.toggle('on',inp.checked);
-  });
-});
-// Yes / no segmented choices
-document.querySelectorAll('.seg').forEach(function(seg,si){
-  seg.setAttribute('role','radiogroup');
-  seg.querySelectorAll('i').forEach(function(b){
-    b.setAttribute('role','radio');b.tabIndex=0;b.setAttribute('aria-checked',b.classList.contains('on'));
-    function pick(){seg.querySelectorAll('i').forEach(function(o){o.classList.remove('on');o.setAttribute('aria-checked','false');});b.classList.add('on');b.setAttribute('aria-checked','true');seg.dispatchEvent(new CustomEvent('pick',{detail:txt(b)}));}
-    b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
-  });
-});
-
-
-wire([['Start my return','start.html']]);
-</script>
 </body>
 </html>

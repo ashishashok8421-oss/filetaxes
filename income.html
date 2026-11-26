@@ -227,7 +227,6 @@ button,label,.seg i{cursor:pointer}
 a.btn{text-decoration:none}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .btn.q{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
-img.av{object-fit:cover;display:block}
 .pill.in{background:var(--tint);color:var(--acc)}
 .toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);background:#10243A;color:#fff;padding:10px 16px;border-radius:8px;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;z-index:60;box-shadow:0 8px 24px -8px rgba(16,36,58,.6)}
 .cta .btn{margin-top:12px}
@@ -235,6 +234,14 @@ img.av{object-fit:cover;display:block}
 .sum .big{font-size:20px;margin-top:8px}
 .sum .chips{margin-top:12px}
 .sum .none{color:#C5D0DE;font-size:14px;margin:12px 0 0}
+.ag{width:36px;height:36px;border-radius:10px;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.ag svg{width:60%;height:60%}
+.ag.s40{width:40px;height:40px;border-radius:11px}
+.ag.s44{width:44px;height:44px;border-radius:12px}
+.ag.s48{width:48px;height:48px;border-radius:13px}
+.ag.lg{width:72px;height:72px;border-radius:20px}
+.rtt{font-weight:600;font-size:15px;line-height:1.3}
+.rr{font-size:13.5px;color:var(--mut);line-height:1.4}
 .o1 .opt2{padding:13px 16px}
 .main{padding-top:18px}
 .col>.card{padding:18px 22px}
@@ -243,11 +250,10 @@ img.av{object-fit:cover;display:block}
 <body>
 <section class="screen" data-title="Which kinds of income did you have?"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first cur"><span class="nd">1</span><span class="sl">What to declare</span><span class="here">You are here</span></li>
-<li class="st"><span class="nd">2</span><span class="sl">Your accountant</span></li>
-<li class="st"><span class="nd">3</span><span class="sl">Your plan</span></li>
-<li class="st"><span class="nd">4</span><span class="sl">Your documents</span></li>
-<li class="st"><span class="nd">5</span><span class="sl">Check and approve</span></li>
-<li class="st"><span class="nd">6</span><span class="sl">Filed</span></li>
+<li class="st"><span class="nd">2</span><span class="sl">Connect</span></li>
+<li class="st"><span class="nd">3</span><span class="sl">Your return</span></li>
+<li class="st"><span class="nd">4</span><span class="sl">Check and approve</span></li>
+<li class="st"><span class="nd">5</span><span class="sl">Filed</span></li>
 </ol><div class="who"><span>Maya</span><span class="av">M</span></div></header>
 <div class="main"><div class="grid g1"><div class="col">
 <div><div class="qn">Part 1 of 2 · Your income</div><h1 class="h1">Which kinds of income did you have?</h1>
@@ -271,6 +277,7 @@ function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
 function $(s,r){return (r||document).querySelector(s);}
 function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 var toastT;
 function toast(msg){var t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}t.textContent=msg;t.style.display='block';clearTimeout(toastT);toastT=setTimeout(function(){t.style.display='none';},2600);}
 // Wire buttons and links by their visible text: [text, destination]
@@ -310,8 +317,10 @@ $$('.seg').forEach(function(seg){
     b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
   });
 });
-// What the answers so far add up to (shared by the three question pages)
+// What the answers so far add up to (shared by the question pages)
 var CHKSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var ARRSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+var AGENT='<span class="ag" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span>';
 var INC=['Employment','Self-employment','Rental income','Savings, investments or foreign income'];
 var WORKS=['freelance or contract','construction (CIS)','courier or driver','other work'];
 function incomeOn(){var on=STORE.get('income');return on&&on.length===4?on:[true,false,false,true];}

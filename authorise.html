@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Tax Prototype: Authorise Priya with HMRC</title>
+<title>Tax Prototype: Authorise with HMRC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#F3F5F8}
@@ -227,7 +227,6 @@ button,label,.seg i{cursor:pointer}
 a.btn{text-decoration:none}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .btn.q{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
-img.av{object-fit:cover;display:block}
 .pill.in{background:var(--tint);color:var(--acc)}
 .toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);background:#10243A;color:#fff;padding:10px 16px;border-radius:8px;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;z-index:60;box-shadow:0 8px 24px -8px rgba(16,36,58,.6)}
 .cta .btn{margin-top:12px}
@@ -235,6 +234,14 @@ img.av{object-fit:cover;display:block}
 .sum .big{font-size:20px;margin-top:8px}
 .sum .chips{margin-top:12px}
 .sum .none{color:#C5D0DE;font-size:14px;margin:12px 0 0}
+.ag{width:36px;height:36px;border-radius:10px;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.ag svg{width:60%;height:60%}
+.ag.s40{width:40px;height:40px;border-radius:11px}
+.ag.s44{width:44px;height:44px;border-radius:12px}
+.ag.s48{width:48px;height:48px;border-radius:13px}
+.ag.lg{width:72px;height:72px;border-radius:20px}
+.rtt{font-weight:600;font-size:15px;line-height:1.3}
+.rr{font-size:13.5px;color:var(--mut);line-height:1.4}
 .main{padding-top:16px}
 .bkl{margin:0 0 10px;font-size:14px}
 .ac{padding:0;overflow:hidden}
@@ -268,65 +275,62 @@ img.av{object-fit:cover;display:block}
 .kv2 span:nth-child(odd){color:var(--mut)}.kv2 span:nth-child(even){font-weight:600}
 .can{font-size:14px;line-height:1.45;margin-top:10px}
 .can b{display:block;margin-bottom:2px}
-.can ul{margin:0 0 10px;padding-left:18px}
+.can ul{margin:0;padding-left:18px}
 .can .y{background:var(--okbg);color:#0B4F3B;border-radius:10px;padding:10px 12px}
 .can .x{background:#EDF0F4;border-radius:10px;padding:10px 12px;margin-top:8px}
-.can .y ul,.can .x ul{margin-bottom:0}
 .tick{display:flex;gap:10px;align-items:center;font-size:14.5px;padding:7px 0;border-top:1px solid #2C4159}
 .tick .ic{color:#5FBFA0}
 </style>
 </head>
 <body>
-<section class="screen" data-title="Authorise your accountant with HMRC"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
+<section class="screen" data-title="Authorise Tax Prototype as your tax agent with HMRC"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">What to declare</span></li>
-<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your accountant</span></li>
-<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your plan</span></li>
-<li class="st cur"><span class="nd">4</span><span class="sl">Your documents</span><span class="here">You are here</span></li>
-<li class="st"><span class="nd">5</span><span class="sl">Check and approve</span></li>
-<li class="st"><span class="nd">6</span><span class="sl">Filed</span></li>
-</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header><div class="stat" id="stat">
-<span class="stl">Where your return is</span><span class="sg c">Documents</span><span class="dash"></span><span class="sg">Preparing</span><span class="dash"></span><span class="sg">Your approval</span><span class="dash"></span><span class="sg">Filed</span><span class="stn">Step 1 of your documents: let Priya see your tax record.</span>
-</div>
+<li class="st cur"><span class="nd">2</span><span class="sl">Connect</span><span class="here">You are here</span></li>
+<li class="st"><span class="nd">3</span><span class="sl">Your return</span></li>
+<li class="st"><span class="nd">4</span><span class="sl">Check and approve</span></li>
+<li class="st"><span class="nd">5</span><span class="sl">Filed</span></li>
+</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header>
 <div class="main"><div class="grid g1" style="grid-template-columns:1fr 372px">
 <div>
-<p class="bkl" id="bkl"><a href="dashboard.html" class="lnk">Back to your documents</a></p>
+<p class="bkl" id="bkl"><a href="connect.html" class="lnk">Back to your connections</a></p>
 <div class="card ac st-form" id="auth">
 <div class="v-form">
-<div class="ah2"><div class="gw"><h1 class="h2" style="font-size:26px">Authorise Priya with HMRC</h1><p class="p mut">This lets Priya see your tax record and file your return for you. About 5 minutes.</p></div><span class="pill nd2">Needed</span></div>
+<div class="ah2"><div class="gw"><h1 class="h2" style="font-size:25px">Authorise Tax Prototype as your tax agent with HMRC</h1><p class="p mut">This lets us see your tax record and file your return for you. About 5 minutes.</p></div><span class="pill nd2">Needed</span></div>
 <div class="sec"><span class="n">1</span><div><h2 class="h2" style="font-size:19px">Your tax details</h2><p class="p sm mut">HMRC uses these to find your record. Sample numbers are filled in for this demo.</p>
 <div class="flds">
 <div class="fld"><label for="utr">Unique Taxpayer Reference</label><input id="utr" inputmode="numeric" autocomplete="off" value="12345 67890"><div class="hint">10 digits. On letters from HMRC about Self Assessment and in the HMRC app. <a href="#" class="lnk" style="font-size:13px" data-act="utrhelp">Cannot find it?</a></div><div class="err" id="utr-e"></div></div>
 <div class="fld"><label for="nino">National Insurance number</label><input id="nino" autocomplete="off" value="QQ 12 34 56 C"><div class="hint">On a payslip or in the HMRC app.</div><div class="err" id="nino-e"></div></div>
-</div><p class="p sm mut mt8" id="utrhelp" hidden>Never filed before? Priya can register you. HMRC then posts your reference, which takes about 3 weeks.</p></div></div>
+</div><p class="p sm mut mt8" id="utrhelp" hidden>Never filed before? You register with HMRC first. HMRC then posts your reference, which takes about 3 weeks.</p></div></div>
 <div class="sec"><span class="n">2</span><div><h2 class="h2" style="font-size:19px">Approve it with HMRC</h2><p class="p sm mut">We take you to HMRC. Sign in with your Government Gateway user ID, the login you use for HMRC online, and approve the request. Then you come straight back here.</p>
-<div class="gg"><button class="btn" type="button" id="go" style="height:48px">Continue to HMRC<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="p sm mut">No Government Gateway login? Priya can ask HMRC to post you a code. It takes up to 7 working days. <a href="#" class="lnk">Ask Priya to request a code</a></span></div></div></div>
+<div class="gg"><button class="btn" type="button" id="go" style="height:48px">Continue to HMRC<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="p sm mut">No Government Gateway login? You can create one on HMRC's site in about 10 minutes. <a href="#" class="lnk">How to set one up</a></span></div></div></div>
 </div>
 <div class="v-hmrc hm">
 <div class="hmb">Mock HMRC sign-in. This is not HMRC.</div>
 <div class="hmbox"><h2>Approve an authorisation request</h2>
 <div class="fld" style="max-width:340px;margin-top:12px"><label for="gg">Government Gateway user ID</label><input id="gg" autocomplete="off" value="12 34 56 78 90 12"><div class="hint">Sample ID, filled in for this demo.</div></div>
-<div class="hmreq"><b>Priya Shah (agent)</b> is asking to act for you for <b>Self Assessment</b>. She will be able to see your tax record and send returns for you until you remove her.</div>
+<div class="hmreq"><b>Tax Prototype (agent)</b> is asking to act for you for <b>Self Assessment</b>. It will be able to see your tax record and send returns for you until you remove it.</div>
 <div class="hmbtn"><button class="btn gov" type="button" id="yes">Approve</button><button class="btn govs" type="button" id="no">Decline</button></div></div>
 </div>
 <div class="v-done dn"><div class="okc"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-<h1 class="h1">Priya is authorised</h1><p class="sub">HMRC has confirmed the request. Your pay and tax figures are on their way to Priya.</p>
-<div class="kv2"><span>Authorised agent</span><span>Priya Shah, ACCA qualified accountant</span><span>Covers</span><span>Self Assessment only</span><span>Lasts</span><span>Until you remove it in your HMRC account</span><span>Authorised on</span><span>17 November 2026</span><span>HMRC reference</span><span>SAMPLE-AUTH-0000</span></div>
-<div><a href="dashboard.html" class="btn" style="height:48px">Back to your documents<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+<h1 class="h1">Tax Prototype is authorised</h1><p class="sub">HMRC has confirmed the request. Your pay and tax figures are on their way to your tax agent.</p>
+<div class="kv2"><span>Authorised agent</span><span>Tax Prototype</span><span>Covers</span><span>Self Assessment only</span><span>Lasts</span><span>Until you remove it in your HMRC account</span><span>Authorised on</span><span>17 November 2026</span><span>HMRC reference</span><span>SAMPLE-AUTH-0000</span></div>
+<div><a href="connect.html" class="btn" style="height:48px">Back to your connections<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
 </div>
 </div>
 <div class="col">
 <div class="card"><h2 class="h2" style="font-size:19px">What you are agreeing to</h2>
-<div class="can"><div class="y"><b>Priya can</b><ul><li>See your pay, tax paid and tax record</li><li>File your Self Assessment return, after you approve it</li><li>Speak to HMRC about your return</li></ul></div>
-<div class="x"><b>Priya will not</b><ul><li>File anything until you have approved it</li><li>Change your bank details with HMRC</li><li>Receive your refund. HMRC pays you.</li></ul></div></div></div>
-<div class="card dk gr"><div class="eyb l">You stay in control</div><p class="res" style="margin-top:8px;margin-bottom:12px">Nothing goes to HMRC until you approve your return.</p><div class="tick"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Remove Priya at any time in your HMRC account</div><div class="tick"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Covers Self Assessment only</div><div class="tick"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>We never see your HMRC password</div></div>
+<div class="can"><div class="y"><b>Your tax agent can</b><ul><li>See your pay, tax paid and tax record</li><li>File your Self Assessment return, after you approve it</li></ul></div>
+<div class="x"><b>Your tax agent will not</b><ul><li>File anything until you have approved it</li><li>Change your bank details with HMRC</li><li>Receive your refund. HMRC pays you.</li></ul></div></div></div>
+<div class="card dk gr"><div class="eyb l">You stay in control</div><p class="res" style="margin-top:8px;margin-bottom:12px">Nothing goes to HMRC until you approve your return.</p><div class="tick"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Remove us at any time in your HMRC account</div><div class="tick"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Covers Self Assessment only</div><div class="tick"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>We never see your HMRC password</div></div>
 </div></div></div></section>
-<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Not an available service. Nothing here contacts HMRC or is sent.</span><a href="dashboard.html" data-back>Back</a><a href="approve.html" data-next>Next: 5. Check and approve</a><a href="index.html">Home</a></nav>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Not an available service. Nothing here contacts HMRC or is sent.</span><a href="connect.html" data-back>Back</a><a href="dashboard.html" data-next>Next: 3. Your return</a><a href="index.html">Home</a></nav>
 <script>
 var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
 function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
 function $(s,r){return (r||document).querySelector(s);}
 function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 var toastT;
 function toast(msg){var t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}t.textContent=msg;t.style.display='block';clearTimeout(toastT);toastT=setTimeout(function(){t.style.display='none';},2600);}
 // Wire buttons and links by their visible text: [text, destination]
@@ -366,8 +370,10 @@ $$('.seg').forEach(function(seg){
     b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
   });
 });
-// What the answers so far add up to (shared by the three question pages)
+// What the answers so far add up to (shared by the question pages)
 var CHKSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var ARRSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+var AGENT='<span class="ag" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span>';
 var INC=['Employment','Self-employment','Rental income','Savings, investments or foreign income'];
 var WORKS=['freelance or contract','construction (CIS)','courier or driver','other work'];
 function incomeOn(){var on=STORE.get('income');return on&&on.length===4?on:[true,false,false,true];}
@@ -390,7 +396,7 @@ function check(){
 btn.addEventListener('click',function(){
   shown=true;if(!check()){(utr.classList.contains('bad')?utr:nino).focus();return;}
   btn.disabled=true;btn.innerHTML='<span class="spin"></span>Opening HMRC…';
-  setTimeout(function(){state('hmrc');btn.disabled=false;btn.innerHTML='Continue to HMRC<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';},900);
+  setTimeout(function(){state('hmrc');btn.disabled=false;btn.innerHTML='Continue to HMRC'+ARRSVG;},900);
 });
 $('#yes').addEventListener('click',function(){STORE.set('auth',true);state('done');});
 $('#no').addEventListener('click',function(){state('form');toast('You declined. Nothing has changed.');});

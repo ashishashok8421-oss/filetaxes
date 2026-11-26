@@ -227,7 +227,6 @@ button,label,.seg i{cursor:pointer}
 a.btn{text-decoration:none}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .btn.q{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
-img.av{object-fit:cover;display:block}
 .pill.in{background:var(--tint);color:var(--acc)}
 .toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);background:#10243A;color:#fff;padding:10px 16px;border-radius:8px;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;z-index:60;box-shadow:0 8px 24px -8px rgba(16,36,58,.6)}
 .cta .btn{margin-top:12px}
@@ -235,19 +234,26 @@ img.av{object-fit:cover;display:block}
 .sum .big{font-size:20px;margin-top:8px}
 .sum .chips{margin-top:12px}
 .sum .none{color:#C5D0DE;font-size:14px;margin:12px 0 0}
-.main{padding-top:12px}
-.hd{margin-bottom:10px;align-items:center}
-.row{padding:6px 0}
+.ag{width:36px;height:36px;border-radius:10px;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.ag svg{width:60%;height:60%}
+.ag.s40{width:40px;height:40px;border-radius:11px}
+.ag.s44{width:44px;height:44px;border-radius:12px}
+.ag.s48{width:48px;height:48px;border-radius:13px}
+.ag.lg{width:72px;height:72px;border-radius:20px}
+.rtt{font-weight:600;font-size:15px;line-height:1.3}
+.rr{font-size:13.5px;color:var(--mut);line-height:1.4}
+.main{padding-top:14px}
+.hd{margin-bottom:12px;align-items:center}
+.row{padding:7px 0}
 .rows{margin-top:8px}
 .rl{font-size:14.5px}
 .rv{font-size:16px}
-.gh{font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--mut);margin:8px 0 0}
+.gh{font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--mut);margin:10px 0 0}
 .tot{margin-top:8px;padding:11px 14px}
 .amt{margin-top:10px;font-size:58px}
 .after{list-style:none;margin:10px 0 0;padding:0;font-size:14px}
-.after li{display:flex;gap:10px;padding:5px 0;border-top:1px solid var(--line);align-items:center}
+.after li{display:flex;gap:10px;padding:6px 0;border-top:1px solid var(--line);align-items:center}
 .after .num{width:22px;height:22px;font-size:12.5px}
-.av.s40{width:40px;height:40px}
 .ask{margin-top:10px}
 .ask textarea{width:100%;height:64px;border:1.5px solid #8A97A8;border-radius:8px;padding:8px 12px;font:15px 'IBM Plex Sans',system-ui,sans-serif;color:var(--ink);resize:none}
 .ref{margin-top:14px;font-size:14px;padding:12px 14px}
@@ -257,16 +263,13 @@ img.av{object-fit:cover;display:block}
 <body>
 <section class="screen" data-title="Check and approve your return"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">What to declare</span></li>
-<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your accountant</span></li>
-<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your plan</span></li>
-<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your documents</span></li>
-<li class="st cur"><span class="nd">5</span><span class="sl">Check and approve</span><span class="here">You are here</span></li>
-<li class="st"><span class="nd">6</span><span class="sl">Filed</span></li>
-</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header><div class="stat" id="stat">
-<span class="stl">Where your return is</span><span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Documents</span><span class="dash d"></span><span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Preparing</span><span class="dash d"></span><span class="sg c">Your approval</span><span class="dash"></span><span class="sg">Filed</span><span class="stn">Priya has prepared your return. Nothing is sent until you approve.</span>
-</div>
+<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Connect</span></li>
+<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your return</span></li>
+<li class="st cur"><span class="nd">4</span><span class="sl">Check and approve</span><span class="here">You are here</span></li>
+<li class="st"><span class="nd">5</span><span class="sl">Filed</span></li>
+</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header>
 <div class="main">
-<div class="hd"><div style="display:flex;align-items:center;gap:14px"><h1 class="h1">Check and approve your return</h1><span class="pill wt">Tax year 6 April 2025 to 5 April 2026</span></div><a href="dashboard.html" class="lnk sm">Back to your documents</a></div>
+<div class="hd"><div style="display:flex;align-items:center;gap:14px"><h1 class="h1">Check and approve your return</h1><span class="pill wt">Tax year 6 April 2025 to 5 April 2026</span></div><a href="dashboard.html" class="lnk sm">Back to your return</a></div>
 <div class="grid g5" style="grid-template-columns:350px 1fr 320px">
 <div class="col">
 <div class="card dk">
@@ -276,10 +279,10 @@ img.av{object-fit:cover;display:block}
 <p class="p dmut mt8 sm">HMRC pays this to you after your return is filed.</p>
 </div>
 <div class="card gr">
-<h2 class="h2">A note from Priya</h2>
-<div class="quote"><img class="av s40" src="assets/accountant.png" alt="Priya Shah"><div class="qt" style="font-size:14.5px">I prepared your return from your HMRC record and your connected accounts. The figures match what HMRC holds.</div></div>
+<h2 class="h2">A note from your tax agent</h2>
+<div class="quote"><span class="ag s40" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span><div class="qt" style="font-size:14.5px">I filled in your return from your HMRC record and your connected accounts. The figures match what HMRC holds.</div></div>
 <h2 class="h2 mt12" style="font-size:17px">What happens after you approve</h2>
-<ol class="after"><li><span class="num">1</span>Priya files it, usually the same day</li><li><span class="num">2</span>HMRC sends a receipt, saved here</li><li><span class="num">3</span>HMRC pays you the £396</li></ol>
+<ol class="after"><li><span class="num">1</span>Your agent files it straight away</li><li><span class="num">2</span>HMRC sends a receipt, saved here</li><li><span class="num">3</span>HMRC pays you the £396</li></ol>
 </div>
 </div>
 <div class="card">
@@ -303,24 +306,25 @@ img.av{object-fit:cover;display:block}
 <div class="col">
 <div class="card">
 <h2 class="h2">Approve your return</h2>
-<p class="p sm mut mt8">When you approve, Priya files your return with HMRC, usually the same day. You get HMRC's receipt here.</p>
+<p class="p sm mut mt8">When you approve, your tax agent files your return with HMRC straight away. You get HMRC's receipt here.</p>
 <label class="decl mt12"><input class="cb" type="checkbox" id="decl"><span>I have checked these figures. They are correct and complete to the best of my knowledge.</span></label>
 <button class="btn w mt12" type="button" id="ok" disabled>Approve and file<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
 <button class="btn sec n w mt8" type="button" id="askb">Ask a question or request a change</button>
-<div class="ask" id="ask" hidden><textarea id="askt" aria-label="Your question for Priya" placeholder="What would you like to ask or change?"></textarea><button class="btn s mt8" type="button" id="asks">Send to Priya</button></div>
-<p class="p sm mt8" id="asked" hidden style="color:var(--ok);font-weight:600">Sent. Priya replies within one working day. Nothing is filed until you approve.</p>
-<div class="ref"><svg class="ic b" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.500-3.200 7.800-8 9-4.800-1.200-8-4.500-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg><div><span class="strong">Money-back guarantee.</span> If Priya makes a mistake on your return, you get your fee back and a corrected return at no extra cost.</div></div>
+<div class="ask" id="ask" hidden><textarea id="askt" aria-label="Your question for your tax agent" placeholder="What would you like to ask or change?"></textarea><button class="btn s mt8" type="button" id="asks">Send to your agent</button></div>
+<p class="p sm mt8" id="asked" hidden style="color:var(--ok);font-weight:600">Sent. Your agent replies in your return, usually within a minute. Nothing is filed until you approve.</p>
+<div class="ref"><svg class="ic b" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.500-3.200 7.800-8 9-4.800-1.200-8-4.500-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg><div><span class="strong">Accuracy promise.</span> If our agent gets a calculation wrong, we correct the return and cover any HMRC penalty or interest that results.</div></div>
 </div>
 </div>
 </div>
 </div></section>
-<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="dashboard.html" data-back>Back</a><a href="filed.html" data-next>Next: 6. Your return is filed</a><a href="index.html">Home</a></nav>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="dashboard.html" data-back>Back</a><a href="filed.html" data-next>Next: 5. Your return is filed</a><a href="index.html">Home</a></nav>
 <script>
 var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
 function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
 function $(s,r){return (r||document).querySelector(s);}
 function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 var toastT;
 function toast(msg){var t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}t.textContent=msg;t.style.display='block';clearTimeout(toastT);toastT=setTimeout(function(){t.style.display='none';},2600);}
 // Wire buttons and links by their visible text: [text, destination]
@@ -360,8 +364,10 @@ $$('.seg').forEach(function(seg){
     b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
   });
 });
-// What the answers so far add up to (shared by the three question pages)
+// What the answers so far add up to (shared by the question pages)
 var CHKSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var ARRSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+var AGENT='<span class="ag" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span>';
 var INC=['Employment','Self-employment','Rental income','Savings, investments or foreign income'];
 var WORKS=['freelance or contract','construction (CIS)','courier or driver','other work'];
 function incomeOn(){var on=STORE.get('income');return on&&on.length===4?on:[true,false,false,true];}

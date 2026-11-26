@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Tax Prototype: Your documents</title>
+<title>Tax Prototype: Your return</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#F3F5F8}
@@ -227,7 +227,6 @@ button,label,.seg i{cursor:pointer}
 a.btn{text-decoration:none}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .btn.q{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
-img.av{object-fit:cover;display:block}
 .pill.in{background:var(--tint);color:var(--acc)}
 .toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);background:#10243A;color:#fff;padding:10px 16px;border-radius:8px;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;z-index:60;box-shadow:0 8px 24px -8px rgba(16,36,58,.6)}
 .cta .btn{margin-top:12px}
@@ -235,84 +234,93 @@ img.av{object-fit:cover;display:block}
 .sum .big{font-size:20px;margin-top:8px}
 .sum .chips{margin-top:12px}
 .sum .none{color:#C5D0DE;font-size:14px;margin:12px 0 0}
-.main{padding-top:16px}
-.dc{padding:0;overflow:hidden}
-.dh{padding:14px 20px 14px;display:flex;align-items:center;gap:20px}
-.dh .gw{flex:1}
-.pb{width:200px;flex:none}
-.pb b{display:block;font-size:13px;font-weight:600;color:var(--mut);text-align:right;margin-bottom:5px}
-.pbar{height:8px;border-radius:4px;background:#E6EAF0;overflow:hidden}
-.pbar i{display:block;height:100%;background:var(--ok);border-radius:4px;transition:width .3s}
-.gp{display:flex;justify-content:space-between;align-items:center;height:28px;padding:0 20px;background:#EDF0F4;border-top:1px solid var(--line);font-size:13px;font-weight:700}
-.gp span+span{font-weight:500;color:var(--mut)}
-.rw{display:grid;grid-template-columns:124px 1fr auto;align-items:center;gap:14px;padding:6px 20px;min-height:50px;border-top:1px solid var(--line)}
-.rw.hot{background:#FFFBF3;box-shadow:inset 4px 0 0 #C77A12}
+.ag{width:36px;height:36px;border-radius:10px;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.ag svg{width:60%;height:60%}
+.ag.s40{width:40px;height:40px;border-radius:11px}
+.ag.s44{width:44px;height:44px;border-radius:12px}
+.ag.s48{width:48px;height:48px;border-radius:13px}
+.ag.lg{width:72px;height:72px;border-radius:20px}
 .rtt{font-weight:600;font-size:15px;line-height:1.3}
 .rr{font-size:13.5px;color:var(--mut);line-height:1.4}
+.main{padding-top:16px}
+.dg{grid-template-columns:1fr 372px;height:574px;flex:none}
+.dg>.col{min-height:0;gap:14px}
+.est{display:flex;align-items:center;gap:24px;padding:16px 22px}
+.est .gw{flex:1;min-width:0}
+.est .fig{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:38px;line-height:1.1;letter-spacing:-.5px;margin:2px 0 0;transition:color .3s}
+.est .fig.flash{color:#9CC0F5}
+.est .why{font-size:13.5px;color:#C5D0DE;margin:4px 0 0}
+.pb{width:210px;flex:none}
+.pb b{display:block;font-size:13px;font-weight:600;color:#C5D0DE;text-align:right;margin-bottom:6px}
+.pbar{height:8px;border-radius:4px;background:#2C4159;overflow:hidden}
+.pbar i{display:block;height:100%;background:#5FBFA0;border-radius:4px;transition:width .3s}
+.dc{padding:0;overflow:hidden;flex:1;min-height:0}
+.gp{display:flex;justify-content:space-between;align-items:center;height:30px;padding:0 20px;background:#EDF0F4;border-top:1px solid var(--line);font-size:13px;font-weight:700}
+.gp:first-child{border-top:0}
+.gp span+span{font-weight:500;color:var(--mut)}
+.rw{display:grid;grid-template-columns:98px 1fr auto;align-items:center;gap:14px;padding:5px 20px;min-height:50px;border-top:1px solid var(--line)}
+.rw.hot{background:#FFFBF3;box-shadow:inset 4px 0 0 #C77A12}
 .ra{display:flex;gap:8px;align-items:center}
-.accs{margin:6px 0 2px;padding:0;list-style:none;font-size:13.5px}
-.accs li{display:flex;justify-content:space-between;gap:16px;padding:4px 0;border-top:1px dashed var(--line)}
-.accs b{font-weight:600}
-.side .card{padding:14px 18px}
-.side{gap:14px}
-.sh{display:flex;gap:12px;align-items:center;padding-bottom:10px}
-.av.s44{width:44px;height:44px}
-.sr{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
-.sr .x{grid-column:1/3}
-.slots{display:flex;gap:6px;flex-wrap:wrap}
-.slots .btn{padding:0 10px}
-.mrow{display:flex;gap:8px}
-.mrow .inp{height:36px;min-width:0}
-.tok{margin-top:10px}
-.tk{height:auto;min-height:44px;flex-direction:column;gap:0;font-size:13px;padding:6px;text-align:center;line-height:1.3}
-.tk b{font-size:15px}
-.nx .btn{margin-top:10px;height:42px}
+.ra .fg{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums}
+.chat{padding:16px 18px}
+.chh{padding-bottom:10px}
+.thr{overflow-y:auto;min-height:0;padding:12px 4px 12px 0;gap:12px}
+.bub{font-size:14px;padding:9px 12px}
+.msg{max-width:92%}
+.msg .ag{width:30px;height:30px;border-radius:9px}
+.msg .av{width:30px;height:30px;font-size:12px}
+.cmp{padding-top:10px}
+.cmp .inp{height:40px;min-width:0}
+.cmp .btn{height:40px;padding:0 14px}
+.sugg{display:flex;gap:6px;flex-wrap:wrap;padding-bottom:10px}
+.sugg button{font:500 13px 'IBM Plex Sans',system-ui,sans-serif;color:var(--acc);background:var(--tint);border:0;border-radius:14px;padding:5px 10px}
+.nx{padding:14px 18px;flex:none}
+.nx .btn{margin-top:10px;height:44px}
 </style>
 </head>
 <body>
-<section class="screen" data-title="What we need from you"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
+<section class="screen" data-title="Your return"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">What to declare</span></li>
-<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your accountant</span></li>
-<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your plan</span></li>
-<li class="st cur"><span class="nd">4</span><span class="sl">Your documents</span><span class="here">You are here</span></li>
-<li class="st"><span class="nd">5</span><span class="sl">Check and approve</span></li>
-<li class="st"><span class="nd">6</span><span class="sl">Filed</span></li>
-</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header><div class="stat" id="stat">
-<span class="stl">Where your return is</span><span class="sg c">Documents</span><span class="dash"></span><span class="sg">Preparing</span><span class="dash"></span><span class="sg">Your approval</span><span class="dash"></span><span class="sg">Filed</span><span class="stn">Payment received. You are on the <span id="planname">Done for you</span> plan.</span>
-</div>
-<div class="main"><div class="grid g4">
+<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Connect</span></li>
+<li class="st cur"><span class="nd">3</span><span class="sl">Your return</span><span class="here">You are here</span></li>
+<li class="st"><span class="nd">4</span><span class="sl">Check and approve</span></li>
+<li class="st"><span class="nd">5</span><span class="sl">Filed</span></li>
+</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header>
+<div class="main"><div class="grid dg">
+<div class="col">
+<div class="card dk est"><div class="gw"><div class="eyb l" id="estl">Estimated so far</div><p class="fig" id="fig" aria-live="polite"></p><p class="why" id="why"></p></div>
+<div class="pb"><b id="pbt"></b><div class="pbar"><i id="pbi"></i></div></div></div>
 <div class="card dc">
-<div class="dh"><div class="gw"><h1 class="h2">What we need from you</h1><p class="p mut" id="sumline"></p></div><div class="pb"><b id="pbt"></b><div class="pbar"><i id="pbi"></i></div></div></div>
-<div class="gp"><span>Identity and permission</span><span id="g1"></span></div>
-<div class="rw" id="r-auth"><div class="rc"></div><div class="rt"><div class="rtt">Authorise Priya with HMRC</div><div class="rr"></div></div><div class="ra"></div></div>
-<div class="rw"><div class="rc"><span class="pill ok"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Done</span></div><div class="rt"><div class="rtt">Confirm who you are</div><div class="rr">Checked against your passport when you signed up.</div></div><div class="ra"></div></div>
-<div class="gp"><span>We collect these for you</span><span id="g2"></span></div>
-<div class="rw" id="r-pay"><div class="rc"></div><div class="rt"><div class="rtt">Pay and tax from your employer</div><div class="rr"></div></div><div class="ra"></div></div>
-<div class="rw"><div class="rc"><span class="pill ok"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Done</span></div><div class="rt"><div class="rtt">Figures from the 3 accounts you connected at sign-up</div><div class="rr">Savings interest, dividends, sales of investments and pension contributions.</div><ul class="accs" id="accs" hidden><li><span><b>Example Bank</b> savings</span><span>Interest £1,550</span></li><li><span><b>Example Invest</b> shares account</span><span>Dividends £820 · profit on sales £5,400</span></li><li><span><b>Example Pension</b> personal pension</span><span>You paid in £6,000</span></li></ul></div><div class="ra"><a href="#" class="lnk sm" data-act="accs">See accounts</a></div></div>
-<div class="gp"><span>Anything from accounts we cannot see</span><span id="g3"></span></div>
-<div class="rw" id="r-5"><div class="rc"></div><div class="rt"><div class="rtt">Interest statements from other banks</div><div class="rr"></div></div><div class="ra"></div></div>
-<div class="rw" id="r-6"><div class="rc"></div><div class="rt"><div class="rtt">Investment or pension statements from other providers</div><div class="rr"></div></div><div class="ra"></div></div>
-<div class="gp"><span>You can skip these</span><span>No need to send these</span></div>
-<div class="rw"><div class="rc"><span class="pill wt">Not needed</span></div><div class="rt"><div class="rtt">Payslips or a P60 (the yearly pay summary from an employer)</div><div class="rr">Priya gets your pay and tax figures from HMRC instead.</div></div><div class="ra"></div></div>
+<div class="gp"><span>Your return, section by section</span><span>Filled in by your tax agent</span></div>
+<div class="rw" id="s-0"><div class="rc"></div><div class="rt"><div class="rtt">Employment</div><div class="rr"></div></div><div class="ra"></div></div>
+<div class="rw" id="s-1"><div class="rc"></div><div class="rt"><div class="rtt">Savings interest</div><div class="rr"></div></div><div class="ra"></div></div>
+<div class="rw" id="s-2"><div class="rc"></div><div class="rt"><div class="rtt">Dividends</div><div class="rr"></div></div><div class="ra"></div></div>
+<div class="rw" id="s-3"><div class="rc"></div><div class="rt"><div class="rtt">Capital gains</div><div class="rr"></div></div><div class="ra"></div></div>
+<div class="rw" id="s-4"><div class="rc"></div><div class="rt"><div class="rtt">Pension relief</div><div class="rr"></div></div><div class="ra"></div></div>
+<div class="gp"><span>Questions from your agent</span><span id="g3"></span></div>
+<div class="rw" id="r-5"><div class="rc"></div><div class="rt"><div class="rtt">Any interest from a bank you have not connected?</div><div class="rr"></div></div><div class="ra"></div></div>
+<div class="rw" id="r-6"><div class="rc"></div><div class="rt"><div class="rtt">Any investments or pensions with another provider?</div><div class="rr"></div></div><div class="ra"></div></div>
 
 </div>
-<div class="col side">
-<div class="card"><div class="sh"><img class="av s44" src="assets/accountant.png" alt="Priya Shah"><div><h2 class="h2" style="font-size:19px">Talk to your accountant</h2><p class="p sm mut">Priya Shah, ACCA qualified accountant</p></div></div>
-<div class="sr" id="callrow"></div>
-<div class="sr" id="msgrow"></div></div>
-<div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h2 class="h2" style="font-size:19px" id="credh">Call credits</h2><span class="pill ok" id="credpill"></span></div>
-<div class="tok" id="toks"></div>
-<p class="p xs mut mt8" id="crednote">Included in your plan. Extra calls cost £25 per 15 minutes.</p></div>
-<div class="card nx"><h2 class="h2" style="font-size:19px">What happens next</h2><p class="p sm mut mt8" id="nxt"></p><div id="nxb"></div></div>
+</div>
+<div class="col">
+<div class="card chat">
+<div class="chh"><span class="ag s40" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span><div><h2 class="h2" style="font-size:19px">Ask your tax agent</h2><div class="xs mut">Software, not a person. Answers in seconds.</div></div></div>
+<div class="thr" id="thr"></div>
+<div class="sugg" id="sugg"><button type="button" data-q="Why did my estimate change?">Why did my estimate change?</button><button type="button" data-q="Do I pay tax on my dividends?">Do I pay tax on my dividends?</button></div>
+<div class="cmp"><input class="inp" id="msgin" type="text" aria-label="Question for your tax agent" placeholder="Ask about your return"><button class="btn" type="button" id="send">Send</button></div>
+</div>
+<div class="card nx"><p class="p sm mut" id="nxt"></p><div id="nxb"></div></div>
 </div>
 </div></div></section>
-<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="plan.html" data-back>Back</a><a href="approve.html" data-next>Next: 5. Check and approve</a><a href="index.html">Home</a></nav>
+<nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="connect.html" data-back>Back</a><a href="approve.html" data-next>Next: 4. Check and approve</a><a href="index.html">Home</a></nav>
 <script>
 var STORE={get:function(k){try{return JSON.parse(sessionStorage.getItem('taxproto:'+k));}catch(e){return null;}},set:function(k,v){try{sessionStorage.setItem('taxproto:'+k,JSON.stringify(v));}catch(e){}}};
 function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=dest;}
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
 function $(s,r){return (r||document).querySelector(s);}
 function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 var toastT;
 function toast(msg){var t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}t.textContent=msg;t.style.display='block';clearTimeout(toastT);toastT=setTimeout(function(){t.style.display='none';},2600);}
 // Wire buttons and links by their visible text: [text, destination]
@@ -352,8 +360,10 @@ $$('.seg').forEach(function(seg){
     b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
   });
 });
-// What the answers so far add up to (shared by the three question pages)
+// What the answers so far add up to (shared by the question pages)
 var CHKSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var ARRSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+var AGENT='<span class="ag" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span>';
 var INC=['Employment','Self-employment','Rental income','Savings, investments or foreign income'];
 var WORKS=['freelance or contract','construction (CIS)','courier or driver','other work'];
 function incomeOn(){var on=STORE.get('income');return on&&on.length===4?on:[true,false,false,true];}
@@ -363,78 +373,88 @@ function answerChips(){
   return a;
 }
 function drawChips(el,list){el.innerHTML=list.map(function(n){return '<span class="chip">'+CHKSVG+n+'</span>';}).join('');}
-var ARR='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-var S={auth:!!STORE.get('auth'),r5:STORE.get('r5'),r6:STORE.get('r6'),call:STORE.get('call'),msg:!!STORE.get('msg'),ui:{}};
-var PLANS=['Check','Done for you','Year-round'],pl=STORE.get('plan');if(pl!=null&&PLANS[pl])$('#planname').textContent=PLANS[pl];
-var PAID=pl===0; // Check plan: no calls included, each call is £25
+var S={auth:!!STORE.get('auth'),acc:STORE.get('acc')||[false,false,false],r5:STORE.get('r5'),r6:STORE.get('r6')};
+function gbp(n){return '£'+Math.round(Math.abs(n)).toLocaleString('en-GB');}
+// 2025 to 2026 rates, for the sample customer. Recalculated every time something changes.
+function calc(){
+  var sal=S.auth?68000:0,paid=S.auth?14632:0,i=S.acc[0]?1550:0,d=S.acc[1]?820:0,g=S.acc[1]?5400:0,p=S.acc[2]?7500:0;
+  var band=37700+p,tx=Math.max(0,sal-12570);
+  var it=Math.min(tx,band)*0.2+Math.max(0,tx-band)*0.4;
+  return it+Math.max(0,i-500)*0.4+Math.max(0,d-500)*0.3375+Math.max(0,g-3000)*0.24-paid;
+}
+var SEC=[
+ {src:'HMRC',on:function(){return S.auth;},fig:'£68,000',fx:'£14,632 of tax already paid through your pay',go:'Authorise HMRC'},
+ {src:'Example Bank',on:function(){return S.acc[0];},fig:'£1,550',fx:'adds £420 of tax'},
+ {src:'Example Invest',on:function(){return S.acc[1];},fig:'£820',fx:'adds £108 of tax'},
+ {src:'Example Invest',on:function(){return S.acc[1];},fig:'£5,400',fx:'profit from selling investments, adds £576 of tax'},
+ {src:'Example Pension',on:function(){return S.acc[2];},fig:'£7,500',fx:'takes £1,500 off your tax'}];
 function pill(k,t){return '<span class="pill '+k+'">'+(k==='ok'?CHKSVG:'')+t+'</span>';}
-function set(id,chip,rr,ra){var r=$('#'+id);$('.rc',r).innerHTML=chip;if(rr!=null)$('.rr',r).innerHTML=rr;$('.ra',r).innerHTML=ra||'';return r;}
-function upRow(k,id,what,hot){
+function set(id,chip,rr,ra){var r=$('#'+id);$('.rc',r).innerHTML=chip;$('.rr',r).innerHTML=rr;$('.ra',r).innerHTML=ra||'';return r;}
+function qRow(k,id,what,hot){
   var v=S[k];
-  set(id,v?pill('ok','Done'):pill('nd2','If you have any'),
-      v==='none'?'You told us you have none.':v==='up'?'sample-statement.pdf · Uploaded just now':what,
+  set(id,v?pill('ok','Done'):pill('nd2','To answer'),
+      v==='none'?'You told your agent you have none.':v==='up'?'sample-statement.pdf · Read by your agent. Nothing new to add.':what,
       v?'<a href="#" class="lnk sm" data-act="undo:'+k+'">'+(v==='up'?'Remove':'Undo')+'</a>'
-       :'<button class="btn s q" type="button" data-act="none:'+k+'">I have none</button><button class="btn s'+(hot?'':' sec')+'" type="button" data-act="up:'+k+'">Upload</button>');
+       :'<button class="btn s q" type="button" data-act="none:'+k+'">I have none</button><button class="btn s'+(hot?'':' sec')+'" type="button" data-act="up:'+k+'">Upload statement</button>');
 }
+function result(){
+  if(!S.auth)return 'Waiting for HMRC';
+  var n=calc();return n<-0.5?'HMRC owes you '+gbp(n):n>0.5?'You owe HMRC '+gbp(n):'Nothing to pay, nothing owed';
+}
+function resultLc(){var r=result();return r.indexOf('HMRC')===0?r:r.charAt(0).toLowerCase()+r.slice(1);}
+var last=null;
 function render(){
-  var open=(S.r5?0:1)+(S.r6?0:1),all=S.auth&&!open;
-  var hot=!S.auth?'r-auth':!S.r5?'r-5':!S.r6?'r-6':null;
-  // rows
-  if(S.auth)set('r-auth',pill('ok','Done'),'Priya can see your tax record and file for you. Authorised 17 November 2026.','<a href="authorise.html" class="lnk sm" data-wired>View</a>');
-  else set('r-auth',pill('nd2','Needed'),'Lets Priya see your tax record and file for you. About 5 minutes. Have your Unique Taxpayer Reference (10 digits, on HMRC letters) and National Insurance number ready.','<a class="btn s" href="authorise.html" data-wired>Authorise Priya'+ARR+'</a>');
-  if(S.auth)set('r-pay',pill('in','On its way'),'Requested from HMRC. Usually arrives within a day.');
-  else set('r-pay',pill('wt','Waiting'),'Starts as soon as you authorise Priya. Nothing else for you to do.');
-  upRow('r5','r-5','Only for savings accounts not in the list above.',hot==='r-5');
-  upRow('r6','r-6','Only for accounts not in the list above.',hot==='r-6');
+  var filled=0;
+  SEC.forEach(function(s,i){var on=s.on();if(on)filled++;
+    set('s-'+i,on?pill('ok','Filled'):pill('wt','Waiting'),on?'From '+s.src+' · '+s.fx:'Connect '+s.src+' and your agent fills this in.',
+        on?'<span class="fg">'+s.fig+'</span>':'<a class="btn s sec" href="connect.html" data-wired>'+(s.go||'Connect')+'</a>');});
+  var open=(S.r5?0:1)+(S.r6?0:1),all=filled===5&&!open;
+  var hot=filled<5?null:!S.r5?'r-5':!S.r6?'r-6':null;
+  qRow('r5','r-5','Savings accounts other than Example Bank.',hot==='r-5');
+  qRow('r6','r-6','Accounts other than Example Invest and Example Pension.',hot==='r-6');
   $$('.rw').forEach(function(r){r.classList.toggle('hot',r.id===hot);});
-  // counts, all derived from the state above
-  var done=2+(S.auth?2:0)+(S.r5?1:0)+(S.r6?1:0);
-  $('#pbt').textContent=done+' of 6 done or on their way';$('#pbi').style.width=(done/6*100)+'%';
-  $('#g1').textContent=(S.auth?2:1)+' of 2 done';
-  $('#g2').textContent=S.auth?'1 done, 1 on its way':'1 done, 1 waiting on your authorisation';
   $('#g3').textContent=(2-open)+' of 2 answered';
-  var q=open===1?'1 quick question':open+' quick questions';
-  $('#sumline').textContent=all?'Everything is in. Priya is preparing your return.':!S.auth?'1 thing to do now: authorise Priya (about 5 minutes).'+(open?' Then '+q+'.':''):q+' left about other accounts.';
-  // where the return is
-  var sg=$$('#stat .sg'),ds=$$('#stat .dash');
-  sg[0].className='sg '+(all?'d':'c');sg[0].innerHTML=(all?CHKSVG:'')+'Documents';
-  sg[1].className='sg'+(all?' c':'');ds[0].className='dash'+(all?' d':'');
+  // the figure, recalculated from whatever is in
+  var f=result(),el=$('#fig');
+  if(last!==null&&last!==f){el.classList.add('flash');setTimeout(function(){el.classList.remove('flash');},350);}
+  last=f;el.textContent=f;
+  $('#estl').textContent=all?'Your result':'Estimated so far';
+  $('#why').textContent=!S.auth?'Your estimate starts as soon as HMRC is connected.':all?'Everything is in. Ready for you to check.':'An estimate. It changes as your agent fills in each section.';
+  $('#pbt').textContent=filled+' of 5 sections filled';$('#pbi').style.width=(filled/5*100)+'%';
   // what happens next
-  $('#nxt').textContent=all?'Everything is in. Priya is preparing your return, usually within 3 working days. In this prototype it is ready straight away.'
-    :'Once everything on the left is in, Priya prepares your return, usually within 3 working days. We email you when it is ready.';
-  $('#nxb').innerHTML=all?'<a class="btn w" href="approve.html" data-wired>Check and approve your return'+ARR+'</a>'
-    :'<button class="btn w q" type="button" disabled>Check and approve your return</button><p class="p xs mut mt8" style="text-align:center">Available when Priya has finished. <a class="lnk" href="approve.html" data-wired>Skip ahead to see it</a></p>';
-  // call
-  var c=$('#callrow');
-  if(S.call)c.innerHTML='<div><div class="rtt">Call booked: '+S.call+'</div><div class="rr">'+(PAID?'Priya will phone you. £25, charged after the call.':'Priya will phone you. Uses 1 credit.')+'</div></div><a href="#" class="lnk sm" data-act="callx">Change</a>';
-  else if(S.ui.call)c.innerHTML='<div class="x"><div class="rtt">Pick a time</div><div class="slots mt8">'+['tomorrow, 10:30','tomorrow, 14:00','Friday, 09:15'].map(function(t){return '<button class="btn s sec" type="button" data-act="slot:'+t+'">'+t.charAt(0).toUpperCase()+t.slice(1)+'</button>';}).join('')+'</div></div>';
-  else c.innerHTML='<div><div class="rtt">Book a call with Priya</div><div class="rr">'+(PAID?'15 minutes, costs £25':'15 minutes, uses 1 credit')+'</div></div><button class="btn s" type="button" data-act="call">Book a call</button>';
-  var m=$('#msgrow');
-  if(S.msg)m.innerHTML='<div class="x"><div class="rtt">Message sent</div><div class="rr">Priya replies within one working day. <a href="#" class="lnk" data-act="msgx">Send another</a></div></div>';
-  else if(S.ui.msg)m.innerHTML='<div class="x"><div class="mrow"><input class="inp" id="msgin" type="text" aria-label="Message to Priya" placeholder="Write a message to Priya"><button class="btn s" type="button" data-act="send">Send</button></div></div>';
-  else m.innerHTML='<div><div class="rtt">Send a message</div><div class="rr">Reply within one working day</div></div><button class="btn s sec" type="button" data-act="msg">Message</button>';
-  // credits
-  if(PAID){
-    $('#credh').textContent='Calls';$('#credpill').className='pill wt';$('#credpill').textContent='Not included';
-    $('#toks').innerHTML='<span class="tk u"><b>£25</b>per 15-minute call</span>';
-    $('#crednote').textContent='Calls are not part of the Check plan. Messaging with Priya is included. You pay only for calls you book.';
-    return;
-  }
-  $('#credpill').innerHTML=CHKSVG+(S.call?'1 of 2 left':'2 of 2 left');
-  $('#toks').innerHTML='<span class="tk'+(S.call?' u':'')+'"><b>15 minutes</b>Call 1, '+(S.call?'booked':'not used')+'</span><span class="tk"><b>15 minutes</b>Call 2, not used</span>';
+  var left=[];if(filled<5)left.push((5-filled)+(5-filled===1?' section':' sections')+' waiting');if(open)left.push(open+(open===1?' question':' questions')+' to answer');
+  $('#nxt').textContent=all?'Your return is ready. Check every figure before anything is filed.':'Still to do: '+left.join(' and ')+'.';
+  $('#nxb').innerHTML=all?'<a class="btn w" href="approve.html" data-wired>Check and approve your return'+ARRSVG+'</a>'
+    :'<button class="btn w q" type="button" disabled>Check and approve your return</button><p class="p xs mut mt8" style="text-align:center"><a class="lnk" href="approve.html" data-wired>Skip ahead to see the finished return</a></p>';
 }
+// chat with the agent: canned replies built from the figures on this page
+var thr=$('#thr');
+function say(who,text){
+  var m=document.createElement('div');m.className='msg'+(who==='me'?' me':'');
+  m.innerHTML=(who==='me'?'<span class="av">M</span>':AGENT)+'<div class="bub"><span class="mm">'+(who==='me'?'You':'Tax agent')+'</span>'+text+'</div>';
+  thr.appendChild(m);thr.scrollTop=thr.scrollHeight;
+}
+function answer(q){
+  q=q.toLowerCase();
+  if(/dividend/.test(q))return S.acc[1]?'Yes, on part of them. You had £820 from Example Invest. The first £500 is tax-free, and the other £320 is taxed at 33.75%, which is £108.':'Possibly. Connect Example Invest and I can see your dividends. The first £500 each year is tax-free.';
+  if(/pension/.test(q))return 'You paid £6,000 into your pension and your provider added £1,500. Because some of your pay is taxed at 40%, you can claim a further £1,500 back through your return.';
+  if(/change|estimate|why/.test(q))return 'Each section I fill in changes it. Right now: '+resultLc()+'. Interest, dividends and investment profit add tax. Pension relief takes it off.';
+  if(/person|human|who are you/.test(q))return 'I am software, not a person. I fill in your return and explain the figures. You check and approve everything before it is filed.';
+  return 'On the figures I have so far: '+resultLc()+'. Nothing is filed until you approve it. (Sample reply in this prototype.)';
+}
+function send(v){v=(v||$('#msgin').value).trim();if(!v){$('#msgin').focus();return;}
+  say('me',esc(v));$('#msgin').value='';$('#sugg').style.display='none';
+  setTimeout(function(){say('agent',answer(v));},500);}
+$('#send').addEventListener('click',function(){send();});
+$('#msgin').addEventListener('keydown',function(e){if(e.key==='Enter')send();});
+$$('#sugg button').forEach(function(b){b.addEventListener('click',function(){send(b.getAttribute('data-q'));});});
+say('agent','Hi Maya. I am filling in your return from HMRC and your connected accounts. Ask me anything about it.');
 document.addEventListener('click',function(e){
   var el=e.target.closest&&e.target.closest('[data-act]');if(!el)return;e.preventDefault();
-  var a=el.getAttribute('data-act').split(':'),k=a[0],v=a.slice(1).join(':');
+  var a=el.getAttribute('data-act').split(':'),k=a[0],v=a[1];
   if(k==='none'||k==='up'){S[v]=k;STORE.set(v,k);}
   else if(k==='undo'){S[v]=null;STORE.set(v,null);}
-  else if(k==='accs'){var x=$('#accs');x.hidden=!x.hidden;el.textContent=x.hidden?'See accounts':'Hide accounts';return;}
-  else if(k==='call'){S.ui.call=true;}
-  else if(k==='slot'){S.call=v;STORE.set('call',v);S.ui.call=false;}
-  else if(k==='callx'){S.call=null;STORE.set('call',null);S.ui.call=true;}
-  else if(k==='msg'||k==='msgx'){S.msg=false;STORE.set('msg',false);S.ui.msg=true;}
-  else if(k==='send'){if(!$('#msgin').value.trim()){$('#msgin').focus();return;}S.msg=true;STORE.set('msg',true);S.ui.msg=false;}
-  render();if(k==='msg'||k==='msgx')$('#msgin').focus();
+  render();
 });
 render();
 wire([]);

@@ -227,7 +227,6 @@ button,label,.seg i{cursor:pointer}
 a.btn{text-decoration:none}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .btn.q{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
-img.av{object-fit:cover;display:block}
 .pill.in{background:var(--tint);color:var(--acc)}
 .toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);background:#10243A;color:#fff;padding:10px 16px;border-radius:8px;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;z-index:60;box-shadow:0 8px 24px -8px rgba(16,36,58,.6)}
 .cta .btn{margin-top:12px}
@@ -235,37 +234,42 @@ img.av{object-fit:cover;display:block}
 .sum .big{font-size:20px;margin-top:8px}
 .sum .chips{margin-top:12px}
 .sum .none{color:#C5D0DE;font-size:14px;margin:12px 0 0}
+.ag{width:36px;height:36px;border-radius:10px;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.ag svg{width:60%;height:60%}
+.ag.s40{width:40px;height:40px;border-radius:11px}
+.ag.s44{width:44px;height:44px;border-radius:12px}
+.ag.s48{width:48px;height:48px;border-radius:13px}
+.ag.lg{width:72px;height:72px;border-radius:20px}
+.rtt{font-weight:600;font-size:15px;line-height:1.3}
+.rr{font-size:13.5px;color:var(--mut);line-height:1.4}
 .main{padding-top:18px}
-.g6{height:562px;flex:none}
+.g6{height:626px;flex:none}
 .g6>.card,.g6>.col{min-height:0}
 .thr{overflow-y:auto;min-height:0;padding-right:4px}
 .kv{margin-top:14px}
 .k{padding:9px 0;font-size:14.5px}
 .ref{margin-top:14px}
-.av.s48{width:48px;height:48px}
-.av.s36{width:36px;height:36px}
-.tok{flex-direction:column;gap:8px}
-.tk{height:44px;flex:none;justify-content:flex-start;padding:0 12px}
 .again{margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;font-size:14.5px}
 .lcard{display:flex;flex-direction:column}
+.ny{list-style:none;margin:12px 0 0;padding:0;font-size:14.5px}
+.ny li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+.ny span{color:var(--mut)}.ny b{font-weight:600;text-align:right}
+.col>.card{padding:18px 20px}
 </style>
 </head>
 <body>
 <section class="screen" data-title="Your return is filed"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">What to declare</span></li>
-<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your accountant</span></li>
-<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your plan</span></li>
-<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your documents</span></li>
+<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Connect</span></li>
+<li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Your return</span></li>
 <li class="st done"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Check and approve</span></li>
 <li class="st fin"><span class="nd"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="sl">Filed</span><span class="here g">Done</span></li>
-</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header><div class="stat" id="stat">
-<span class="stl">Where your return is</span><span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Documents</span><span class="dash d"></span><span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Preparing</span><span class="dash d"></span><span class="sg d"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Your approval</span><span class="dash d"></span><span class="sg f"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Filed</span><span class="stn">Filed with HMRC on 24 November 2026.</span>
-</div>
+</ol><div class="who"><span>Maya</span><span class="av">M</span></div></header>
 <div class="main">
 <div class="grid g6">
 <div class="card lcard">
 <div class="prof"><span class="okc"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h1 class="h1">Your return is filed</h1></div></div>
-<p class="sub">Priya filed your return with HMRC. There is nothing more you need to do.</p>
+<p class="sub">Your tax agent filed your return with HMRC. There is nothing more you need to do.</p>
 <div class="ref"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><span class="strong">HMRC owes you £396.</span> HMRC pays it straight into your bank account, usually within a few weeks.</div></div>
 <div class="kv">
 <div class="k"><span class="kk">Filed on</span><span class="kvv">24 November 2026</span></div>
@@ -276,26 +280,29 @@ img.av{object-fit:cover;display:block}
 <div class="again"><a href="#" class="lnk">View your filed return and receipt</a><a href="start.html" class="lnk">Start again</a></div>
 </div>
 <div class="card chat">
-<div class="chh"><img class="av s48" src="assets/accountant.png" alt="Priya Shah"><div><h2 class="h2">Messages with Priya</h2><div class="sm mut">You can still message Priya. She replies within one working day.</div></div></div>
+<div class="chh"><span class="ag s48" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span><div><h2 class="h2">Messages with your tax agent</h2><div class="sm mut">Ask about this return at any time. Software, not a person.</div></div></div>
 <div class="thr" id="thr">
-<div class="msg"><img class="av s36" src="assets/accountant.png" alt="Priya Shah"><div class="bub"><span class="mm">Priya, 24 November</span>Your return is filed, Maya. HMRC has confirmed it. Your receipt reference is on the left.</div></div>
+<div class="msg"><span class="ag " role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span><div class="bub"><span class="mm">Tax agent, 24 November</span>Your return is filed, Maya. HMRC has confirmed it. Your receipt reference is on the left.</div></div>
 <div class="msg me"><span class="av">M</span><div class="bub"><span class="mm">You, 24 November</span>Thank you. Do I need to do anything to get the refund?</div></div>
-<div class="msg"><img class="av s36" src="assets/accountant.png" alt="Priya Shah"><div class="bub"><span class="mm">Priya, 24 November</span>No, nothing. HMRC will send the £396 to you. Message me if you get a letter from HMRC you are unsure about.</div></div>
+<div class="msg"><span class="ag " role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span><div class="bub"><span class="mm">Tax agent, 24 November</span>No, nothing. HMRC will send the £396 to you. Message me if you get a letter from HMRC you are unsure about.</div></div>
 </div>
-<div class="cmp"><input class="inp" id="msgin" type="text" aria-label="Message to Priya" placeholder="Write a message to Priya"><button class="btn" type="button" id="send">Send<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+<div class="cmp"><input class="inp" id="msgin" type="text" aria-label="Message to your tax agent" placeholder="Write a message to your tax agent"><button class="btn" type="button" id="send">Send<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
 </div>
 <div class="col">
 <div class="card">
-<h2 class="h2" id="credh">Call credits</h2>
-<div class="cc mt12" id="credn">1 of 2 <span class="ccs">calls left</span></div>
-<div class="tok" id="toks"><span class="tk u">Call 1: used 12 November</span><span class="tk">Call 2: 15 minutes, not used</span></div>
-<p class="p sm mut mt12" id="crednote">Extra calls cost £25 per 15 minutes.</p>
-<button class="btn sec w mt12" type="button" data-dead>Book a call</button>
+<h2 class="h2">Next year</h2>
+<p class="p sm mut mt8">We remind you when the new tax year opens and start from this year's answers, so it takes even less time.</p>
+<ul class="ny"><li><span>Reminder</span><b>6 April 2027</b></li><li><span>Starts from</span><b>This year's answers</b></li></ul>
+</div>
+<div class="card">
+<h2 class="h2">Payments on account</h2>
+<div class="cc mt8" style="font-size:24px">None due</div>
+<p class="p sm mut mt8">HMRC asks for payments in advance when a return shows more than £1,000 still to pay. Yours shows a refund, so there is nothing to pay in January or July.</p>
 </div>
 <div class="card dk gr">
 <span class="shield"><svg class="ic b" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.500-3.200 7.800-8 9-4.800-1.200-8-4.500-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg></span>
-<h2 class="h2 mt12">Still covered by our money-back guarantee</h2>
-<p class="p dmut mt8 sm">If Priya made a mistake on this return, you get your fee back and a corrected return at no extra cost.</p>
+<h2 class="h2 mt12" style="font-size:19px">You are still in control</h2>
+<p class="p dmut mt8 sm">Remove our access in your HMRC account at any time. Your return and receipt stay here.</p>
 </div>
 </div>
 </div>
@@ -307,6 +314,7 @@ function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
 function $(s,r){return (r||document).querySelector(s);}
 function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 var toastT;
 function toast(msg){var t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}t.textContent=msg;t.style.display='block';clearTimeout(toastT);toastT=setTimeout(function(){t.style.display='none';},2600);}
 // Wire buttons and links by their visible text: [text, destination]
@@ -346,8 +354,10 @@ $$('.seg').forEach(function(seg){
     b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
   });
 });
-// What the answers so far add up to (shared by the three question pages)
+// What the answers so far add up to (shared by the question pages)
 var CHKSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var ARRSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+var AGENT='<span class="ag" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span>';
 var INC=['Employment','Self-employment','Rental income','Savings, investments or foreign income'];
 var WORKS=['freelance or contract','construction (CIS)','courier or driver','other work'];
 function incomeOn(){var on=STORE.get('income');return on&&on.length===4?on:[true,false,false,true];}
@@ -358,18 +368,21 @@ function answerChips(){
 }
 function drawChips(el,list){el.innerHTML=list.map(function(n){return '<span class="chip">'+CHKSVG+n+'</span>';}).join('');}
 var inp=$('#msgin'),thr=$('#thr');
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function add(me,text){var m=document.createElement('div');m.className='msg'+(me?' me':'');
+  m.innerHTML=(me?'<span class="av">M</span>':AGENT)+'<div class="bub"><span class="mm">'+(me?'You':'Tax agent')+', just now</span>'+text+'</div>';
+  thr.appendChild(m);thr.scrollTop=thr.scrollHeight;}
 function send(){var v=inp.value.trim();if(!v){inp.focus();return;}
-  var m=document.createElement('div');m.className='msg me';m.innerHTML='<span class="av">M</span><div class="bub"><span class="mm">You, just now</span>'+esc(v)+'</div>';
-  thr.appendChild(m);inp.value='';thr.scrollTop=thr.scrollHeight;}
+  add(true,esc(v));inp.value='';
+  setTimeout(function(){add(false,reply(v));},500);}
+function reply(q){
+  q=q.toLowerCase();
+  if(/thank/.test(q))return 'You are welcome. I am here if anything else comes up.';
+  if(/when|refund|money|paid|pay/.test(q))return 'HMRC usually pays within a few weeks of filing, straight into your bank account. You do not need to do anything.';
+  if(/letter|hmrc/.test(q))return 'Tell me what the letter says, or upload a photo of it, and I will explain what HMRC is asking for.';
+  return 'Your return for 6 April 2025 to 5 April 2026 is filed and HMRC owes you £396. I can explain any figure on it. (Sample reply in this prototype.)';
+}
 $('#send').addEventListener('click',send);
 inp.addEventListener('keydown',function(e){if(e.key==='Enter')send();});
-if(STORE.get('plan')===0){ // Check plan: no calls included
-  document.getElementById('credh').textContent='Calls';
-  document.getElementById('credn').innerHTML='£25 <span class="ccs">per 15-minute call</span>';
-  document.getElementById('toks').style.display='none';
-  document.getElementById('crednote').textContent='Calls are not part of the Check plan. Messaging with Priya is included.';
-}
 wire([]);
 </script>
 </body>

@@ -227,7 +227,6 @@ button,label,.seg i{cursor:pointer}
 a.btn{text-decoration:none}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .btn.q{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
-img.av{object-fit:cover;display:block}
 .pill.in{background:var(--tint);color:var(--acc)}
 .toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);background:#10243A;color:#fff;padding:10px 16px;border-radius:8px;font:500 14px/1.3 'IBM Plex Sans',system-ui,sans-serif;z-index:60;box-shadow:0 8px 24px -8px rgba(16,36,58,.6)}
 .cta .btn{margin-top:12px}
@@ -235,29 +234,36 @@ img.av{object-fit:cover;display:block}
 .sum .big{font-size:20px;margin-top:8px}
 .sum .chips{margin-top:12px}
 .sum .none{color:#C5D0DE;font-size:14px;margin:12px 0 0}
+.ag{width:36px;height:36px;border-radius:10px;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.ag svg{width:60%;height:60%}
+.ag.s40{width:40px;height:40px;border-radius:11px}
+.ag.s44{width:44px;height:44px;border-radius:12px}
+.ag.s48{width:48px;height:48px;border-radius:13px}
+.ag.lg{width:72px;height:72px;border-radius:20px}
+.rtt{font-weight:600;font-size:15px;line-height:1.3}
+.rr{font-size:13.5px;color:var(--mut);line-height:1.4}
 .o1 .opt2{padding:13px 16px}
 </style>
 </head>
 <body>
 <section class="screen" data-title="What kind of self-employed work did you mainly do?"><header class="top"><a href="index.html" class="wm">Tax Prototype</a><ol class="trk">
 <li class="st first cur"><span class="nd">1</span><span class="sl">What to declare</span><span class="here">You are here</span></li>
-<li class="st"><span class="nd">2</span><span class="sl">Your accountant</span></li>
-<li class="st"><span class="nd">3</span><span class="sl">Your plan</span></li>
-<li class="st"><span class="nd">4</span><span class="sl">Your documents</span></li>
-<li class="st"><span class="nd">5</span><span class="sl">Check and approve</span></li>
-<li class="st"><span class="nd">6</span><span class="sl">Filed</span></li>
+<li class="st"><span class="nd">2</span><span class="sl">Connect</span></li>
+<li class="st"><span class="nd">3</span><span class="sl">Your return</span></li>
+<li class="st"><span class="nd">4</span><span class="sl">Check and approve</span></li>
+<li class="st"><span class="nd">5</span><span class="sl">Filed</span></li>
 </ol><div class="who"><span>Maya</span><span class="av">M</span></div></header>
 <div class="main"><div class="grid g1"><div class="col">
 <div><div class="qn">Part 1 of 2 · Self-employment</div><h1 class="h1">What kind of self-employed work did you mainly do?</h1>
-<p class="sub">Pick the one that earned you the most. This helps us match an accountant who knows that kind of work.</p></div>
+<p class="sub">Pick the one that earned you the most. This tells your agent which rules and costs apply.</p></div>
 <div class="o1" id="opts">
 <label class="opt2"><input class="rd" type="radio" name="work"><span><span class="t">Freelance or contract work</span><span class="d">You invoice clients for your time or a project.</span></span></label>
 <label class="opt2"><input class="rd" type="radio" name="work"><span><span class="t">Construction work</span><span class="d">You work for a contractor who takes tax off your pay first. HMRC calls this the Construction Industry Scheme (CIS).</span></span></label>
 <label class="opt2"><input class="rd" type="radio" name="work"><span><span class="t">Courier or driver</span><span class="d">Deliveries or passengers, often through an app.</span></span></label>
-<label class="opt2"><input class="rd" type="radio" name="work"><span><span class="t">Something else</span><span class="d">Anything not listed. Your accountant will ask you about it.</span></span></label>
+<label class="opt2"><input class="rd" type="radio" name="work"><span><span class="t">Something else</span><span class="d">Anything not listed. Your agent will ask you about it.</span></span></label>
 </div></div><div class="col">
 <div class="card dk sum"><div class="eyb l">From your answers so far</div><p class="big">Your return will cover:</p><div class="chips" id="chips"></div><p class="none" id="nochips" hidden>Select at least one kind of income to see what your return will cover.</p></div>
-<div class="card"><h2 class="h2">Why we ask</h2><p class="p sm mut mt8">Different kinds of work have different rules and different costs you can claim, so we match an accountant who knows yours.</p><p class="p sm mut mt8"><span class="strong" style="color:var(--ink)">Not needed yet:</span> your costs, invoices and bank statements. Your accountant asks for those after you choose a plan.</p></div>
+<div class="card"><h2 class="h2">Why we ask</h2><p class="p sm mut mt8">Different kinds of work have different rules and different costs you can claim, so your agent knows which parts of the return to fill in.</p><p class="p sm mut mt8"><span class="strong" style="color:var(--ink)">Not needed yet:</span> your costs, invoices and bank statements. Your agent asks for those after you connect your accounts.</p></div>
 <div class="card push cta"><p class="p mut sm" id="count">Choose one to continue.</p><button class="btn w" type="button" id="cont" disabled>Continue<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="bk"><a class="lnk" href="income.html">Back</a></p></div>
 </div></div></div></section>
 <nav class="pt-bar" aria-label="Prototype"><b>Concept</b><span>Design prototype with sample data. Tax Prototype is not an available service and nothing you enter is sent.</span><a href="income.html" data-back>Back</a><a href="more.html" data-next>Next: Three last checks</a><a href="index.html">Home</a></nav>
@@ -267,6 +273,7 @@ function go(dest){if(typeof dest==='function')dest=dest();if(dest)location.href=
 function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
 function $(s,r){return (r||document).querySelector(s);}
 function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 var toastT;
 function toast(msg){var t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}t.textContent=msg;t.style.display='block';clearTimeout(toastT);toastT=setTimeout(function(){t.style.display='none';},2600);}
 // Wire buttons and links by their visible text: [text, destination]
@@ -306,8 +313,10 @@ $$('.seg').forEach(function(seg){
     b.addEventListener('click',pick);b.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick();}});
   });
 });
-// What the answers so far add up to (shared by the three question pages)
+// What the answers so far add up to (shared by the question pages)
 var CHKSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+var ARRSVG='<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+var AGENT='<span class="ag" role="img" aria-label="Your tax agent"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.200L12 19.500l-2.200-6.300L3.500 11l6.300-2.200z"/><circle fill="currentColor" cx="19" cy="18.500" r="1.700"/></svg></span>';
 var INC=['Employment','Self-employment','Rental income','Savings, investments or foreign income'];
 var WORKS=['freelance or contract','construction (CIS)','courier or driver','other work'];
 function incomeOn(){var on=STORE.get('income');return on&&on.length===4?on:[true,false,false,true];}
