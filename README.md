@@ -9,7 +9,7 @@ Open the folder in VS Code, install the recommended Live Server extension, then 
 
 ## Pages
 `index.html` (landing) → `start.html` → `income.html` → `self-employed.html` (only if self-employment is ticked)
-→ `more.html` → `accountant.html` → `plan.html` → `dashboard.html` → `approve.html` → `filed.html`.
+→ `more.html` → `accountant.html` → `plan.html` → `dashboard.html` (its "Authorise Priya" button opens `authorise.html`) → `approve.html` → `filed.html`.
 
 Answers are kept in `sessionStorage` for the tab, so the summary panels, the plan choice and the Back links follow what was picked.
 See `HANDOFF.md` for design tokens, sample data and known gaps.

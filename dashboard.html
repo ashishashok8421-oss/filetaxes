@@ -239,7 +239,17 @@ document.querySelectorAll('.seg').forEach(function(seg,si){
 document.querySelectorAll('.btn').forEach(function(b){if(txt(b)==='I have none')b.addEventListener('click',function(){
   var row=b.closest('.row');row.querySelector('.rc').innerHTML='<span class="chip cdone">Done</span>';row.querySelector('.ra').innerHTML='<span class="mu" style="font-size:14px">You told us you have none</span>';
 });});
-wire([]);
+if(STORE.get('auth')){
+  var row=document.querySelector('.row.rhot');row.classList.remove('rhot');
+  row.querySelector('.rc').innerHTML='<span class="chip cdone">Done</span>';
+  row.querySelector('.rr').textContent='Priya can see your tax record and file for you. Authorised '+(STORE.get('authWhen')||'today')+'.';
+  row.querySelector('.ra').innerHTML='<a href="authorise.html" class="link" style="font-size:14px">View</a>';
+  document.querySelector('.chead .p').textContent='4 of 6 done or on their way. 2 things left for you.';
+  document.querySelector('.ctneed .ctn').textContent='2';document.querySelector('.ctdone .ctn').textContent='3';
+  var g=document.querySelectorAll('.grpn');g[0].textContent='2 of 2 done';
+  document.querySelectorAll('.row')[2].querySelector('.rr').textContent='Requested from HMRC. Usually arrives within a day.';
+}
+wire([['Authorise Priya','authorise.html']]);
 </script>
 </body>
 </html>
